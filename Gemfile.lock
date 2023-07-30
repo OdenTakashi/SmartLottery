@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/slim-template/html2slim.git
+  revision: 6a08e416e4cd0e1b0804bfda5a9296ff7371e549
+  specs:
+    html2slim (0.2.0)
+      hpricot
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -79,6 +86,7 @@ GEM
     erubi (1.12.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    hpricot (0.8.6)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.2.1)
@@ -198,6 +206,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   debug
+  html2slim!
   importmap-rails
   jbuilder
   pg (~> 1.1)
