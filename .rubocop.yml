@@ -7,3 +7,4 @@ inherit_gem:
 
 require:
   - rubocop-rspec
+  - rubocop-factory_bot
