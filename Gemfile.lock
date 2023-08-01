@@ -284,6 +284,7 @@ DEPENDENCIES
   rails (~> 7.0.6)
   redis (~> 4.0)
   rspec-rails
+  rubocop-factory_bot
   rubocop-fjord
   rubocop-rails
   rubocop-rspec
