@@ -10,8 +10,7 @@
                  }
         ) do |f| %>
 
-  <%#= render "devise/shared/error_messages", resource: resource %>
-  <%= devise_error_messages! %>
+  <%= render "users/shared/error_messages", resource: resource %>
 
   <div class="mb-4">
     <%= f.label :email, class: "block font-bold mb-2 text-gray-700 text-sm"  %><br />

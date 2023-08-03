@@ -10,9 +10,7 @@
                  }
         ) do |f| %>
 
-        <%#= render "devise/shared/error_messages", resource: resource %>
-
-        <%= devise_error_messages! %>
+        <%= render "users/shared/error_messages", resource: resource %>
 
         <%= f.hidden_field :reset_password_token %>
 
