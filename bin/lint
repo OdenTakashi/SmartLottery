@@ -1,4 +1,4 @@
 #!/bin/bash
 
-bundle exec rubocop -a
+bundle exec rubocop
 bundle exec slim-lint app/views
