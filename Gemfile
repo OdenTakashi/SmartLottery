@@ -86,4 +86,6 @@ group :development do
   gem 'rubocop-factory_bot', require: false
 
   gem 'slim_lint', require: false
+
+  gem 'letter_opener_web', '~> 2.0'
 end
