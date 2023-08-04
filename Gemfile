@@ -55,8 +55,6 @@ gem 'bootsnap', require: false
 
 gem 'slim-rails'
 
-gem 'html2slim', github: 'slim-template/html2slim'
-
 gem 'devise'
 
 group :development, :test do
