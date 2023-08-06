@@ -1,0 +1,22 @@
+= form_with(model: @lottery) do |form|
+  - if @lottery.errors.any?
+    div style="color: red"
+      h2 = "#{pluralize(@lottery.errors.count, "error")} prohibited this lottery from being saved:"
+      ul
+        - @lottery.errors.each do |error|
+          li = error.full_message
+
+  div
+    = form.label :name_field_enabled, style: "display: block"
+    = form.check_box :name_field_enabled
+
+  div
+    = form.label :note_field_enabled, style: "display: block"
+    = form.check_box :note_field_enabled
+
+  div
+    = form.label :deadline, style: "display: block"
+    = form.date_field :deadline
+
+  div
+    = form.submit

@@ -1,0 +1,10 @@
+h1 Editing lottery
+
+== render "form", lottery: @lottery
+
+br
+
+div
+  => link_to "Show this lottery", @lottery
+  '|
+  =< link_to "Back to lotteries", lotteries_path

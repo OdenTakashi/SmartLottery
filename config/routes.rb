@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :lotteries
   get "welcome", to: "welcome#index"
   devise_for :users, controllers: {
     sessions: 'users/sessions',

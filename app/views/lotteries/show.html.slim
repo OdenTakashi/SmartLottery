@@ -1,0 +1,10 @@
+p style="color: green" = notice
+
+== render @lottery
+
+div
+  => link_to "Edit this lottery", edit_lottery_path(@lottery)
+  '|
+  =< link_to "Back to lotteries", lotteries_path
+
+  = button_to "Destroy this lottery", @lottery, method: :delete
