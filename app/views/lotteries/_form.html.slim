@@ -7,6 +7,10 @@
           li = error.full_message
 
   div
+    = form.label :user_id, style: "display: block"
+    = form.text_field :user_id
+
+  div
     = form.label :name_field_enabled, style: "display: block"
     = form.check_box :name_field_enabled
 
