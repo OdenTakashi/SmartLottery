@@ -3,8 +3,8 @@ p style='color: green' = notice
 == render @lottery
 
 div
-  => link_to 'Edit this lottery', edit_lottery_path(@lottery)
+  => link_to '抽選会を編集する', edit_lottery_path(@lottery)
   '|
-  =< link_to 'Back to lotteries', lotteries_path
+  =< link_to '抽選会一覧に戻る', lotteries_path
 
-  = button_to 'Destroy this lottery', @lottery, method: :delete
+  = button_to '抽選会を削除する', @lottery, method: :delete

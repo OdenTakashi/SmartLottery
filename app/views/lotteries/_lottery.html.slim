@@ -1,10 +1,13 @@
 div id="#{dom_id lottery}"
   p
-    strong Name field enabled:
+    strong 
+      = Lottery.human_attribute_name(:name_field_enabled)
     =< lottery.name_field_enabled
   p
-    strong Note field enabled:
+    strong 
+      = Lottery.human_attribute_name(:note_field_enabled)
     =< lottery.note_field_enabled
   p
-    strong Deadline:
+    strong 
+      = Lottery.human_attribute_name(:deadline)
     =< lottery.deadline
