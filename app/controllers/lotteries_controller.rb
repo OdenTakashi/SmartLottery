@@ -2,6 +2,7 @@
 
 class LotteriesController < ApplicationController
   before_action :set_lottery, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   # GET /lotteries or /lotteries.json
   def index
