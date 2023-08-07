@@ -1,5 +1,5 @@
 <div class="w-full max-w-xs">
-    <h1 class="font-hairline mb-6 text-center">Sign Up</h1>
+    <h1 class="font-hairline mb-6 text-center">新規登録</h1>
 
     <%= form_for(resource,
                  as: resource_name,
@@ -22,7 +22,7 @@
         <div class="mb-4">
             <%= f.label :password, class: "block font-bold mb-2 text-gray-700 text-sm" %>
             <% if @minimum_password_length %>
-                <small><em class="text-gray-600">(<%= @minimum_password_length %> characters minimum)</em></small>
+                <small><em class="text-gray-600">(<%= @minimum_password_length %> 文字以上にしてください)</em></small>
             <% end %>
             <%= f.password_field :password,
                                  autocomplete: "new-password",
@@ -39,7 +39,7 @@
         </div>
 
         <div class="mb-4">
-            <%= f.submit "Sign Up",
+            <%= f.submit "登録する",
                          class: "button bg-blue-500 hover:bg-blue-700 font-bold text-white focus:outline-none py-2 px-4 rounded focus:shadow-outline w-full"
             %>
         </div>
