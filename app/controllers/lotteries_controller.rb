@@ -6,7 +6,7 @@ class LotteriesController < ApplicationController
 
   # GET /lotteries or /lotteries.json
   def index
-    @lotteries = Lottery.all
+    @lotteries = current_user.lotteries
   end
 
   # GET /lotteries/1 or /lotteries/1.json
@@ -23,6 +23,7 @@ class LotteriesController < ApplicationController
   # POST /lotteries or /lotteries.json
   def create
     @lottery = Lottery.new(lottery_params)
+    @lottery.user = current_user
 
     respond_to do |format|
       if @lottery.save
