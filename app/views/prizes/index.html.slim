@@ -1,0 +1,11 @@
+p style='color: green' = notice
+
+h1 Prizes
+
+#prizes
+  - @prizes.each do |prize|
+    == render prize
+    p
+      = link_to 'Show this prize', prize
+
+= link_to 'New prize', new_prize_path

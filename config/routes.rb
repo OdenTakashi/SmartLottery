@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :prizes
   root 'lotteries#index'
   resources :lotteries
   get "welcome", to: "welcome#index"
