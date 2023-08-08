@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_06_033440) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_08_082523) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -23,6 +23,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_06_033440) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_lotteries_on_user_id"
+  end
+
+  create_table "prizes", force: :cascade do |t|
+    t.uuid "lottery_id", null: false
+    t.string "name", null: false
+    t.integer "winners_count", null: false
+    t.string "winning_email_subject", null: false
+    t.string "winning_email_body", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lottery_id"], name: "index_prizes_on_lottery_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,4 +53,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_06_033440) do
   end
 
   add_foreign_key "lotteries", "users"
+  add_foreign_key "prizes", "lotteries"
 end
