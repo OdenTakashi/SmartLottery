@@ -1,10 +1,10 @@
-p style="color: green" = notice
+p style='color: green' = notice
 
 == render @prize
 
 div
-  => link_to "Edit this prize", edit_prize_path(@prize)
+  => link_to 'Edit this prize', edit_prize_path(@prize)
   '|
-  =< link_to "Back to prizes", prizes_path
+  =< link_to 'Back to prizes', prizes_path
 
-  = button_to "Destroy this prize", @prize, method: :delete
+  = button_to 'Destroy this prize', @prize, method: :delete
