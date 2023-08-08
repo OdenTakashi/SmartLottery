@@ -2,11 +2,15 @@
 
 class LotteriesController < ApplicationController
   before_action :set_lottery, only: %i[show edit update destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index]
 
   # GET /lotteries or /lotteries.json
   def index
-    @lotteries = Lottery.all
+    if current_user
+      @lotteries = current_user.lotteries
+    else
+      redirect_to welcome_path
+    end
   end
 
   # GET /lotteries/1 or /lotteries/1.json
@@ -23,6 +27,7 @@ class LotteriesController < ApplicationController
   # POST /lotteries or /lotteries.json
   def create
     @lottery = Lottery.new(lottery_params)
+    @lottery.user = current_user
 
     respond_to do |format|
       if @lottery.save

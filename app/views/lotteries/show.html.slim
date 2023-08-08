@@ -5,6 +5,6 @@ p style='color: green' = notice
 div
   => link_to '抽選会を編集する', edit_lottery_path(@lottery)
   '|
-  =< link_to '抽選会一覧に戻る', lotteries_path
+  =< link_to '抽選会一覧に戻る', root_path
 
   = button_to '抽選会を削除する', @lottery, method: :delete
