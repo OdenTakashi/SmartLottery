@@ -6,4 +6,5 @@ class Lottery < ApplicationRecord
   accepts_nested_attributes_for :prizes,
                                 allow_destroy: true,
                                 reject_if: :all_blank
+  validates :prizes, presence: true
 end
