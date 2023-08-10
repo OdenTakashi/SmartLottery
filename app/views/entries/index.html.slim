@@ -1,0 +1,11 @@
+p style="color: green" = notice
+
+h1 Entries
+
+#entries
+  - @entries.each do |entry|
+    == render entry
+    p
+      = link_to "Show this entry", entry
+
+= link_to "New entry", new_entry_path
