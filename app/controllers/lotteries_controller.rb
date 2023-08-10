@@ -72,6 +72,6 @@ class LotteriesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def lottery_params
-    params.require(:lottery).permit(:user_id, :name_field_enabled, :note_field_enabled, :deadline)
+    params.require(:lottery).permit(:user_id, :name_field_enabled, :note_field_enabled, :deadline, prizes_attributes: [:id, :name, :winners_count, :winning_email_subject, :winning_email_body, :_destroy])
   end
 end
