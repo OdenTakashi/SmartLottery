@@ -2,8 +2,14 @@ ja:
   activerecord:
     models:
       lotteries: 抽選
+      prizes: 賞品
     attributes:
       lottery: 
         name_field_enabled: 名前を必要とするか
         note_field_enabled: 備考を必要とするか
         deadline: 締切日
+      prize:
+        name: 賞品名
+        winners_count: 当選者数
+        winning_email_subject: 当選メールの件名
+        winning_email_body: 当選メールの本文
