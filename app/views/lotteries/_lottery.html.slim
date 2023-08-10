@@ -11,7 +11,7 @@ div id="#{dom_id lottery}"
     strong
       = Lottery.human_attribute_name(:deadline)
     = lottery.deadline
-  
+
   - lottery.prizes.each do |prize|
     p
       strong
