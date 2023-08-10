@@ -11,3 +11,21 @@ div id="#{dom_id lottery}"
     strong
       = Lottery.human_attribute_name(:deadline)
     = lottery.deadline
+  
+  - lottery.prizes.each do |prize|
+    p
+      strong
+        = Prize.human_attribute_name(:name)
+      = prize.name
+    p
+      strong
+        = Prize.human_attribute_name(:winners_count)
+      = prize.winners_count
+    p
+      strong
+        = Prize.human_attribute_name(:winning_email_subject)
+      = prize.winning_email_subject
+    p
+      strong
+        = Prize.human_attribute_name(:winning_email_body)
+      = prize.winning_email_body
