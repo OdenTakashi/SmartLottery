@@ -4,9 +4,8 @@ h1 Lotteries
 
 #lotteries
   - @lotteries.each do |lottery|
-    == render lottery
-    p
-      = link_to 'この抽選会を表示する', lottery
+    div
+      = link_to "#{lottery.deadline}の抽選会", lottery
 
 = link_to '抽選会を作成する', new_lottery_path
 
