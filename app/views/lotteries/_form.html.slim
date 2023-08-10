@@ -18,5 +18,12 @@
     = form.label :deadline, style: 'display: block'
     = form.date_field :deadline
 
+  div.prizes
+    = form.fields_for :prizes do |prize|
+      = render 'prize_fields', f: prize
+
+  p
+    = link_to_add_association '賞品を追加', form, :prizes, data: {association_insertion_node: '.prizes', association_insertion_method: :append}
+
   div
     = form.submit
