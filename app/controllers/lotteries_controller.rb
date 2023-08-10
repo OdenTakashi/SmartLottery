@@ -19,6 +19,7 @@ class LotteriesController < ApplicationController
   # GET /lotteries/new
   def new
     @lottery = Lottery.new
+    @lottery.prizes.build
   end
 
   # GET /lotteries/1/edit
