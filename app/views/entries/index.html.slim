@@ -1,0 +1,11 @@
+p style='color: green' = notice
+
+h1 Entries
+
+#entries
+  - @entries.each do |entry|
+    == render entry
+    p
+      = link_to 'Show this entry', lottery_entry_path(@lottery, entry)
+
+= link_to 'New entry', new_lottery_entry_path(@lottery)

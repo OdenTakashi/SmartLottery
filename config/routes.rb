@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  resources :prizes
   root 'lotteries#index'
-  resources :lotteries
   get "welcome", to: "welcome#index"
+  resources :lotteries do
+    resources :entries
+  end
+  resources :prizes
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
