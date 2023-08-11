@@ -1,21 +1,21 @@
 = form_with(model: [@lottery, @entry]) do |form|
   - if @entry.errors.any?
-    div style="color: red"
-      h2 = "#{pluralize(@entry.errors.count, "error")} prohibited this entry from being saved:"
+    div style='color: red'
+      h2 = "#{pluralize(@entry.errors.count, 'error')} prohibited this entry from being saved:"
       ul
         - @entry.errors.each do |error|
           li = error.full_message
 
   div
-    = form.label :email, style: "display: block"
+    = form.label :email, style: 'display: block'
     = form.text_field :email
 
   div
-    = form.label :name, style: "display: block"
+    = form.label :name, style: 'display: block'
     = form.text_field :name
 
   div
-    = form.label :note, style: "display: block"
+    = form.label :note, style: 'display: block'
     = form.text_field :note
 
   div
