@@ -2,6 +2,12 @@ p style='color: green' = notice
 
 == render @lottery
 
+div data-controller='clipboard'
+  | 応募フォームのリンク:
+  input type='hidden' value=new_lottery_entry_url(@lottery) readonly='readonly' data-clipboard-target='source'
+  button data-action='clipboard#copy' data-clipboard-target='copyButton'
+    | コピー
+
 = link_to '応募フォームはこちら', new_lottery_entry_path(@lottery)
 
 div
@@ -10,4 +16,3 @@ div
   = link_to '抽選会一覧に戻る', root_path
 
   = button_to '抽選会を削除する', @lottery, method: :delete
-
