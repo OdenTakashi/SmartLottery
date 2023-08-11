@@ -1,7 +1,8 @@
 class EntriesController < ApplicationController
   before_action :set_entry, only: %i[ show edit update destroy ]
+  before_action :set_lottery, only: %i[ index new create show edit update destroy ]
 
-  # GET /entries or /entries.json
+  # GET /entries or /entries.jsonå
   def index
     @entries = Entry.all
   end
@@ -22,10 +23,11 @@ class EntriesController < ApplicationController
   # POST /entries or /entries.json
   def create
     @entry = Entry.new(entry_params)
+    @entry.lottery = @lottery
 
     respond_to do |format|
       if @entry.save
-        format.html { redirect_to entry_url(@entry), notice: "Entry was successfully created." }
+        format.html { redirect_to lottery_entry_path(@lottery, @entry), notice: "Entry was successfully created." }
         format.json { render :show, status: :created, location: @entry }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +40,7 @@ class EntriesController < ApplicationController
   def update
     respond_to do |format|
       if @entry.update(entry_params)
-        format.html { redirect_to entry_url(@entry), notice: "Entry was successfully updated." }
+        format.html { redirect_to lottery_entry_path(@lottery, @entry), notice: "Entry was successfully updated." }
         format.json { render :show, status: :ok, location: @entry }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +54,7 @@ class EntriesController < ApplicationController
     @entry.destroy
 
     respond_to do |format|
-      format.html { redirect_to entries_url, notice: "Entry was successfully destroyed." }
+      format.html { redirect_to lottery_entries_path(@lottery), notice: "Entry was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -61,6 +63,10 @@ class EntriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_entry
       @entry = Entry.find(params[:id])
+    end
+
+    def set_lottery
+      @lottery = Lottery.find(params[:lottery_id])
     end
 
     # Only allow a list of trusted parameters through.

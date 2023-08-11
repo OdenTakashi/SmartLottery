@@ -2,9 +2,12 @@ p style='color: green' = notice
 
 == render @lottery
 
+= link_to '応募フォームはこちら', new_lottery_entry_path(@lottery)
+
 div
-  => link_to '抽選会を編集する', edit_lottery_path(@lottery)
+  = link_to '抽選会を編集する', edit_lottery_path(@lottery)
   '|
-  =< link_to '抽選会一覧に戻る', root_path
+  = link_to '抽選会一覧に戻る', root_path
 
   = button_to '抽選会を削除する', @lottery, method: :delete
+

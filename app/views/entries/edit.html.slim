@@ -5,6 +5,6 @@ h1 Editing entry
 br
 
 div
-  => link_to "Show this entry", @entry
+  => link_to "Show this entry", lottery_entry_path(@lottery, @entry)
   '|
-  =< link_to "Back to entries", entries_path
+  =< link_to "Back to entries", lottery_entries_path(@lottery)
