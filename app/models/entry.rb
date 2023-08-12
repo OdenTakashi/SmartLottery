@@ -2,4 +2,5 @@
 
 class Entry < ApplicationRecord
   belongs_to :lottery
+  belongs_to :prize, optional: true
 end
