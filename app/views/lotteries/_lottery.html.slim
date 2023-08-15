@@ -32,4 +32,4 @@ div id="#{dom_id lottery}"
 
   - if closed?(lottery)
     - winning_entries(lottery).each do |entry|
-        = render entry
+        = render entry, lottery: @lottery

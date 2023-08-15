@@ -1,22 +1,24 @@
-= form_with(model: [@lottery, @entry]) do |form|
-  - if @entry.errors.any?
+= form_with(model: [lottery, entry]) do |form|
+  - if entry.errors.any?
     div style='color: red'
-      h2 = "#{pluralize(@entry.errors.count, 'error')} prohibited this entry from being saved:"
+      h2 = "#{pluralize(entry.errors.count, 'error')} prohibited this entry from being saved:"
       ul
-        - @entry.errors.each do |error|
+        - entry.errors.each do |error|
           li = error.full_message
 
   div
     = form.label :email, style: 'display: block'
     = form.text_field :email
 
-  div
-    = form.label :name, style: 'display: block'
-    = form.text_field :name
+  - if lottery.name_field_enabled
+    div
+      = form.label :name, style: 'display: block'
+      = form.text_field :name
 
-  div
-    = form.label :note, style: 'display: block'
-    = form.text_field :note
+  - if lottery.note_field_enabled
+    div
+      = form.label :note, style: 'display: block'
+      = form.text_field :note
 
   div
     = form.submit
