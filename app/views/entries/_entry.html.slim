@@ -2,9 +2,13 @@ div id="#{dom_id entry}"
   p
     strong Email:
     =< entry.email
-  p
-    strong Name:
-    =< entry.name
-  p
-    strong Note:
-    =< entry.note
+
+  - if lottery.name_field_enabled
+    p
+      strong Name:
+      = entry.name
+
+  - if lottery.note_field_enabled
+    p
+      strong Note:
+      = entry.note
