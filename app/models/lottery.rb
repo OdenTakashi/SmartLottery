@@ -8,7 +8,7 @@ class Lottery < ApplicationRecord
                                 allow_destroy: true,
                                 reject_if: :all_blank
   validates :prizes, presence: true
-  scope :closed_lottery, -> { where('deadline = ?', Time.zone.today.ago(1.day)) }
+  scope :closed_lottery, -> { where('deadline = ?', Time.zone.today.ago(1.days).to_date) }
 
   def run
     entry_list = entries.to_a
