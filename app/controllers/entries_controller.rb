@@ -12,7 +12,7 @@ class EntriesController < ApplicationController
   def create
     @entry = Entry.new(entry_params)
     @entry.lottery = @lottery
-  
+
     if @entry.save
       render turbo_stream: turbo_stream.replace('entry_completed', partial: 'entry_completed')
     else
