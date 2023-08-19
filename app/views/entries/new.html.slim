@@ -1,6 +1,6 @@
 = turbo_frame_tag 'entry_completed' do
   - if closed?(@lottery)
-      h1 抽選は終了しました。
+    = render 'entry_closed'
   - else
     h1 New entry
-    == render 'form', entry: @entry, lottery: @lottery
+    = render 'form', entry: @entry, lottery: @lottery
