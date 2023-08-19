@@ -24,15 +24,11 @@ class EntriesController < ApplicationController
   def create
     @entry = Entry.new(entry_params)
     @entry.lottery = @lottery
-
-    respond_to do |format|
-      if @entry.save
-        format.html { redirect_to lottery_entry_path(@lottery, @entry), notice: 'Entry was successfully created.' }
-        format.json { render :show, status: :created, location: @entry }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @entry.errors, status: :unprocessable_entity }
-      end
+  
+    if @entry.save
+      render turbo_stream: turbo_stream.replace('entry_completed', partial: 'entry_completed')
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
