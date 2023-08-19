@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'lotteries#index'
   get "welcome", to: "welcome#index"
   resources :lotteries do
-    resources :entries
+    resources :entries, only: [:new, :create]
   end
   resources :prizes
   devise_for :users, controllers: {
