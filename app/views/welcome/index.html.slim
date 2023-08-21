@@ -5,9 +5,9 @@
   .max-w.mt-3
     = image_tag 'logo_2.png', class: 'm-auto'
   .mt-10
-    .bg-green-700.w-36.h-10.m-auto.text-white.rounded-full.flex.items-center.justify-center
+    .bg-green-700.font-bold.w-36.h-10.m-auto.text-white.rounded-full.flex.items-center.justify-center.hover:bg-green-800
       = button_to 'サインアップ', '/users/sign_up', method: :get, data: { turbo_frame: 'sign_up' }
-    .w-16.m-auto.mt-6.text-gray
+    .w-16.m-auto.mt-6.text-gray.font-bold
       = button_to 'ログイン', '/users/sign_in', method: :get, data: { turbo_frame: 'sign_in' }
   .hidden.fixed.m-auto.w-screen.h-screen.top-0.left-0.bg-gray-700/50.z-10 data-controller='modal' data-modal-target='modal' data-action='turbo:frame-load->modal#open turbo:submit-end->modal#close'
     .absolute.top-1/2.left-1/2.-translate-x-1/2.-translate-y-1/2.w-full.sm:w-max.sm:h-max.bg-white.p-10
