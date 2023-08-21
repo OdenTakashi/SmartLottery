@@ -57,5 +57,6 @@
       <%= render "users/shared/links" %>
 
     <% end %>
+    <%= button_to 'キャンセル', welcome_path, method: :get, data: { turbo: 'false' } %>
   </div>
 <% end %>
