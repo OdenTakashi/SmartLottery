@@ -1,4 +1,17 @@
-.w-full.max-w-xs
-  h1 SmartLottery
-  = link_to 'サインアップはこちらから', '/users/sign_up', class: 'flex font-bold text-sm text-blue-500 hover:text-blue-800'
-  = link_to 'ログインはこちらから', '/users/sign_in', class: 'flex font-bold text-sm text-blue-500 hover:text-blue-800'
+.max-w
+  .max-w
+    h1.text-center.font-bold.text-zinc-500.text-2xl
+      | あなたの抽選会をもっとラクに
+  .max-w.mt-3
+    = image_tag 'logo_2.png', class: 'm-auto'
+  .mt-10
+    .bg-green-700.w-36.h-10.m-auto.text-white.rounded-full.flex.items-center.justify-center
+      = button_to 'サインアップ', '/users/sign_up', method: :get, data: { turbo_frame: 'sign_up' }
+    .w-16.m-auto.mt-6.text-gray
+      = button_to 'ログイン', '/users/sign_in', method: :get, data: { turbo_frame: 'sign_in' }
+  .hidden.fixed.m-auto.w-screen.h-screen.top-0.left-0.bg-gray-700/50.z-10 data-controller='modal' data-modal-target='modal' data-action='turbo:frame-load->modal#open turbo:submit-end->modal#close'
+    .absolute.top-1/2.left-1/2.-translate-x-1/2.-translate-y-1/2.w-full.sm:w-max.sm:h-max.bg-white.p-10
+      = turbo_frame_tag "sign_up"
+  .hidden.fixed.m-auto.w-screen.h-screen.top-0.left-0.bg-gray-700/50.z-10 data-controller='modal' data-modal-target='modal' data-action='turbo:frame-load->modal#open turbo:submit-end->modal#close'
+    .absolute.top-1/2.left-1/2.-translate-x-1/2.-translate-y-1/2.w-full.sm:w-max.sm:h-max.bg-white.p-10
+      = turbo_frame_tag "sign_in"
