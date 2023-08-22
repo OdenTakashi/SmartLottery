@@ -1,35 +1,43 @@
-div id="#{dom_id lottery}"
-  p
-    strong
-      = Lottery.human_attribute_name(:name_field_enabled)
-    = lottery.name_field_enabled
-  p
-    strong
-      = Lottery.human_attribute_name(:note_field_enabled)
-    = lottery.note_field_enabled
-  p
-    strong
-      = Lottery.human_attribute_name(:deadline)
+.m-auto.mt-3
+  .font-bold
+    = Lottery.human_attribute_name(:deadline)
+  div
     = lottery.deadline
-
+  .font-bold.mt-3
+    | 応募フォームオプション
+  .flex.items-center.mt-3
+    input type='checkbox' value='' class='text-blue-699 bg-gray-100 border-gray-300 rounded' checked=lottery.name_field_enabled disabled='true'
+    label
+      = Lottery.human_attribute_name(:name_field_enabled)
+  .flex.items-center.mt-1
+    input type='checkbox' class='text-blue-699 bg-gray-100 border-gray-300 rounded' checked=lottery.note_field_enabled disabled='true'
+    label
+      = Lottery.human_attribute_name(:note_field_enabled)
+  
   - lottery.prizes.each do |prize|
-    p
-      strong
-        = Prize.human_attribute_name(:name)
-      = prize.name
-    p
-      strong
-        = Prize.human_attribute_name(:winners_count)
-      = prize.winners_count
-    p
-      strong
-        = Prize.human_attribute_name(:winning_email_subject)
-      = prize.winning_email_subject
-    p
-      strong
-        = Prize.human_attribute_name(:winning_email_body)
-      = prize.winning_email_body
+    .bg-stone-100.border.border-gray.rounded.shadow.mt-5
+      table.text-left
+        tr
+          th.px-3
+            = Prize.human_attribute_name(:name)
+          td.px-3
+            = prize.name
+        tr
+          th.px-3
+            = Prize.human_attribute_name(:winners_count)
+          td.px-3
+            = prize.winners_count
+        tr
+          th.px-3
+            = Prize.human_attribute_name(:winning_email_subject)
+          td.px-3
+            = prize.winning_email_subject
+        tr
+          th.px-3
+            = Prize.human_attribute_name(:winning_email_body)
+          td.px-3
+            = prize.winning_email_body
 
   - if closed?(lottery)
     - winning_entries(lottery).each do |entry|
-        = render entry, lottery: @lottery
+        = render entry, lottery: @lotter
