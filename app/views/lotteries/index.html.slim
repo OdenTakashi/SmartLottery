@@ -2,7 +2,7 @@
   div.mt-6
     h1.text-center.text-2xl.font-bold.text
       | 抽選会一覧
-    .mt-3.bg-green-700.font-bold.w-36.h-10.m-auto.text-white.rounded-full.flex.items-center.justify-center.hover:bg-green-800.shadow
+    .mt-3.bg-green-700.font-bold.w-36.h-10.m-auto.text-white.rounded.flex.items-center.justify-center.hover:bg-green-800.shadow
       = button_to '抽選会作成', new_lottery_path, method: 'get'
 
 - if @lotteries.blank?
