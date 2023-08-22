@@ -1,12 +1,21 @@
-p style='color: green' = notice
+- if @lotteries.present?
+  div.mt-6
+    h1.text-center.text-2xl.font-bold.text
+      | 抽選会一覧
+    .mt-3.bg-green-700.font-bold.w-36.h-10.m-auto.text-white.rounded-full.flex.items-center.justify-center.hover:bg-green-800.shadow
+      = button_to '抽選会作成', new_lottery_path, method: 'get'
 
-h1 Lotteries
+- if @lotteries.blank?
 
-#lotteries
-  - @lotteries.each do |lottery|
-    div
-      = link_to "#{lottery.deadline}の抽選会", lottery
 
-= link_to '抽選会を作成する', new_lottery_path
+- @lotteries.each do |lottery|
+  a href="lotteries/#{lottery.id}"
+    .bg-stone-100.w-5/12.m-auto.border.border-gray.rounded.shadow.mt-5
+      .text-center
+        - lottery.prizes.each do |prize|
+          .font-bold.text-xl
+            p
+              = prize.name
+        | の抽選会
 
-= button_to 'Log Out', destroy_user_session_path, method: :delete
+
