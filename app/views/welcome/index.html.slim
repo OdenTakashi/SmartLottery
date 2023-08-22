@@ -5,7 +5,7 @@
   .max-w.mt-3
     = image_tag 'logo_2.png', class: 'm-auto'
   .mt-10
-    .bg-green-700.font-bold.w-36.h-10.m-auto.text-white.rounded-full.flex.items-center.justify-center.hover:bg-green-800
+    .bg-green-700.font-bold.w-36.h-10.m-auto.text-white.rounded.flex.items-center.justify-center.hover:bg-green-800
       = button_to 'サインアップ', '/users/sign_up', method: :get, data: { turbo_frame: 'sign_up' }
     .w-16.m-auto.mt-6.text-gray.font-bold
       = button_to 'ログイン', '/users/sign_in', method: :get, data: { turbo_frame: 'sign_in' }
