@@ -3,6 +3,7 @@ ja:
     models:
       lotteries: 抽選
       prizes: 賞品
+      entries: エントリー
     attributes:
       lottery: 
         name_field_enabled: 名前を必要とするか
@@ -13,3 +14,7 @@ ja:
         winners_count: 当選者数
         winning_email_subject: 当選メールの件名
         winning_email_body: 当選メールの本文
+      entry:
+        email: Eメール
+        name: 名前
+        note: 備考
