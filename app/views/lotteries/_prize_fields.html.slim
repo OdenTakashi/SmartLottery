@@ -17,6 +17,5 @@
       = f.label :winning_email_body, style: 'display: block'
       = f.text_area :winning_email_body, placeholder: '当選者宛メールの本文を入力してください', class: 'mt-2 rounded border border-gray-200 w-80'
 
-    .text-right
-      button.bg-red-500.font-bold.text-white.rounded.py-2.px-2.hover:bg-red-700
+    .text-right.underline
         = link_to_remove_association '削除', f
