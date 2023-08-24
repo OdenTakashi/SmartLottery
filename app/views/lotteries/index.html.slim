@@ -9,13 +9,19 @@
 
 - @lotteries.each do |lottery|
   a href="lotteries/#{lottery.id}"
-    .bg-stone-100.m-auto.border.border-gray.rounded.mt-6.flex.w-3/12
-      .px-2.py-2
-        - if closed?(lottery)
-          | 終了
-        - else 
-          | 開催中
-      .text-left
-        - lottery.prizes.each_with_index do |prize, index|
-          p.my-2
-            = index == lottery.prizes.count - 1 ? "#{prize.name}の抽選会" : prize.name
+    .bg-stone-100.m-auto.border.border-gray.rounded.mt-6.w-3/6
+      .flex
+        .font-bold.w-12.mx-2.my-2.shrink-0.text-center
+          - if closed?(lottery)
+            | 終了
+          - else 
+            | 開催中
+        .text-left.w-full
+          - lottery.prizes.each_with_index do |prize, index|
+            p.my-2
+              = index == lottery.prizes.count - 1 ? "#{prize.name}の抽選会" : prize.name
+          .text-sm.flex.text-zinc-500
+            div
+            = "締め切り日時: #{l(lottery.deadline.end_of_day)}"
+            .ml-2
+            = "当選枠: #{total_winners(lottery)}人"
