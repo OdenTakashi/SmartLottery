@@ -2,20 +2,20 @@
   div.mt-6
     h1.text-center.text-2xl.font-bold.text
       | 抽選会一覧
-    .mt-3.bg-green-700.font-bold.w-36.h-10.m-auto.text-white.rounded.flex.items-center.justify-center.hover:bg-green-800.shadow
+    .mt-3.bg-green-700.font-bold.w-36.h-10.m-auto.text-white.rounded.flex.items-center.justify-center.hover:bg-green-800
       = button_to '抽選会作成', new_lottery_path, method: 'get'
 
 - if @lotteries.blank?
 
-
 - @lotteries.each do |lottery|
   a href="lotteries/#{lottery.id}"
-    .bg-stone-100.w-5/12.m-auto.border.border-gray.rounded.shadow.mt-5
-      .text-center
-        - lottery.prizes.each do |prize|
-          .font-bold.text-xl
-            p
-              = prize.name
-        | の抽選会
-
-
+    .bg-stone-100.m-auto.border.border-gray.rounded.mt-6.flex.w-3/12
+      .px-2.py-2
+        - if closed?(lottery)
+          | 終了
+        - else 
+          | 開催中
+      .text-left
+        - lottery.prizes.each_with_index do |prize, index|
+          p.my-2
+            = index == lottery.prizes.count - 1 ? "#{prize.name}の抽選会" : prize.name
