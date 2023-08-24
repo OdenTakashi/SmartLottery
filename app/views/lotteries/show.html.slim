@@ -3,7 +3,7 @@
     | 抽選会
   div.mt-6.m-auto data-controller='clipboard'
     input type='hidden' value=new_lottery_entry_url(@lottery) readonly='readonly' data-clipboard-target='source'
-    .font-bold.w-64.h-10.rounded.py-2.px-2.m-auto.text-center.border.border-gray
+    .font-bold.w-64.h-10.rounded.py-2.px-2.m-auto.text-center.border.border-zinc-400
       button data-action='clipboard#copy' data-clipboard-target='copyButton'
         | 応募フォームのURLをコピーする
   == render @lottery
