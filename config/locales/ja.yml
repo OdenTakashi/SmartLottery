@@ -1,4 +1,7 @@
 ja:
+  time:
+    formats:
+      default: '%Y年%m月%d日(%a) %H:%M'
   activerecord:
     models:
       lotteries: 抽選
