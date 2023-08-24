@@ -10,9 +10,9 @@
 
   div
     .flex.justify-center.items-center
-      .mt-6.mx-2.bg-green-700.font-bold.w-36.h-10.text-white.rounded.py-2.px-2.hover:bg-green-800
-        = button_to '抽選会を編集する', edit_lottery_path(@lottery), method: 'get'
-      .mt-6.mx-2.bg-green-700.font-bold.w-36.h-10.text-white.rounded.py-2.px-2.hover:bg-green-800
-        = button_to '抽選会を削除する', @lottery, method: :delete
+      .mt-6.mx-2.bg-green-700.font-bold.h-10.text-white.rounded.py-2.px-2.hover:bg-green-800
+        = button_to '編集する', edit_lottery_path(@lottery), method: 'get'
+      .mt-6.mx-2.bg-green-700.font-bold.h-10.text-white.rounded.py-2.px-2.hover:bg-green-800
+        = button_to '削除する', @lottery, method: :delete
   .underline.mt-6
     = link_to '一覧に戻る', root_path
