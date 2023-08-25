@@ -6,6 +6,15 @@
       = button_to '抽選会作成', new_lottery_path, method: 'get'
 
 - if @lotteries.blank?
+  .mx-auto.mt-8
+    = image_tag 'logo_3.png',class: 'mx-auto'
+  .mt-6.text-center
+    h1.text-2xl.text-zinc-500.font-bold
+      | SmartLotteryで抽選会をもっとラクに行いましょう !
+    p.mt-6
+      | 早速企画している抽選会を作成してみましょう !
+  .mt-3.bg-green-700.font-bold.w-36.h-10.m-auto.text-white.rounded.flex.items-center.justify-center.hover:bg-green-800
+    = button_to '新規作成', new_lottery_path, method: 'get'
 
 - @lotteries.each do |lottery|
   a href="lotteries/#{lottery.id}"
