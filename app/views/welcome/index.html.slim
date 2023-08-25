@@ -11,10 +11,10 @@
       = button_to 'ログイン', '/users/sign_in', method: :get, data: { turbo_frame: 'sign_in' }
   .hidden.fixed.m-auto.w-screen.h-screen.top-0.left-0.bg-gray-700/50.z-10 data-controller='modal' data-modal-target='modal' data-action='turbo:frame-load->modal#open turbo:submit-end->modal#close'
     .absolute.top-1/2.left-1/2.-translate-x-1/2.-translate-y-1/2.w-full.sm:w-max.sm:h-max.bg-white.p-10
-      = turbo_frame_tag "sign_up"
+      = turbo_frame_tag 'sign_up'
   .hidden.fixed.m-auto.w-screen.h-screen.top-0.left-0.bg-gray-700/50.z-10 data-controller='modal' data-modal-target='modal' data-action='turbo:frame-load->modal#open turbo:submit-end->modal#close'
     .absolute.top-1/2.left-1/2.-translate-x-1/2.-translate-y-1/2.w-full.sm:w-max.sm:h-max.bg-white.p-10
-      = turbo_frame_tag "sign_in"
+      = turbo_frame_tag 'sign_in'
   .mt-6
     h1.text-center.font-bold.text-xl.text-zinc-500
       | 抽選会を行う際にこんな手間ありませんか?
@@ -43,4 +43,3 @@
       | 締め切りが来たら自動で抽選
     li.mt-2
       | 当選者に自動でメールを送信
-

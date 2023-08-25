@@ -1,5 +1,5 @@
 - if @lotteries.present?
-  div.mt-6
+  .mt-6
     h1.text-center.text-2xl.font-bold.text
       | 抽選会一覧
     .mt-3.bg-green-700.font-bold.w-36.h-10.m-auto.text-white.rounded.flex.items-center.justify-center.hover:bg-green-800
@@ -14,7 +14,7 @@
         .font-bold.w-12.mx-2.my-2.shrink-0.text-center
           - if closed?(lottery)
             | 終了
-          - else 
+          - else
             | 開催中
         .text-left.w-full
           - lottery.prizes.each_with_index do |prize, index|
