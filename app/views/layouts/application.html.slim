@@ -10,9 +10,9 @@ html
     = stylesheet_link_tag 'application', 'data-turbo-track': 'reload'
     = javascript_importmap_tags
     = javascript_include_tag 'jquery'
-  body
+  body.bg-gray-50
     - if user_signed_in?
-      nav.nav-link.flex.justify-between.bg-stone-100.p-2.
+      nav.nav-link.flex.justify-between.bg-indigo-500.p-2.
         .flex.flex-shrink-0.text-white.mx-6.align-middle
           = link_to image_tag('logo.png'), root_path
         .flex.flex-shrink-0.items-center.text-brown.mx-6.align-middle
