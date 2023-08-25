@@ -1,13 +1,13 @@
 .max-w
   .max-w
-    h1.text-center.font-bold.text-zinc-500.text-2xl
+    h1.text-center.font-bold.text-zinc-500.text-2xl.mt-6
       | あなたの抽選会をもっとラクに
   .max-w.mt-3
     = image_tag 'logo_2.png', class: 'm-auto'
-  .mt-10
+  .mt-5
     .bg-green-700.font-bold.w-36.h-10.m-auto.text-white.rounded.flex.items-center.justify-center.hover:bg-green-800
       = button_to 'サインアップ', '/users/sign_up', method: :get, data: { turbo_frame: 'sign_up' }
-    .w-16.m-auto.mt-6.text-gray.font-bold
+    .w-16.m-auto.mt-2.text-gray.text-sm
       = button_to 'ログイン', '/users/sign_in', method: :get, data: { turbo_frame: 'sign_in' }
   .hidden.fixed.m-auto.w-screen.h-screen.top-0.left-0.bg-gray-700/50.z-10 data-controller='modal' data-modal-target='modal' data-action='turbo:frame-load->modal#open turbo:submit-end->modal#close'
     .absolute.top-1/2.left-1/2.-translate-x-1/2.-translate-y-1/2.w-full.sm:w-max.sm:h-max.bg-white.p-10
@@ -15,3 +15,32 @@
   .hidden.fixed.m-auto.w-screen.h-screen.top-0.left-0.bg-gray-700/50.z-10 data-controller='modal' data-modal-target='modal' data-action='turbo:frame-load->modal#open turbo:submit-end->modal#close'
     .absolute.top-1/2.left-1/2.-translate-x-1/2.-translate-y-1/2.w-full.sm:w-max.sm:h-max.bg-white.p-10
       = turbo_frame_tag "sign_in"
+  .mt-6
+    h1.text-center.font-bold.text-xl.text-zinc-500
+      | 抽選会を行う際にこんな手間ありませんか?
+  .mx-auto
+    div
+      = image_tag 'tired.png', class: 'mx-auto'
+  ul.text-center
+    li.mt-2
+      | 応募フォームを作成して、、
+    li.mt-2
+      | 締め切りが来たら抽選を行って、、
+    li.mt-2
+      | 当選者にメールを送って、、
+  .mt-3.text-center
+    h1.text-center.font-bold.text-xl.text-zinc-500
+      | この手間をSmartLotteryが解決します !
+  .mx-auto
+    div
+      = image_tag 'happy.png', class: 'mx-auto'
+  ul.text-center.mb-6
+    li.mt-2
+      | 抽選会を作成するだけで
+    li.mt-2
+      | 自動で応募フォーム作成
+    li.mt-2
+      | 締め切りが来たら自動で抽選
+    li.mt-2
+      | 当選者に自動でメールを送信
+
