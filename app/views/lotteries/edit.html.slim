@@ -1,10 +1,5 @@
-h1 抽選会を編集する
+.m-auto.w-full
+  h1.text-center.mt-6.font-semibold.text-2xl
+    | 抽選会を編集する
 
-== render 'form', lottery: @lottery
-
-br
-
-div
-  => link_to 'キャンセル', @lottery
-  '|
-  =< link_to '抽選会一覧に戻る', root_path
+  == render 'form', lottery: @lottery

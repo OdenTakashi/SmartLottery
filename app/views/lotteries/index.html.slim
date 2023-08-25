@@ -1,12 +1,36 @@
-p style='color: green' = notice
+- if @lotteries.present?
+  .mt-6
+    h1.text-center.text-2xl.font-bold.text
+      | 抽選会一覧
+    .mt-3.bg-green-700.font-bold.w-36.h-10.m-auto.text-white.rounded.flex.items-center.justify-center.hover:bg-green-800
+      = button_to '抽選会作成', new_lottery_path, method: 'get'
 
-h1 Lotteries
+- if @lotteries.blank?
+  .mx-auto.mt-8
+    = image_tag 'logo_3.png', class: 'mx-auto'
+  .mt-6.text-center
+    h1.text-2xl.text-zinc-500.font-bold
+      | SmartLotteryで抽選会をもっとラクに行いましょう !
+    p.mt-6
+      | 早速企画している抽選会を作成してみましょう !
+  .mt-3.bg-green-700.font-bold.w-36.h-10.m-auto.text-white.rounded.flex.items-center.justify-center.hover:bg-green-800
+    = button_to '新規作成', new_lottery_path, method: 'get'
 
-#lotteries
-  - @lotteries.each do |lottery|
-    div
-      = link_to "#{lottery.deadline}の抽選会", lottery
-
-= link_to '抽選会を作成する', new_lottery_path
-
-= button_to 'Log Out', destroy_user_session_path, method: :delete
+- @lotteries.each do |lottery|
+  a href="lotteries/#{lottery.id}"
+    .bg-stone-100.m-auto.border.border-gray.rounded.mt-6.w-3/6
+      .flex
+        .font-bold.w-12.mx-2.my-2.shrink-0.text-center
+          - if closed?(lottery)
+            | 終了
+          - else
+            | 開催中
+        .text-left.w-full
+          - lottery.prizes.each_with_index do |prize, index|
+            p.my-2
+              = index == lottery.prizes.count - 1 ? "#{prize.name}の抽選会" : prize.name
+          .text-sm.flex.text-zinc-500
+            div
+            = "締め切り日時: #{l(lottery.deadline.end_of_day)}"
+            .ml-2
+            = "当選枠: #{total_winners(lottery)}人"

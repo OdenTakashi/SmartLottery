@@ -1,6 +1,8 @@
 = turbo_frame_tag 'entry_completed' do
-  - if closed?(@lottery)
-    = render 'entry_closed'
-  - else
-    h1 New entry
-    = render 'form', entry: @entry, lottery: @lottery
+  .my-2.mx-3
+    - if closed?(@lottery)
+      = render 'entry_closed'
+    - else
+        h1.text-center.text-2xl.font-semibold.mt-3
+          | 新規応募
+        = render 'form', entry: @entry, lottery: @lottery
