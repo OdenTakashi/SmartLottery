@@ -1,12 +1,11 @@
-
-<div class="w-full max-w-xs">
-  <h1 class="font-hairline mb-6 text-center">ログイン</h1>
+<div class="w-full max-w-xs mx-auto mt-10">
+  <h1 class="font-hairline mb-6 text-center text-xl">ログイン</h1>
 
   <%= form_for(resource,
     as: resource_name,
     url: session_path(resource_name),
     html: {
-        class: "bg-white mb-4 px-8 pt-6 pb-8 rounded shadow-md"
+        class: "bg-stone-100 mb-4 px-8 pt-6 pb-8 rounded"
     }
   ) do |f| %>
 
@@ -26,7 +25,7 @@
     <div class="mb-4">
       <%= f.label :email, class: "block text-gray-700 text-sm font-bold mb-2" %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email",
-        class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight foucs:outline-none focus:shadow-outline"
+        class: "appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight foucs:outline-none"
       %>
     </div>
 
@@ -34,13 +33,13 @@
       <%= f.label :password, class: "block text-gray-700 text-sm font-bold mb-2" %>
       <%= f.password_field :password,
         autocomplete: "current-password",
-        class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        class: "appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
       %>
     </div>
 
     <% if devise_mapping.rememberable? %>
       <div class="mb-4">
-        <%= f.check_box :remember_me, class: "mr-2 leading-tight" %>
+        <%= f.check_box :remember_me, class: "mr-2 leading-tight mt-1 text-blue-699 bg-gray-100 border-gray-300 rounded" %>
         <%= f.label :remember_me,
           class: "align-baseline inline-block text-gray-700 text-sm"
         %>
@@ -50,12 +49,12 @@
     <div class="mb-4">
       <%= f.submit "ログイン",
         data: { turbo: 'false' },
-        class: "button rounded bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline w-full"
+        class: "button rounded bg-lime-600 hover:bg-lime-700 text-white font-bold py-2 px-4 focus:outline-none w-full"
       %>
     </div>
 
     <%= render "users/shared/links" %>
 
   <% end %>
-  <%= button_to 'キャンセル', welcome_path, method: :get %>
+  <%= button_to 'キャンセル', welcome_path, method: :get, class: 'underline text-sm' %>
 </div>

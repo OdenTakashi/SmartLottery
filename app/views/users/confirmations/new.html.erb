@@ -1,12 +1,12 @@
-<div class="w-full max-w-xs">
-    <h1 class="font-hairline mb-6 text-center">確認メールの再送信</h1>
+<div class="w-full max-w-xs mx-auto mt-10">
+    <h1 class="font-hairline mb-6 text-center text-xl">確認メールの再送信</h1>
 
     <%= form_for(resource,
                  as: resource_name,
                  url: confirmation_path(resource_name),
                  html: {
                          method: :post,
-                         class: "bg-white mb-4 px-8 pt-6 pb-8 rounded shadow-md"
+                         class: "bg-stone-100 mb-4 px-8 pt-6 pb-8 rounded shadow-md"
                  }) do |f| %>
 
         <%= render "users/shared/error_messages", resource: resource %>
@@ -23,10 +23,11 @@
 
         <div class="mb-4">
             <%= f.submit "再送信",
-                         class: "button bg-blue-500 hover:bg-blue-700 font-bold text-white focus:outline-none py-2 px-4 rounded focus:shadow-outline w-full"
+                         class: "button bg-lime-600 hover:bg-lime-700 font-bold text-white focus:outline-none py-2 px-4 rounded focus:shadow-outline w-full"
             %>
         </div>
 
         <%= render "users/shared/links" %>
     <% end %>
+    <%= button_to 'キャンセル', welcome_path, method: :get, class: 'underline' %>
 </div>
