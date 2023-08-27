@@ -4,7 +4,8 @@ module PrizesHelper
   def winning_email_body
     <<~EMAIL_CONTENT
       当選おめでとうございます。
-      発送などについての情報を抵抗がないようでしたら以下のメールアドレスまで送信ください。
+
+      発送などについての情報を以下のメールアドレスまで送信ください。
       owner@example.com
     EMAIL_CONTENT
   end
