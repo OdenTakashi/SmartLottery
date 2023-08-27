@@ -9,17 +9,25 @@
 
     .mt-3
       = form.label :email, style: 'display: block'
-      = form.text_field :email, required: true, class: 'mt-1 text-blue-699 bg-gray-100 border-gray-300 rounded'
+      = form.text_field :email,
+        required: true,
+        class: 'mt-1 text-blue-699 bg-gray-100 border-gray-300 rounded',
+        placeholder: 'entry@example.com'
 
     - if lottery.name_field_enabled
       .mt-3
         = form.label :name, style: 'display: block'
-        = form.text_field :name, required: true, class: 'mt-1 text-blue-699 bg-gray-100 border-gray-300 rounded'
+        = form.text_field :name,
+          required: true,
+          class: 'mt-1 text-blue-699 bg-gray-100 border-gray-300 rounded',
+          placeholder: 'odentakashi'
 
     - if lottery.note_field_enabled
       .mt-3
         = form.label :note, style: 'display: block'
-        = form.text_area :note, class: 'mt-1 text-blue-699 bg-gray-100 border-gray-300 rounded'
+        = form.text_area :note,
+          class: 'mt-1 text-blue-699 bg-gray-100 border-gray-300 rounded',
+          placeholder: 'その他、お知らせがあればご記入ください。'
 
     .mt-6.text-center.flex.justify-center
       .bg-green-700.w-40.font-bold.text-white.rounded.py-2.px-2.hover:bg-green-800
