@@ -8,4 +8,8 @@ module LotteriesHelper
   def total_winners(lottery)
     lottery.prizes.sum(&:winners_count)
   end
+
+  def extra_prizes_count(lottery)
+    lottery.prizes.count - 2
+  end
 end

@@ -18,8 +18,8 @@
 
 - @lotteries.each do |lottery|
   a href="lotteries/#{lottery.id}"
-    .bg-stone-100.m-auto.border.border-gray.rounded.mt-6.w-3/6
-      .flex
+    .bg-stone-100.m-auto.border.border-gray.rounded.mt-6.w-3/6.h-36
+      .flex.m-2
         .font-bold.w-12.mx-2.my-2.shrink-0.text-center
           - if closed?(lottery)
             | 終了
@@ -27,9 +27,12 @@
             | 開催中
         .text-left.w-full
           - lottery.prizes.each_with_index do |prize, index|
+            - if index === 2
+              = "その他#{extra_prizes_count(lottery)}つの賞品の抽選会"
+              - break
             p.my-2
               = index == lottery.prizes.count - 1 ? "#{prize.name}の抽選会" : prize.name
-          .text-sm.flex.text-zinc-500
+          .text-sm.flex.text-zinc-500.mt-2
             div
             = "締め切り日時: #{l(lottery.deadline.end_of_day)}"
             .ml-2
