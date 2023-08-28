@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module LotteriesHelper
+  DISPLAY_LIMIT = 2
+
   def closed?(lottery)
     lottery.deadline < Time.zone.today
   end
@@ -10,6 +12,6 @@ module LotteriesHelper
   end
 
   def extra_prizes_count(lottery)
-    lottery.prizes.count - 2
+    lottery.prizes.count - DISPLAY_LIMIT
   end
 end

@@ -27,7 +27,7 @@
             | 開催中
         .text-left.w-full
           .h-20
-            - lottery.prizes.first(2).each_with_index do |prize, index|
+            - lottery.prizes.first(LotteriesHelper::DISPLAY_LIMIT).each_with_index do |prize, index|
               p.my-2
                 = index == lottery.prizes.count - 1 ? "#{prize.name}の抽選会" : prize.name
             - if extra_prizes_count(lottery).positive?
