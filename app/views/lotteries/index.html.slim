@@ -2,7 +2,7 @@
   .mt-6
     h1.text-center.text-2xl.font-bold.text
       | 抽選会一覧
-    .mt-3.bg-green-700.font-bold.w-36.h-10.m-auto.text-white.rounded.flex.items-center.justify-center.hover:bg-green-800
+    .mt-3.bg-lime-600.font-bold.w-36.h-10.m-auto.text-white.rounded.flex.items-center.justify-center.hover:bg-lime-700
       = button_to '抽選会作成', new_lottery_path, method: 'get'
 
 - if @lotteries.blank?
@@ -13,7 +13,7 @@
       | SmartLotteryで抽選会をもっとラクに行いましょう !
     p.mt-6
       | 早速企画している抽選会を作成してみましょう !
-  .mt-3.bg-green-700.font-bold.w-36.h-10.m-auto.text-white.rounded.flex.items-center.justify-center.hover:bg-green-800
+  .mt-3.bg-lime-600.font-bold.w-36.h-10.m-auto.text-white.rounded.flex.items-center.justify-center.hover:bg-lime-700
     = button_to '新規作成', new_lottery_path, method: 'get'
 
 - @lotteries.each do |lottery|
