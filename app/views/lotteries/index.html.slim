@@ -20,11 +20,13 @@
   a href="lotteries/#{lottery.id}"
     .bg-stone-100.m-auto.border.border-gray.rounded.mt-6.w-3/6
       .flex.m-2
-        .font-bold.w-12.mx-2.my-2.shrink-0.text-center
+        .w-12.mx-2.my-2.shrink-0.text-center.text-white
           - if closed?(lottery)
-            | 終了
+            .bg-gray-500.rounded-full.text-sm
+              | 終了
           - else
-            | 開催中
+            .bg-yellow-600.rounded-full.text-sm
+              | 開催中
         .text-left.w-full
           .h-20
             - lottery.prizes.first(LotteriesHelper::DISPLAY_LIMIT).each_with_index do |prize, index|
