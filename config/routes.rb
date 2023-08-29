@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'lotteries#index'
-  get "welcome", to: "welcome#index"
+  get 'welcome', to: 'welcome#index'
+  get 'about_anonymous_deliver', to: 'welcome#about_anonymous_deliver', as: 'about_anonymous_deliver'
   resources :lotteries do
     resources :entries, only: [:new, :create]
   end
