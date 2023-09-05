@@ -37,7 +37,27 @@
             = Prize.human_attribute_name(:winning_email_body)
           td.px-3
             = prize.winning_email_body
-
-  - if closed?(lottery)
-    - winning_entries(lottery).each do |entry|
-        = render entry, lottery: @lotter
+      - if closed?(lottery)
+          .text-center.mt-3
+            .font-bold
+              | 当選者
+            - prize.entries.each do |winner|
+              .border.border-gray.mt-3
+                table.text-left
+                  tr
+                    th.px-3
+                      | Eメール
+                    td.px-3
+                      = winner.email
+                  - if lottery.name_field_enabled
+                    tr
+                      th.px-3
+                        | 名前
+                      td.px-3
+                        = winner.name
+                  - if lottery.name_field_enabled
+                    tr
+                      th.px-3
+                        | 備考
+                      td.px-3
+                        = winner.note
