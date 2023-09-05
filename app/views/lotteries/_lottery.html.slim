@@ -46,18 +46,18 @@
                 table.text-left
                   tr
                     th.px-3
-                      | Eメール
+                      = Entry.human_attribute_name(:email)
                     td.px-3
                       = winner.email
                   - if lottery.name_field_enabled
                     tr
                       th.px-3
-                        | 名前
+                        = Entry.human_attribute_name(:name)
                       td.px-3
                         = winner.name
                   - if lottery.name_field_enabled
                     tr
                       th.px-3
-                        | 備考
+                        = Entry.human_attribute_name(:note)
                       td.px-3
                         = winner.note
