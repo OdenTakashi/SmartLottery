@@ -25,6 +25,15 @@
 
     button.w-36.h-10.rounded.py-2.px-2.mt-3.border.border-zinc-400
       = link_to_add_association '＋賞品を追加', form, :prizes, data: { association_insertion_node: '.prizes', association_insertion_method: :append }
+
+    details.mt-3
+      summary.cursor-pointer
+        | 匿名発送について
+      p
+        a.underline href='https://faq.kuronekoyamato.co.jp/app/answers/detail/a_id/4249'
+          | こちら
+        | の手順を参考に発行したURLを当選者の方に送信することで匿名発送を行うことができます。
+
     ul.flex.justify-center.list-none.mt-6
       li
         .bg-lime-600.font-bold.text-white.rounded.py-2.px-2.hover:bg-lime-700
