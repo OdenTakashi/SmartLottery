@@ -69,7 +69,7 @@ group :development, :test do
 
   gem 'rspec-rails'
 
-  gem 'webdrivers'
+  gem 'selenium-webdriver'
 
   gem 'factory_bot_rails'
 
