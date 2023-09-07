@@ -34,32 +34,30 @@ RSpec.describe User, type: :system do
     expect(page).to have_content 'ログインしました。'
   end
 
-  it 'user can logout' do
-    visit new_user_session_path
+  context 'when user is unauthenticated' do
+    it 'redirect welcome page' do
+      visit lotteries_path
 
-    fill_in 'user_email', with: user.email
-    fill_in 'user_password', with: user.password
-
-    click_on 'ログイン'
-
-    expect(page).to have_content 'ログインしました。'
-
-    click_on 'ログアウト'
-
-    expect(page).to have_content 'ログアウトしました。'
+      expect(page).to have_current_path '/welcome'
+    end
   end
 
-  it 'unauthenticated user redirect welcome page' do
-    visit lotteries_path
+  context 'when user is authenticated' do
+    before do
+      sign_in user
+    end
 
-    expect(page).to have_current_path '/welcome'
-  end
+    it 'can not access welcome page' do
+      visit welcome_path
 
-  it 'authenticated user can not access welcome page' do
-    sign_in user
+      expect(page).to have_current_path '/'
+    end
 
-    visit welcome_path
+    it 'can logout' do
+      visit lotteries_path
+      click_on 'ログアウト'
 
-    expect(page).to have_current_path '/'
+      expect(page).to have_content 'ログアウトしました。'
+    end
   end
 end
