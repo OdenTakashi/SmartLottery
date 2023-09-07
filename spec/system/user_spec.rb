@@ -3,8 +3,33 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :system do
+  let(:email) { 'testuser@example.com' }
+  let(:password) { 'testtest' }
+
   it 'user can login' do
     visit welcome_path
-    expect(page).to have_content 'あなたの抽選会をもっとラクに'
+
+    click_button '新規登録'
+    expect(page).to have_content '新規登録'
+
+    fill_in 'user_email', with: email
+    fill_in 'user_password', with: password
+    fill_in 'user_password_confirmation', with: password
+
+    click_on '登録する'
+
+    expect(current_path).to eq '/welcome'
+    expect(page).to have_content '本人確認用のメールを送信しました。メール内のリンクからアカウントを有効化させてください。'
+
+    User.find_by(email: 'testuser@example.com').confirm
+
+    visit new_user_session_path
+
+    fill_in 'user_email', with: email
+    fill_in 'user_password', with: password
+
+    click_on 'ログイン'
+
+    expect(page).to have_content 'ログインしました。'
   end
 end
