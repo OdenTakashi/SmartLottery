@@ -54,4 +54,12 @@ RSpec.describe User, type: :system do
 
     expect(page).to have_current_path '/welcome'
   end
+
+  it 'authenticated user can not access welcome page' do
+    sign_in user
+
+    visit welcome_path
+
+    expect(page).to have_current_path '/'
+  end
 end
