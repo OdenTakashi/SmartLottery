@@ -32,7 +32,7 @@ class LotteriesController < ApplicationController
 
     respond_to do |format|
       if @lottery.save
-        format.html { redirect_to lottery_url(@lottery), notice: 'Lottery was successfully created.' }
+        format.html { redirect_to lottery_url(@lottery), notice: '抽選会を作成しました。' }
         format.json { render :show, status: :created, location: @lottery }
       else
         format.html { render :new, status: :unprocessable_entity }
