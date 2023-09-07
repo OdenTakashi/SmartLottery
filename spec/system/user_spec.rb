@@ -3,6 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :system do
+  let(:user) { create(:user) }
   let(:email) { 'testuser@example.com' }
   let(:password) { 'testtest' }
 
@@ -18,10 +19,10 @@ RSpec.describe User, type: :system do
 
     click_on '登録する'
 
-    expect(current_path).to eq '/welcome'
+    expect(page).to have_current_path '/welcome'
     expect(page).to have_content '本人確認用のメールを送信しました。メール内のリンクからアカウントを有効化させてください。'
 
-    User.find_by(email: 'testuser@example.com').confirm
+    described_class.find_by(email: 'testuser@example.com').confirm
 
     visit new_user_session_path
 
@@ -31,5 +32,20 @@ RSpec.describe User, type: :system do
     click_on 'ログイン'
 
     expect(page).to have_content 'ログインしました。'
+  end
+
+  it 'user can logout' do
+    visit new_user_session_path
+
+    fill_in 'user_email', with: user.email
+    fill_in 'user_password', with: user.password
+
+    click_on 'ログイン'
+
+    expect(page).to have_content 'ログインしました。'
+
+    click_on 'ログアウト'
+
+    expect(page).to have_content 'ログアウトしました。'
   end
 end
