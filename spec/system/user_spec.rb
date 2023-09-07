@@ -48,4 +48,10 @@ RSpec.describe User, type: :system do
 
     expect(page).to have_content 'ログアウトしました。'
   end
+
+  it 'unauthenticated user redirect welcome page' do
+    visit lotteries_path
+
+    expect(page).to have_current_path '/welcome'
+  end
 end
