@@ -3,11 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe Entry, type: :system, js: true do
-  let(:lottery) { create(:lottery) }
+  let(:closed_lottery) { create(:lottery, deadline: Time.zone.yesterday) }
   let(:opend_lottery) { create(:lottery, deadline: Time.zone.tomorrow) }
 
   it 'entry closed' do
-    visit new_lottery_entry_path(lottery)
+    visit new_lottery_entry_path(closed_lottery)
 
     expect(page).to have_content('本抽選会は終了しました。')
   end
