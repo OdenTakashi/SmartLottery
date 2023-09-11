@@ -4,8 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Lottery, type: :system do
   let(:user) { create(:user) }
-  # let(:prize) { create(:prize, lottery:) }
-  let(:lottery) { create(:lottery) }
+  let(:lottery) { create(:lottery, user:) }
 
   it 'can create lottery' do
     sign_in user
@@ -33,5 +32,20 @@ RSpec.describe Lottery, type: :system do
     click_button '削除'
 
     expect(page).to have_content('抽選会を削除しました。')
+  end
+
+  it 'can edit lottery' do
+    sign_in user
+    visit lottery_path(lottery)
+    expect(page).to have_content('2023年08月06日(日) 23:59')
+
+    click_button '編集する'
+
+    fill_in 'lottery_deadline', with: '002023-09-13'
+
+    click_button '更新する'
+
+    expect(page).to have_content('抽選会を更新しました。')
+    expect(page).to have_content('2023年09月13日(水) 23:59')
   end
 end

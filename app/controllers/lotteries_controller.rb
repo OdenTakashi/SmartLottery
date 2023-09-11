@@ -45,7 +45,7 @@ class LotteriesController < ApplicationController
   def update
     respond_to do |format|
       if @lottery.update(lottery_params)
-        format.html { redirect_to lottery_url(@lottery), notice: 'Lottery was successfully updated.' }
+        format.html { redirect_to lottery_url(@lottery), notice: '抽選会を更新しました。' }
         format.json { render :show, status: :ok, location: @lottery }
       else
         format.html { render :edit, status: :unprocessable_entity }
