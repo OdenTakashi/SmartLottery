@@ -4,6 +4,8 @@ require 'rails_helper'
 
 RSpec.describe Lottery, type: :system do
   let(:user) { create(:user) }
+  # let(:prize) { create(:prize, lottery:) }
+  let(:lottery) { create(:lottery) }
 
   it 'can create lottery' do
     sign_in user
@@ -22,5 +24,14 @@ RSpec.describe Lottery, type: :system do
     click_button '登録する'
 
     expect(page).to have_content('抽選会を作成しました。')
+  end
+
+  it 'can delete lottery' do
+    sign_in user
+    visit lottery_path(lottery)
+
+    click_button '削除'
+
+    expect(page).to have_content('抽選会を削除しました。')
   end
 end

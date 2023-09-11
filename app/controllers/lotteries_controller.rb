@@ -59,7 +59,7 @@ class LotteriesController < ApplicationController
     @lottery.destroy
 
     respond_to do |format|
-      format.html { redirect_to lotteries_url, notice: 'Lottery was successfully destroyed.' }
+      format.html { redirect_to lotteries_url, notice: '抽選会を削除しました。' }
       format.json { head :no_content }
     end
   end
