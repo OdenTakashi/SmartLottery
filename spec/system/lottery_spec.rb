@@ -23,6 +23,7 @@ RSpec.describe Lottery, type: :system do
     click_button '登録する'
 
     expect(page).to have_content('抽選会を作成しました。')
+    expect(page).to have_content('2023年09月07日(木) 23:59')
   end
 
   it 'can delete lottery' do
