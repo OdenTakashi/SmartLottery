@@ -32,7 +32,7 @@ class LotteriesController < ApplicationController
 
     respond_to do |format|
       if @lottery.save
-        format.html { redirect_to lottery_url(@lottery), notice: 'Lottery was successfully created.' }
+        format.html { redirect_to lottery_url(@lottery), notice: '抽選会を作成しました。' }
         format.json { render :show, status: :created, location: @lottery }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -45,7 +45,7 @@ class LotteriesController < ApplicationController
   def update
     respond_to do |format|
       if @lottery.update(lottery_params)
-        format.html { redirect_to lottery_url(@lottery), notice: 'Lottery was successfully updated.' }
+        format.html { redirect_to lottery_url(@lottery), notice: '抽選会を更新しました。' }
         format.json { render :show, status: :ok, location: @lottery }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -59,7 +59,7 @@ class LotteriesController < ApplicationController
     @lottery.destroy
 
     respond_to do |format|
-      format.html { redirect_to lotteries_url, notice: 'Lottery was successfully destroyed.' }
+      format.html { redirect_to lotteries_url, notice: '抽選会を削除しました。' }
       format.json { head :no_content }
     end
   end

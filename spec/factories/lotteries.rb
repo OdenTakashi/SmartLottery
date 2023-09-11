@@ -2,8 +2,13 @@
 
 FactoryBot.define do
   factory :lottery do
-    name_field_enabled { false }
-    note_field_enabled { false }
+    user
+    name_field_enabled { true }
+    note_field_enabled { true }
     deadline { '2023-08-06' }
+
+    after(:build) do |lottery|
+      lottery.prizes << build(:prize, lottery:)
+    end
   end
 end

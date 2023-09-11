@@ -8,3 +8,11 @@ inherit_gem:
 require:
   - rubocop-rspec
   - rubocop-factory_bot
+  - rubocop-capybara
+
+RSpec/MultipleExpectations:
+  Max: 5
+
+RSpec/ExampleLength:
+  Exclude:
+    - spec/system/*
