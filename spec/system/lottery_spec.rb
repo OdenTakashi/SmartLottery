@@ -5,6 +5,7 @@ require 'rails_helper'
 RSpec.describe Lottery, type: :system do
   let(:user) { create(:user) }
   let(:lottery) { create(:lottery, user:) }
+  let(:lottery_executed) { create(:lottery, deadline: Time.zone.yesterday, user:) }
 
   it 'can create lottery' do
     sign_in user
@@ -48,5 +49,20 @@ RSpec.describe Lottery, type: :system do
 
     expect(page).to have_content('抽選会を更新しました。')
     expect(page).to have_content('2023年09月13日(水) 23:59')
+  end
+
+  it 'dont display winners' do
+    sign_in user
+    visit lottery_path(lottery)
+
+    expect(page).not_to have_content('当選者欄')
+  end
+
+  it 'display winners' do
+    lottery_executed.run
+    sign_in user
+    visit lottery_path(lottery_executed)
+
+    expect(page).to have_content('当選者欄')
   end
 end

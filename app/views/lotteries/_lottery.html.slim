@@ -37,10 +37,10 @@
             = Prize.human_attribute_name(:winning_email_body)
           td.px-3
             = prize.winning_email_body
-      - if closed?(lottery)
+      - if lottery_executed?(lottery) && closed?(lottery)
           .text-center.mt-3
             .font-bold
-              | 当選者
+              | 当選者欄
             - prize.entries.each do |winner|
               .border.border-gray.mt-3
                 table.text-left

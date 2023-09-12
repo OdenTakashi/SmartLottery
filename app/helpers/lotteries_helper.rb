@@ -3,6 +3,10 @@
 module LotteriesHelper
   DISPLAY_LIMIT = 2
 
+  def lottery_executed?(lottery)
+    lottery.prizes.any? { |prize| prize.entries.any? }
+  end
+
   def closed?(lottery)
     lottery.deadline < Time.zone.today
   end
