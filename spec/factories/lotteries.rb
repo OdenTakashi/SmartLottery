@@ -9,6 +9,7 @@ FactoryBot.define do
 
     after(:build) do |lottery|
       lottery.prizes << build(:prize, lottery:)
+      lottery.entries << build_list(:entry, 5, lottery:)
     end
   end
 end
