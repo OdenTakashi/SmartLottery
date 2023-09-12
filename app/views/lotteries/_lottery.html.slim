@@ -15,7 +15,7 @@
       = Lottery.human_attribute_name(:note_field_enabled)
 
   - lottery.prizes.each do |prize|
-    .bg-stone-100.border.border-gray.rounded.mt-5
+    .bg-stone-100.border.border-gray.rounded.mt-5.p-4
       table.text-left
         tr
           th.px-3
@@ -42,7 +42,7 @@
             .font-bold
               | 当選者欄
             - prize.entries.each do |winner|
-              .border.border-gray.mt-3
+              .border-b.border-gray-400.mt-3.pb-2
                 table.text-left
                   tr
                     th.px-3
