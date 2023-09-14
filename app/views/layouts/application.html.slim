@@ -10,6 +10,7 @@ html
     = stylesheet_link_tag 'application', 'data-turbo-track': 'reload'
     = javascript_importmap_tags
     = javascript_include_tag 'jquery'
+    script src='https://kit.fontawesome.com/66472dd369.js' crossorigin='anonymous'
   body.bg-gray-200.flex.flex-col.min-h-screen
     - if user_signed_in? || entry_form?
       nav.nav-link.flex.justify-between.bg-indigo-500.p-2.
