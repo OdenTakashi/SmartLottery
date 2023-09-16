@@ -97,3 +97,9 @@ group :development do
 
   gem 'letter_opener_web', '~> 2.0'
 end
+
+gem 'dockerfile-rails', '>= 1.5', group: :development
+
+gem 'sentry-ruby', '~> 5.11'
+
+gem 'sentry-rails', '~> 5.11'
