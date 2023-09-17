@@ -47,7 +47,7 @@ FROM base
 
 # Install packages needed for deployment
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y curl postgresql-client && \
+    apt-get install --no-install-recommends -y postgresql-client curl && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Copy built artifacts: gems, application
@@ -57,7 +57,6 @@ COPY --from=build /rails /rails
 # Run and own only the runtime files as a non-root user for security
 RUN useradd rails --create-home --shell /bin/bash && \
     chown -R rails:rails db log storage tmp
-USER rails:rails
 
 # Deployment options
 ENV RAILS_LOG_TO_STDOUT="1" \
@@ -68,4 +67,19 @@ ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
-CMD ["./bin/rails", "server"]
+
+# # Latest releases available at https://github.com/aptible/supercronic/releases
+ENV SUPERCRONIC_URL=https://github.com/aptible/supercronic/releases/download/v0.2.26/supercronic-linux-amd64 \
+    SUPERCRONIC=supercronic-linux-amd64 \
+    SUPERCRONIC_SHA1SUM=7a79496cf8ad899b99a719355d4db27422396735
+
+RUN curl -fSLO "$SUPERCRONIC_URL" \
+  && echo "${SUPERCRONIC_SHA1SUM}  ${SUPERCRONIC}" | sha1sum -c - \
+  && chmod +x "$SUPERCRONIC" \
+  && mv "$SUPERCRONIC" "/usr/local/bin/${SUPERCRONIC}" \
+  && ln -s "/usr/local/bin/${SUPERCRONIC}" /usr/local/bin/supercronic
+
+USER rails:rails
+
+# You might need to change this depending on where your crontab is located
+COPY crontab crontab
