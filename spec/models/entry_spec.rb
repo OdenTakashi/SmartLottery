@@ -4,8 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Entry, type: :model do
   describe 'validation' do
-    let(:user) { create(:user) }
-    let(:lottery) { create(:lottery, user:) }
+    let(:lottery) { create(:lottery) }
 
     it 'is invalid without name' do
       invalid_entry = build(:entry, lottery:, name: nil)
