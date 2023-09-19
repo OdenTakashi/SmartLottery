@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Lottery, type: :system do
   let(:user) { create(:user) }
-  let(:lottery) { create(:lottery, user:) }
+  let(:lottery) { create(:lottery, deadline: '2023-08-06', user:) }
   let(:lottery_executed) { create(:lottery, deadline: Time.zone.yesterday, user:) }
 
   it 'can create lottery' do
