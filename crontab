@@ -1,1 +1,1 @@
-0 1 * * * bundle exec rake lib/tasks/execute_lottery.rake execute_lottery
+0 16 * * * bundle exec rake lottery:execute_lottery  
