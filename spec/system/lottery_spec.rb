@@ -59,7 +59,7 @@ RSpec.describe Lottery, type: :system do
   end
 
   it 'display winners' do
-    lottery_executed.run
+    lottery_executed.execute
     sign_in user
     visit lottery_path(lottery_executed)
 

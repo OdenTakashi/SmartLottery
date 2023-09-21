@@ -7,7 +7,7 @@ RSpec.describe LotteriesHelper, type: :helper do
   let(:lottery_executed) { create(:lottery, deadline: Time.zone.yesterday) }
 
   it 'lottery_executed?' do
-    lottery_executed.run
+    lottery_executed.execute
     expect(lottery_executed?(lottery_executed)).to eq true
     expect(lottery_executed?(lottery)).to eq false
   end
