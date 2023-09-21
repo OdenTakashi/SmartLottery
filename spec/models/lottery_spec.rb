@@ -7,17 +7,16 @@ RSpec.describe Lottery, type: :model do
 
   describe 'run' do
     let!(:closed_lottery) { create(:lottery, deadline: Time.zone.yesterday) }
-    let!(:open_lottery) { create(:lottery, deadline: Time.zone.today) }    
+    let!(:open_lottery) { create(:lottery, deadline: Time.zone.today) }
 
     it 'lottery executed' do
-      Lottery.run
+      described_class.run
       expect(lottery_executed?(closed_lottery)).to eq true
     end
 
     it 'not lottery executed' do
-      Lottery.run
+      described_class.run
       expect(lottery_executed?(open_lottery)).to eq false
     end
-
   end
 end
