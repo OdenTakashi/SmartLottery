@@ -1,15 +1,16 @@
 .w-3/6.m-auto
   = form_with(model: @lottery) do |form|
     - if @lottery.errors.any?
-      div style='color: red'
-        h2 = "#{pluralize(@lottery.errors.count, 'error')} prohibited this lottery from being saved:"
-        ul
-          - @lottery.errors.each do |error|
-            li = error.full_message
+      .flex.justify-center
+        .text-red-700.bg-red-100.p-3.rounded.w-max.mt-3.border.border-red-400
+          ul
+            - @lottery.errors.each do |error|
+              li.my-2
+                = error.full_message
 
     .mt-6
       = form.label :deadline, style: 'display: block'
-      = form.date_field :deadline, class: 'mt-2 rounded border border-gray-200 w-80'
+      = form.date_field :deadline, class: 'mt-2 rounded border border-gray-200 w-80', required: true
 
     .mt-3
       = form.label :name_field_enabled, style: 'display: block'
