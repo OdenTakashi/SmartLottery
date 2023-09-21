@@ -10,7 +10,11 @@ class Lottery < ApplicationRecord
   validates :prizes, presence: true
   scope :closed_lottery, -> { where('deadline = ?', Time.zone.today.ago(1.day).to_date) }
 
-  def run
+  def self.run
+    Lottery.closed_lottery.each(&:execute)
+  end
+
+  def execute
     entry_list = entries.to_a
 
     prizes.each do |prize|
