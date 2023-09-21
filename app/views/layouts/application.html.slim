@@ -19,10 +19,9 @@ html
         - if user_signed_in?
           .flex.flex-shrink-0.items-center.text-brown.mx-6.align-middle.text-zinc-800
             = button_to 'ログアウト', destroy_user_session_path, method: :delete
-    p.notice
-      = notice
-    p.alert
-      = alert
+    - if flash.notice.present?
+      .w-screen.bg-lime-400.text-lime-800.p-2
+        = notice
     main.container.mx-auto
       = yield
     footer.mt-auto
