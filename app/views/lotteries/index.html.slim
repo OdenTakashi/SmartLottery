@@ -20,12 +20,12 @@
   a href="lotteries/#{lottery.id}"
     .bg-stone-100.m-auto.border.border-gray.rounded.mt-6.w-3/6
       .flex.m-2
-        .w-12.mx-2.my-2.shrink-0.text-center.text-white
+        .w-14.mx-2.my-2.shrink-0.text-center.text-white
           - if closed?(lottery)
-            .bg-gray-500.rounded-full.text-sm
+            .bg-gray-500.rounded-full.text-sm.p-1
               | 終了
           - else
-            .bg-indigo-500.rounded-full.text-sm
+            .bg-indigo-500.rounded-full.text-sm.p-1
               | 開催中
         .text-left.w-full
           .h-20
