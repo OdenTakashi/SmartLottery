@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe Entry, type: :system, js: true do
-  let(:closed_lottery) { create(:lottery, deadline: Time.zone.yesterday) }
+  let(:closed_lottery) { create(:lottery, :skip_validate, deadline: Time.zone.yesterday) }
   let(:opend_lottery) { create(:lottery, deadline: Time.zone.tomorrow) }
 
   it 'entry closed' do
