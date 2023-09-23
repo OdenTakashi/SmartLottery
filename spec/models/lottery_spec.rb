@@ -6,9 +6,9 @@ RSpec.describe Lottery, type: :model do
   include LotteriesHelper
 
   describe 'run' do
-    let!(:closed_lottery) { create(:lottery, deadline: Time.zone.yesterday) }
+    let!(:closed_lottery) { create(:lottery, :skip_validate, deadline: Time.zone.yesterday) }
     let!(:open_lottery) { create(:lottery, deadline: Time.zone.today) }
-    let!(:closed_lottery_2days_ago) { create(:lottery, deadline: Time.zone.today.ago(2.days)) }
+    let!(:closed_lottery_2days_ago) { create(:lottery, :skip_validate, deadline: Time.zone.today.ago(2.days)) }
 
     before do
       described_class.run

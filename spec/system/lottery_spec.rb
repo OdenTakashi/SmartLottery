@@ -4,27 +4,33 @@ require 'rails_helper'
 
 RSpec.describe Lottery, type: :system do
   let(:user) { create(:user) }
-  let(:closed_lottery) { create(:lottery, deadline: '2023-08-06', user:) }
-  let(:lottery_executed) { create(:lottery, deadline: Time.zone.yesterday, user:) }
+  let(:closed_lottery) { create(:lottery, :skip_validate, deadline: '2023-08-06', user:) }
+  let(:lottery_executed) { create(:lottery, :skip_validate, deadline: Time.zone.yesterday, user:) }
 
-  it 'can create lottery' do
-    sign_in user
-    visit lotteries_path
+  describe 'can create open lottery' do
+    before do
+      travel_to Time.zone.local(2023, 9, 1)
+    end
 
-    click_button '新規作成'
+    it 'create lottery' do
+      sign_in user
+      visit lotteries_path
 
-    fill_in 'lottery_deadline', with: '002023-09-07'
-    check 'lottery_name_field_enabled'
-    check 'lottery_note_field_enabled'
-    fill_in 'lottery_prizes_attributes_0_name', with: '抽選会の賞品名'
-    fill_in 'lottery_prizes_attributes_0_winners_count', with: 2
-    fill_in 'lottery_prizes_attributes_0_winning_email_subject', with: 'おめでとうございます!'
-    fill_in 'lottery_prizes_attributes_0_winning_email_body', with: 'おめでとうございます!'
+      click_button '新規作成'
 
-    click_button '登録する'
+      fill_in 'lottery_deadline', with: '002023-09-07'
+      check 'lottery_name_field_enabled'
+      check 'lottery_note_field_enabled'
+      fill_in 'lottery_prizes_attributes_0_name', with: '抽選会の賞品名'
+      fill_in 'lottery_prizes_attributes_0_winners_count', with: 2
+      fill_in 'lottery_prizes_attributes_0_winning_email_subject', with: 'おめでとうございます!'
+      fill_in 'lottery_prizes_attributes_0_winning_email_body', with: 'おめでとうございます!'
 
-    expect(page).to have_content('抽選会を作成しました。')
-    expect(page).to have_content('2023年09月07日(木) 23:59')
+      click_button '登録する'
+
+      expect(page).to have_content('抽選会を作成しました。')
+      expect(page).to have_content('2023年09月07日(木) 23:59')
+    end
   end
 
   it 'can delete lottery' do
@@ -56,6 +62,31 @@ RSpec.describe Lottery, type: :system do
 
       expect(page).to have_content('抽選会を更新しました。')
       expect(page).to have_content('2023年09月13日(水) 23:59')
+    end
+  end
+
+  describe 'can not set deadline_later_than_today' do
+    before do
+      travel_to Time.zone.local(2023, 9, 1)
+    end
+
+    it 'error occurs' do
+      sign_in user
+      visit lotteries_path
+
+      click_button '新規作成'
+
+      fill_in 'lottery_deadline', with: '002023-08-01'
+      check 'lottery_name_field_enabled'
+      check 'lottery_note_field_enabled'
+      fill_in 'lottery_prizes_attributes_0_name', with: '抽選会の賞品名'
+      fill_in 'lottery_prizes_attributes_0_winners_count', with: 2
+      fill_in 'lottery_prizes_attributes_0_winning_email_subject', with: 'おめでとうございます!'
+      fill_in 'lottery_prizes_attributes_0_winning_email_body', with: 'おめでとうございます!'
+
+      click_button '登録する'
+
+      expect(page).to have_content('締切日は本日以降を指定してください')
     end
   end
 

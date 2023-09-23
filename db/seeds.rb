@@ -7,7 +7,7 @@ lottery1 = Lottery.create!(
     user_id: 1,
     name_field_enabled: false,
     note_field_enabled: false,
-    deadline: '2023-9-1',
+    deadline: Time.zone.today,
     prizes_attributes: [
       {
         name: 'サンプル賞品1',
