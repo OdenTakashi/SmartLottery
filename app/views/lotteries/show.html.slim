@@ -1,18 +1,22 @@
 .m-auto.w-5/12
   h1.mt-6.font-semibold.text-2xl.text-center
     | 抽選会
-  .mt-6.m-auto data-controller='clipboard'
-    input type='hidden' value=new_lottery_entry_url(@lottery) readonly='readonly' data-clipboard-target='source'
-    .font-bold.w-64.h-10.rounded.py-2.px-2.m-auto.text-center.border.border-zinc-400
-      button data-action='clipboard#copy' data-clipboard-target='copyButton'
-        | 応募フォームのURLをコピーする
+  - unless closed?(@lottery)
+    .mt-6.m-auto data-controller='clipboard'
+      input type='hidden' value=new_lottery_entry_url(@lottery) readonly='readonly' data-clipboard-target='source'
+      .font-bold.w-64.h-10.rounded.py-2.px-2.m-auto.text-center.border.border-zinc-400
+        button data-action='clipboard#copy' data-clipboard-target='copyButton'
+          | 応募フォームのURLをコピーする
   == render @lottery
 
-  div
-    .flex.justify-center.items-end
-      .mt-6.mx-2.bg-lime-600.font-bold.h-10.text-white.rounded.py-2.px-2.hover:bg-lime-700
+  .flex.justify-center.items-end
+    - if closed?(@lottery)
+      .mt-6.mx-2.bg-gray-500.font-bold.h-10.text-white.rounded.p-2
+        | 抽選会は終了しているため編集できません
+    - else
+      .mt-6.mx-2.bg-lime-600.font-bold.h-10.text-white.rounded.p-2.hover:bg-lime-700
         = button_to '編集する', edit_lottery_path(@lottery), method: 'get'
-      .mt-6.mx-2
-        = button_to '削除する', @lottery, method: :delete, class: 'underline text-sm'
+    .mt-6.mx-2
+      = button_to '削除する', @lottery, method: :delete, class: 'underline text-sm'
   .underline.mt-6
     = link_to '一覧に戻る', root_path
