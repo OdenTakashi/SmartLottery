@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Lottery, type: :system do
   let(:user) { create(:user) }
-  let(:lottery) { create(:lottery, deadline: '2023-08-06', user:) }
+  let(:closed_lottery) { create(:lottery, deadline: '2023-08-06', user:) }
   let(:lottery_executed) { create(:lottery, deadline: Time.zone.yesterday, user:) }
 
   it 'can create lottery' do
@@ -29,31 +29,47 @@ RSpec.describe Lottery, type: :system do
 
   it 'can delete lottery' do
     sign_in user
-    visit lottery_path(lottery)
+    visit lottery_path(closed_lottery)
 
     click_button '削除'
 
     expect(page).to have_content('抽選会を削除しました。')
   end
 
-  it 'can edit lottery' do
+  describe 'open_lottery can edit lottery' do
+    before do
+      travel_to Time.zone.local(2023, 9, 1)
+    end
+
+    let(:open_lottery) { create(:lottery, deadline: Time.zone.tomorrow, user:) }
+
+    it 'can edit' do
+      sign_in user
+      visit lottery_path(open_lottery)
+
+      expect(page).to have_content('編集する')
+      expect(page).to have_content('2023年09月02日(土) 23:59')
+
+      click_button '編集する'
+      fill_in 'lottery_deadline', with: '002023-09-13'
+      click_button '更新する'
+
+      expect(page).to have_content('抽選会を更新しました。')
+      expect(page).to have_content('2023年09月13日(水) 23:59')
+    end
+  end
+
+  it 'closed_lottery can not edit' do
     sign_in user
-    visit lottery_path(lottery)
-    expect(page).to have_content('2023年08月06日(日) 23:59')
+    visit lottery_path(closed_lottery)
 
-    click_button '編集する'
-
-    fill_in 'lottery_deadline', with: '002023-09-13'
-
-    click_button '更新する'
-
-    expect(page).to have_content('抽選会を更新しました。')
-    expect(page).to have_content('2023年09月13日(水) 23:59')
+    expect(page).not_to have_content('編集する')
+    expect(page).to have_content('抽選会は終了しているため編集できません')
   end
 
   it 'dont display winners' do
     sign_in user
-    visit lottery_path(lottery)
+    visit lottery_path(closed_lottery)
 
     expect(page).not_to have_content('当選者欄')
   end
