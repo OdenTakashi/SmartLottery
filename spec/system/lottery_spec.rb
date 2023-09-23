@@ -59,6 +59,31 @@ RSpec.describe Lottery, type: :system do
     end
   end
 
+  describe 'can not set deadline_later_than_today' do
+    before do
+      travel_to Time.zone.local(2023, 9, 1)
+    end
+
+    it 'error occurs' do
+      sign_in user
+      visit lotteries_path
+
+      click_button '新規作成'
+
+      fill_in 'lottery_deadline', with: '002023-08-01'
+      check 'lottery_name_field_enabled'
+      check 'lottery_note_field_enabled'
+      fill_in 'lottery_prizes_attributes_0_name', with: '抽選会の賞品名'
+      fill_in 'lottery_prizes_attributes_0_winners_count', with: 2
+      fill_in 'lottery_prizes_attributes_0_winning_email_subject', with: 'おめでとうございます!'
+      fill_in 'lottery_prizes_attributes_0_winning_email_body', with: 'おめでとうございます!'
+
+      click_button '登録する'
+
+      expect(page).to have_content('締切日は本日以降を指定してください')
+    end
+  end
+
   it 'closed_lottery can not edit' do
     sign_in user
     visit lottery_path(closed_lottery)

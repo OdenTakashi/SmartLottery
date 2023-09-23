@@ -8,6 +8,8 @@ class Lottery < ApplicationRecord
                                 allow_destroy: true,
                                 reject_if: :all_blank
   validates :prizes, presence: true
+  validates :deadline, presence: true
+  validate :deadline_later_than_today
   scope :closed_lottery, -> { where('deadline = ?', Time.zone.today.ago(1.day).to_date) }
 
   def self.run
@@ -34,5 +36,11 @@ class Lottery < ApplicationRecord
     winning_entries.each do |winning_entry|
       winning_entry.update_prize(prize)
     end
+  end
+
+  def deadline_later_than_today
+    return unless deadline < Time.zone.today
+
+    errors.add(:deadline, 'は本日以降を指定してください')
   end
 end
