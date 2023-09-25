@@ -18,7 +18,7 @@
 
 - @lotteries.each do |lottery|
   a href="lotteries/#{lottery.id}"
-    .bg-stone-100.m-auto.border.border-gray.rounded.mt-6.w-3/6
+    .bg-stone-100.m-auto.border.border-gray.rounded.mt-6.w-full.md:w-3/6
       .flex.m-2
         .w-14.mx-2.my-2.shrink-0.text-center.text-white
           - if closed?(lottery)
@@ -35,8 +35,8 @@
             - if extra_prizes_count(lottery).positive?
               p.my-2
                 = "その他#{extra_prizes_count(lottery)}つの賞品の抽選会"
-          .text-sm.flex.text-zinc-500.mt-3
+          .text-sm.text-zinc-500.mt-3.md:flex
             div
-            = "締め切り日時: #{l(lottery.deadline.end_of_day)}"
-            .ml-2
-            = "当選枠: #{total_winners(lottery)}人"
+              =  "締め切り日時: #{l(lottery.deadline.end_of_day)}"
+            .md:ml-2
+              = "当選枠: #{total_winners(lottery)}人"

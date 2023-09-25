@@ -1,4 +1,4 @@
-.m-auto.w-5/12
+.p-2.m-auto.w-full.md:w-7/12
   h1.mt-6.font-semibold.text-2xl.text-center
     | 抽選会
   - unless closed?(@lottery)
@@ -9,14 +9,18 @@
           | 応募フォームのURLをコピーする
   == render @lottery
 
-  .flex.justify-center.items-end
+  .mx-2.mt-6
     - if closed?(@lottery)
-      .mt-6.mx-2.bg-gray-500.font-bold.h-10.text-white.rounded.p-2
-        | 抽選会は終了しているため編集できません
+      .md:flex.justify-center.items-end
+        .bg-gray-500.font-bold.h-10.text-white.rounded.p-2.text-center
+          | 抽選会は終了しているため編集できません
+        .mt-6.mx-2.text-right
+          = button_to '削除する', @lottery, method: :delete, class: 'underline text-sm'
     - else
-      .mt-6.mx-2.bg-lime-600.font-bold.h-10.text-white.rounded.p-2.hover:bg-lime-700
-        = button_to '編集する', edit_lottery_path(@lottery), method: 'get'
-    .mt-6.mx-2
-      = button_to '削除する', @lottery, method: :delete, class: 'underline text-sm'
+      .flex.justify-center.items-end
+        .bg-lime-600.font-bold.h-10.text-white.rounded.p-2.text-center.w-1/3.hover:bg-lime-700.md:w-1/5
+          = button_to '編集する', edit_lottery_path(@lottery), method: 'get'
+        .mt-6.mx-2
+          = button_to '削除する', @lottery, method: :delete, class: 'underline text-sm'
   .underline.mt-6
     = link_to '一覧に戻る', root_path

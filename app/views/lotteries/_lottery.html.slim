@@ -15,27 +15,27 @@
       = Lottery.human_attribute_name(:note_field_enabled)
 
   - lottery.prizes.each do |prize|
-    .bg-stone-100.border.border-gray.rounded.mt-5.p-4
-      table.text-left
+    .bg-stone-100.border.border-gray.rounded.mt-5.p-2.table-fixed.text-sm.md:text-base
+      table.text-left.w-full
         tr
-          th.px-3
+          th.leading-8.w-1/2.md:w-1/3
             = Prize.human_attribute_name(:name)
-          td.px-3
+          td
             = prize.name
         tr
-          th.px-3
+          th.leading-8.w-1/2.md:w-1/3
             = Prize.human_attribute_name(:winners_count)
-          td.px-3
+          td
             = prize.winners_count
         tr
-          th.px-3
+          th.leading-8.w-1/2.md:w-1/3
             = Prize.human_attribute_name(:winning_email_subject)
-          td.px-3
+          td
             = prize.winning_email_subject
         tr
-          th.px-3
+          th.leading-8.align-top.w-1/2.md:w-1/3
             = Prize.human_attribute_name(:winning_email_body)
-          td.px-3
+          td.break-all
             = prize.winning_email_body
       - if lottery_executed?(lottery) && closed?(lottery)
           .text-center.mt-3
@@ -43,21 +43,21 @@
               | 当選者欄
             - prize.entries.each do |winner|
               .border-b.border-gray-400.mt-3.pb-2
-                table.text-left
+                table.text-left.w-full
                   tr
-                    th.px-3
+                    th.w-1/2.md:w-1/3
                       = Entry.human_attribute_name(:email)
-                    td.px-3
+                    td
                       = winner.email
                   - if lottery.name_field_enabled
                     tr
-                      th.px-3
+                      th.w-1/2.md:w-1/3
                         = Entry.human_attribute_name(:name)
-                      td.px-3
+                      td
                         = winner.name
                   - if lottery.name_field_enabled
                     tr
-                      th.px-3
+                      th.align-top.w-1/2.md:w-1/3
                         = Entry.human_attribute_name(:note)
-                      td.px-3
+                      td.break-all
                         = winner.note
