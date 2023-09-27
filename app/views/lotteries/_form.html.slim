@@ -9,15 +9,15 @@
                 = error.full_message
 
     .mt-6
-      = form.label :deadline, style: 'display: block', class: 'text-zinc-800'
+      = form.label :deadline, style: 'display: block', class: 'text-zinc-800 font-bold'
       = form.date_field :deadline, class: 'mt-2 rounded border border-gray-200 w-80', required: true
 
     .mt-3
-      = form.label :name_field_enabled, style: 'display: block', class: 'text-zinc-800'
+      = form.label :name_field_enabled, style: 'display: block', class: 'text-zinc-800 font-bold'
       = form.check_box :name_field_enabled, class: 'mt-1 text-blue-699 bg-gray-100 border-gray-300 rounded'
 
     .mt-3
-      = form.label :note_field_enabled, style: 'display: block', class: 'text-zinc-800'
+      = form.label :note_field_enabled, style: 'display: block', class: 'text-zinc-800 font-bold'
       = form.check_box :note_field_enabled, class: 'mt-1 text-blue-699 bg-gray-100 border-gray-300 rounded'
 
     .prizes.mt-3

@@ -1,9 +1,9 @@
 .m-auto.mt-10
-  .font-bold
+  .font-bold.text-zinc-800
     = Lottery.human_attribute_name(:deadline)
   .mt-3
     = l(lottery.deadline.end_of_day)
-  .font-bold.mt-3
+  .font-bold.mt-3.text-zinc-800
     | 応募フォームオプション
   .flex.items-center.mt-3
     input type='checkbox' value='' class='text-blue-699 bg-gray-100 border-gray-300 rounded' checked=lottery.name_field_enabled disabled='true'
@@ -16,7 +16,7 @@
 
   - lottery.prizes.each do |prize|
     .bg-stone-100.border.border-gray.rounded.mt-5.p-2.table-fixed.text-sm.md:text-base
-      table.text-left.w-full
+      table.text-left.w-full.text-zinc-800
         tr
           th.leading-8.w-1/2.md:w-1/3
             = Prize.human_attribute_name(:name)
