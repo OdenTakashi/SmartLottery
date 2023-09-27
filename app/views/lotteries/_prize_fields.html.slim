@@ -2,20 +2,20 @@
 .nested-fields
   .bg-stone-100.border.border-gray.rounded.mt-5.w-full.p-6
     div
-      = f.label :name, style: 'display: block'
+      = f.label :name, style: 'display: block', class: 'text-zinc-800'
       = f.text_field :name, placeholder: 'プロを目指す人のためのruby入門', class: 'w-full mt-2 rounded border border-gray-200', required: true
 
     .mt-3
-      = f.label :winners_count, style: 'display: block'
+      = f.label :winners_count, style: 'display: block', class: 'text-zinc-800'
       = f.number_field :winners_count, placeholder: '2', class: 'w-full mt-2 rounded border border-gray-200', required: true
 
     .mt-3
-      = f.label :winning_email_subject, style: 'display: block'
+      = f.label :winning_email_subject, style: 'display: block', class: 'text-zinc-800'
       = f.text_field :winning_email_subject, placeholder: '当選おめでとうございます!', class: 'w-full mt-2 rounded border border-gray-200', required: true
 
     .mt-3
-      = f.label :winning_email_body, style: 'display: block'
+      = f.label :winning_email_body, style: 'display: block', class: 'text-zinc-800'
       = f.text_area :winning_email_body, placeholder: winning_email_body, class: 'h-60 w-full mt-2 rounded border border-gray-200 leading-6 text-sm', required: true
 
-    .text-right.underline
+    .text-right.underline.hover:no-underline
         = link_to_remove_association '削除', f
