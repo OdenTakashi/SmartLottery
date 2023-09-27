@@ -50,12 +50,12 @@
     <div class="mb-4">
       <%= f.submit "ログイン",
         data: { turbo: 'false' },
-        class: "button rounded bg-lime-600 hover:bg-lime-700 text-white font-bold py-2 px-4 focus:outline-none w-full"
+        class: "cursor-pointer button rounded bg-lime-600 hover:bg-lime-700 text-white font-bold py-2 px-4 focus:outline-none w-full"
       %>
     </div>
 
     <%= render "users/shared/links" %>
 
   <% end %>
-  <%= button_to 'キャンセル', welcome_path, method: :get, class: 'underline text-sm' %>
+  <%= button_to 'キャンセル', welcome_path, method: :get, class: 'underline text-sm hover:no-underline' %>
 </div>

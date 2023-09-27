@@ -7,10 +7,9 @@
   .max-w.mt-3
     = image_tag 'logo_2.png', class: 'm-auto'
   .mt-5
-    .bg-lime-600.font-bold.w-36.h-10.m-auto.text-white.rounded.flex.items-center.justify-center.hover:bg-lime-700
-      = button_to '新規登録', '/users/sign_up', method: :get
+    = button_to '新規登録', '/users/sign_up', method: :get, class: 'bg-lime-600 font-bold w-36 h-10 m-auto text-white rounded flex items-center justify-center hover:bg-lime-700'
     .w-16.m-auto.mt-2.text-gray.text-sm
-      = button_to 'ログイン', '/users/sign_in', method: :get
+      = button_to 'ログイン', '/users/sign_in', method: :get, class: 'underline hover:no-underline'
   .mt-6
     h1.text-center.font-bold.text-xl.text-zinc-500
       | 抽選会を行う際にこんな手間ありませんか?

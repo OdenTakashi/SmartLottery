@@ -4,8 +4,8 @@
   .mt-6
     h1.text-center.text-2xl.font-bold.text-slate-700
       | 抽選会一覧
-    .mt-3.bg-lime-600.font-bold.w-36.h-10.m-auto.text-white.rounded.flex.items-center.justify-center.hover:bg-lime-700
-      = button_to '抽選会作成', new_lottery_path, method: 'get'
+    .mt-6
+      = button_to '抽選会作成', new_lottery_path, method: 'get', class: 'bg-lime-600 font-bold w-36 h-10 m-auto text-white rounded flex items-center justify-center hover:bg-lime-700'
 
 - if @lotteries.blank?
   .mx-auto.mt-8
