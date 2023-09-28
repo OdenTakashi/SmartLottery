@@ -14,6 +14,12 @@ class Entry < ApplicationRecord
   private
 
   def send_winning_email
-    WinMailer.with(to: email, name: email, subject: prize.winning_email_subject, body: prize.winning_email_body).win.deliver_now
+    WinMailer.with(to: email, name: email, subject: qualified_email_subject(prize), body: prize.winning_email_body).win.deliver_now
+  end
+
+  private
+
+  def qualified_email_subject(prize)
+    "[SmartLottery]" + prize.winning_email_subject
   end
 end
