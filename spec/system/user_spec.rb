@@ -4,6 +4,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :system do
   let(:user) { create(:user) }
+  let(:user_assined_email) { create(:user, email: 'notchangeduser@examople.com') }
   let(:email) { 'testuser@example.com' }
   let(:password) { 'testtest' }
 
@@ -58,6 +59,30 @@ RSpec.describe User, type: :system do
       click_on 'ログアウト'
 
       expect(page).to have_content 'ログアウトしました。'
+    end
+  end
+
+  context 'when user email is assigned' do
+    before do
+      sign_in user_assined_email
+    end
+
+    it 'can edit prifile' do
+      visit edit_user_registration_path
+      expect(page).to have_field 'Eメール', with: 'notchangeduser@examople.com'
+
+      fill_in 'user_email', with: 'changeduser@example.com'
+      fill_in 'user_password', with: 'password'
+      fill_in 'user_password_confirmation', with: 'password'
+      fill_in 'user_current_password', with: 'testtest'
+      click_on '更新'
+
+      expect(page).to have_content 'アカウント情報を変更しました。変更されたメールアドレスの本人確認のため、本人確認用メールより確認処理をおこなってください。'
+
+      described_class.find_by(email: 'notchangeduser@examople.com').confirm
+
+      visit edit_user_registration_path
+      expect(page).to have_field 'Eメール', with: 'changeduser@example.com'
     end
   end
 end

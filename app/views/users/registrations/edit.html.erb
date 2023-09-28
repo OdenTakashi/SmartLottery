@@ -14,17 +14,13 @@
 
     <%= render "users/shared/error_messages", resource: resource %>
 
-    <div class="mb-4">
+    <div class="mb-4 mt-2">
       <%= f.label :email, class: "block font-bold text-gray-700 text-sm"%>
       <%= f.email_field :email,
                                 autofocus: true,
                                 autocomplete: "email",
                                 class: "appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none mt-2" %>
     </div>
-
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-    <% end %>
 
     <div class="mb-4">
       <%= f.label '新しいパスワード', class: "block font-bold text-gray-700 text-sm" %> <p class='text-sm'>(変更しない場合は空欄のままにしてください。)</p>
@@ -44,7 +40,7 @@
       <%= f.label :current_password, class: "block font-bold text-gray-700 text-sm" %> <p class='text-sm'>(変更を反映させるには、現在のパスワードが必要です)</p>
       <%= f.password_field :current_password,
                             autocomplete: "current-password",
-                            class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none mt-2"
+                            class: "appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none mt-2"
               %>
     </div>
 
