@@ -18,8 +18,8 @@ html
           = link_to image_tag('logo.png'), root_path
         - if user_signed_in?
           .flex.flex-shrink-0.items-center.align-middle.text-zinc-700.ml-4.md:mx-6.text-xs.md:text-base
-            = button_to 'ログアウト', destroy_user_session_path, method: :delete
-            .flex.flex-shrink-0.items-center.align-middle.ml-2.md:ml-6
+            = button_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'hover:text-zinc-800'
+            .flex.flex-shrink-0.items-center.align-middle.ml-2.md:ml-6.hover:text-zinc-800
               = link_to '登録情報変更', edit_user_registration_path
     - if flash.notice.present?
       .w-screen.bg-lime-400.text-lime-800.p-2
