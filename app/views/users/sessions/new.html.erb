@@ -1,5 +1,9 @@
+<% set_meta_tags(title: 'ログイン') %>
+
 <div class="w-full max-w-xs mx-auto mt-10">
-  <h1 class="font-hairline mb-6 text-center text-xl">ログイン</h1>
+  <h1 class="font-hairline mb-6 text-center text-xl">
+    <%= t 'devise.sessions.new.sign_in' %>
+  </h1>
 
   <%= form_for(resource,
     as: resource_name,
@@ -47,10 +51,10 @@
       </div>
     <% end %>
 
-    <div class="mb-4">
+    <div class="mb-4 flex justify-center">
       <%= f.submit "ログイン",
         data: { turbo: 'false' },
-        class: "cursor-pointer button rounded bg-lime-600 hover:bg-lime-700 text-white font-bold py-2 px-4 focus:outline-none w-full"
+        class: "cursor-pointer button rounded bg-lime-600 hover:bg-lime-700 text-white font-bold py-2 px-4 focus:outline-none"
       %>
     </div>
 

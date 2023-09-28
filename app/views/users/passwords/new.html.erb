@@ -1,5 +1,9 @@
+<% set_meta_tags(title: 'パスワードを忘れた場合') %>
+
 <div class="w-full max-w-xs mx-auto mt-10">
-    <h1 class="font-hairline mb-6 text-center text-xl">パスワードを忘れましたか ?</h1>
+    <h1 class="font-hairline mb-6 text-center text-xl">
+      <%= t 'devise.passwords.new.forgot_your_password' %>
+    </h1>
 
     <%= form_for(resource,
                  as: resource_name,
@@ -25,5 +29,5 @@
 
         <%= render "users/shared/links" %>
     <% end %>
-    <%= button_to 'キャンセル', welcome_path, method: :get, class: 'underline' %>
+    <%= button_to 'キャンセル', welcome_path, method: :get, class: 'underline hover:no-underline' %>
 </div>
