@@ -59,6 +59,8 @@ gem 'devise'
 
 gem 'rails-i18n', '~> 7.0.0'
 
+gem 'devise-i18n'
+
 gem 'jquery-rails'
 
 gem 'cocoon'

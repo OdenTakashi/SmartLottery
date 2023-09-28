@@ -1,5 +1,16 @@
-p
-  = "#{@name}様"
-
-p
-  = @body
+doctype html
+html
+  head
+    meta content='text/html; charset=UTF-8' http-equiv='Content-Type'
+  body
+    p
+      = "#{@name}様"
+      br
+      | ===============================================
+    p
+      = @body
+      br
+    p
+      | ※ 本メールは送信専用のメールアドレスで送信しております。
+      br
+      | 本メールに返信いただいてもご回答いたしかねますので、あらかじめご了承ください。
