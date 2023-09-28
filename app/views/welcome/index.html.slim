@@ -5,7 +5,7 @@
     h1.text-center.font-bold.text-zinc-600.text-2xl.mt-6
       | あなたの抽選会をもっとラクに
   .max-w.mt-3
-    = image_tag 'logo_2.png', class: 'm-auto'
+    = image_tag 'logo_2.png', class: 'm-auto', alt: 'logo'
   .mt-5
     = button_to '新規登録', '/users/sign_up', method: :get, class: 'bg-lime-600 font-bold w-36 h-10 m-auto text-white rounded flex items-center justify-center hover:bg-lime-700'
     .w-16.m-auto.mt-2.text-gray.text-sm
@@ -15,7 +15,7 @@
       | 抽選会を行う際にこんな手間ありませんか?
   .mx-auto
     div
-      = image_tag 'tired.png', class: 'mx-auto'
+      = image_tag 'tired.png', class: 'mx-auto', alt: 'tired_image'
   ul.text-center
     li.mt-2
       | 応募フォームを作成して、、
@@ -28,7 +28,7 @@
       | SmartLotteryはその手間を解決します!
   .mx-auto
     div
-      = image_tag 'happy.png', class: 'mx-auto'
+      = image_tag 'happy.png', class: 'mx-auto', alt: 'happy_image'
   ul.text-center.mb-6
     li.mt-2.font-semibold
       | 抽選会を作成するだけで
