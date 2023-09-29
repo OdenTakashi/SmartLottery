@@ -1,5 +1,9 @@
+<% set_meta_tags(title: 'パスワードを忘れた場合') %>
+
 <div class="w-full max-w-xs mx-auto mt-10">
-    <h1 class="font-hairline mb-6 text-center text-xl">パスワードを忘れましたか ?</h1>
+    <h1 class="font-hairline mb-6 text-center text-xl">
+      <%= t 'devise.passwords.new.forgot_your_password' %>
+    </h1>
 
     <%= form_for(resource,
                  as: resource_name,
@@ -14,16 +18,16 @@
         <div class="mb-4">
             <%= f.label :email, class: "block font-bold mb-2 text-gray-700 text-sm" %>
             <%= f.email_field :email, autofocus: true, autocomplete: "email",
-                              class: "appearance-none border leading-tight focus:outline-none px-3 py-2 rounded shadow focus:shadow-outline text-gray-700 w-full"
+                              class: "appearance-none border leading-tight focus:outline-none px-3 py-2 roundedtext-gray-700 w-full"
             %>
         </div>
 
         <div class="mb-4">
             <%= f.submit "パスワードの再設定方法を送信する",
-                         class: "button bg-lime-600 hover:bg-lime-700 text-white font-bold py-2 px-4 rounded focus:outline-none w-full text-sm" %>
+                         class: "button cursor-pointer bg-lime-600 hover:bg-lime-700 text-white font-bold py-2 px-4 rounded focus:outline-none w-full text-sm" %>
         </div>
 
         <%= render "users/shared/links" %>
     <% end %>
-    <%= button_to 'キャンセル', welcome_path, method: :get, class: 'underline' %>
+    <%= button_to 'キャンセル', welcome_path, method: :get, class: 'underline hover:no-underline' %>
 </div>

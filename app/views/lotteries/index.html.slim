@@ -2,26 +2,26 @@
 
 - if @lotteries.present?
   .mt-6
-    h1.text-center.text-2xl.font-bold.text
+    h1.text-center.text-2xl.font-bold.text-slate-700
       | 抽選会一覧
-    .mt-3.bg-lime-600.font-bold.w-36.h-10.m-auto.text-white.rounded.flex.items-center.justify-center.hover:bg-lime-700
-      = button_to '抽選会作成', new_lottery_path, method: 'get'
+    .mt-6
+      = button_to '抽選会作成', new_lottery_path, method: 'get', class: 'bg-lime-600 font-bold w-36 h-10 m-auto text-white rounded flex items-center justify-center hover:bg-lime-700'
 
 - if @lotteries.blank?
   .mx-auto.mt-8
-    = image_tag 'logo_3.png', class: 'mx-auto'
+    = image_tag 'logo_3.png', class: 'mx-auto', alt: 'logo'
   .mt-6.text-center
     h1.text-2xl.text-zinc-500.font-bold
       | SmartLotteryで抽選会をもっとラクに行いましょう !
     p.mt-6
       | 早速企画している抽選会を作成してみましょう !
-  .mt-3.bg-lime-600.font-bold.w-36.h-10.m-auto.text-white.rounded.flex.items-center.justify-center.hover:bg-lime-700
-    = button_to '新規作成', new_lottery_path, method: 'get'
+  .mt-3
+    = button_to '新規作成', new_lottery_path, method: 'get', class: 'bg-lime-600 font-bold w-36 h-10 m-auto text-white rounded flex items-center justify-center hover:bg-lime-700'
 
 - @lotteries.each do |lottery|
-  a href="lotteries/#{lottery.id}"
-    .bg-stone-100.m-auto.border.border-gray.rounded.mt-6.w-full.md:w-3/6
-      .flex.m-2
+  .bg-stone-100.m-auto.border.border-gray.rounded.mt-6.w-full.text-zinc-800.md:w-3/6
+    = link_to lottery_path(lottery) do
+      .flex.p-2
         .w-14.mx-2.my-2.shrink-0.text-center.text-white
           - if closed?(lottery)
             .bg-gray-500.rounded-full.text-sm.p-1
@@ -37,7 +37,7 @@
             - if extra_prizes_count(lottery).positive?
               p.my-2
                 = "その他#{extra_prizes_count(lottery)}つの賞品の抽選会"
-          .text-sm.text-zinc-500.mt-3.md:flex
+          .text-sm.text-zinc-400.mt-3.md:flex
             div
               =  "締め切り日時: #{l(lottery.deadline.end_of_day)}"
             .md:ml-2

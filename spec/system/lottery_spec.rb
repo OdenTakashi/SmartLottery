@@ -56,7 +56,7 @@ RSpec.describe Lottery, type: :system do
       expect(page).to have_content('編集する')
       expect(page).to have_content('2023年09月02日(土) 23:59')
 
-      click_button '編集する'
+      click_on '編集する'
       fill_in 'lottery_deadline', with: '002023-09-13'
       click_button '更新する'
 

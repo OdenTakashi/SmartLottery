@@ -5,6 +5,10 @@
     - if closed?(@lottery)
       = render 'entry_closed'
     - else
-        h1.text-center.text-2xl.font-semibold.mt-3
+        h1.text-center.text-2xl.font-semibold.mt-3.text-slate-700
           | 新規応募
+        p.text-zinc-500.text-center.mt-3.text-xs
+          span.text-red-500
+            | ※
+          | が付与されている箇所は必須入力項目です。
         = render 'form', entry: @entry, lottery: @lottery

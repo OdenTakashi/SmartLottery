@@ -8,27 +8,28 @@
             li = error.full_message
 
     .mt-3
-      = form.label :email, style: 'display: block'
+      = form.label :email, class: 'font-semibold text-zinc-800 pr-2'
+      span.text-red-500 ※
       = form.text_field :email,
         required: true,
-        class: 'w-full mt-1 text-blue-699 bg-gray-100 border-gray-300 rounded',
+        class: 'w-full mt-1 text-blue-699 bg-gray-100 border-gray-300 rounded placeholder-gray-300',
         placeholder: 'entry@example.com'
 
     - if lottery.name_field_enabled
       .mt-3
-        = form.label :name, style: 'display: block'
+        = form.label :name, class: 'font-semibold text-zinc-800 pr-2'
+        span.text-red-500 ※
         = form.text_field :name,
           required: true,
-          class: 'w-full mt-1 text-blue-699 bg-gray-100 border-gray-300 rounded',
+          class: 'w-full mt-1 text-blue-699 bg-gray-100 border-gray-300 rounded placeholder-gray-300',
           placeholder: 'odentakashi'
 
     - if lottery.note_field_enabled
       .mt-3
-        = form.label :note, style: 'display: block'
+        = form.label :note, class: 'font-semibold text-zinc-800'
         = form.text_area :note,
-          class: 'h-40 w-full mt-1 text-blue-699 bg-gray-100 border-gray-300 rounded text-sm',
+          class: 'h-40 w-full mt-1 text-blue-699 bg-gray-100 border-gray-300 rounded text-sm placeholder-gray-300',
           placeholder: 'その他、お知らせがあればご記入ください。'
 
     .mt-6.text-center.flex.justify-center
-      .bg-lime-600.w-40.font-bold.text-white.rounded.py-2.px-2.hover:bg-lime-700
-        = form.submit
+        = form.submit nil, class: 'cursor-pointer bg-lime-600 w-40 font-bold text-white rounded py-2 px-2 hover:bg-lime-700'

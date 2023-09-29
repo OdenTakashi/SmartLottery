@@ -9,36 +9,49 @@
                 = error.full_message
 
     .mt-6
-      = form.label :deadline, style: 'display: block'
+      = form.label :deadline, style: 'display: block', class: 'text-zinc-800 font-semibold'
+      p.mt-1.text-xs.text-zinc-500
+        | ※ 抽選は指定した日付の翌日01:00時に行われます
+        br
+        | (例: X月1日指定の場合、X月2日 01:00時に抽選実行)
       = form.date_field :deadline, class: 'mt-2 rounded border border-gray-200 w-80', required: true
 
     .mt-3
-      = form.label :name_field_enabled, style: 'display: block'
-      = form.check_box :name_field_enabled, class: 'mt-1 text-blue-699 bg-gray-100 border-gray-300 rounded'
+      .font-semibold.text-zinc-800
+        | 応募フォームオプション
+      p.mt-1.text-xs.text-zinc-500
+        | ※ Eメール入力欄は必須入力項目として追加されます
 
-    .mt-3
-      = form.label :note_field_enabled, style: 'display: block'
-      = form.check_box :note_field_enabled, class: 'mt-1 text-blue-699 bg-gray-100 border-gray-300 rounded'
+    .mt-2
+      = form.label :name_field_enabled, style: 'display: block', class: 'text-zinc-800'
+      p.mt-1.text-xs.text-zinc-500
+        | ※ 名前入力欄が必須入力項目として追加されます
+      = form.check_box :name_field_enabled, class: 'cursor-pointer mt-1 text-blue-699 bg-gray-100 border-gray-300 rounded'
+
+    .mt-2
+      = form.label :note_field_enabled, style: 'display: block', class: 'text-zinc-800'
+      p.mt-1.text-xs.text-zinc-500
+        | ※ 備考入力欄が任意入力項目として追加されます
+      = form.check_box :note_field_enabled, class: 'cursor-pointer mt-1 text-blue-699 bg-gray-100 border-gray-300 rounded'
 
     .prizes.mt-3
       = form.fields_for :prizes do |prize|
         = render 'prize_fields', f: prize
 
-    button.w-36.h-10.rounded.py-2.px-2.mt-3.border.border-zinc-400
+    button.w-36.h-10.rounded.py-2.px-2.mt-3.border.border-zinc-400.hover:border-zinc-600
       = link_to_add_association '＋賞品を追加', form, :prizes, data: { association_insertion_node: '.prizes', association_insertion_method: :append }
 
     details.mt-3
-      summary.cursor-pointer
+      summary.cursor-pointer.text-zinc-800.underline.hover:no-underline
         | 匿名発送について
       p
-        a.underline href='https://faq.kuronekoyamato.co.jp/app/answers/detail/a_id/4249'
-          | こちら
+        .underline
+        = link_to 'こちら', 'https://faq.kuronekoyamato.co.jp/app/answers/detail/a_id/4249', class: 'underline hover:no-underline'
         | の手順を参考に発行したURLを当選者の方に送信することで匿名発送を行うことができます。
 
     ul.flex.justify-center.list-none.mt-6
       li
-        .bg-lime-600.font-bold.text-white.rounded.py-2.px-2.hover:bg-lime-700
-          = form.submit
+        = form.submit nil, class: 'cursor-pointer bg-lime-600 font-bold text-white rounded py-2 px-2 hover:bg-lime-700'
       li
-        .underline.mt-6.text-xs.ml-2
+        .underline.mt-6.text-xs.ml-2.hover:no-underline
           = link_to 'キャンセル', lottery

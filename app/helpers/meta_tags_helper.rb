@@ -8,7 +8,7 @@ module MetaTagsHelper
       title: 'SmartLottery',
       reverse: true,
       charset: 'utf-8',
-      description: 'あなたの抽選会をもっとラクに ! 応募から抽選、当選メール送信までこのアプリ一つで行えます。',
+      description: 'あなたの抽選会をもっとラクに ! 抽選会を作成するだけで応募から抽選、当選メール送信までこのアプリ一つで自動化します。',
       keywords: '抽選 抽選会 当選 当選メール プレゼント lottery Lottery raffle Raffle present Present',
       canonical: 'https://smartlottery.fly.dev/',
       separator: '|',
