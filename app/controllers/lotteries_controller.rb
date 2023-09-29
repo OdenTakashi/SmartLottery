@@ -30,38 +30,26 @@ class LotteriesController < ApplicationController
     @lottery = Lottery.new(lottery_params)
     @lottery.user = current_user
 
-    respond_to do |format|
-      if @lottery.save
-        format.html { redirect_to lottery_url(@lottery), notice: '抽選会を作成しました。' }
-        format.json { render :show, status: :created, location: @lottery }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @lottery.errors, status: :unprocessable_entity }
-      end
+    if @lottery.save
+      redirect_to lottery_url(@lottery), notice: '抽選会を作成しました。'
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /lotteries/1 or /lotteries/1.json
   def update
-    respond_to do |format|
-      if @lottery.update(lottery_params)
-        format.html { redirect_to lottery_url(@lottery), notice: '抽選会を更新しました。' }
-        format.json { render :show, status: :ok, location: @lottery }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @lottery.errors, status: :unprocessable_entity }
-      end
+    if @lottery.update(lottery_params)
+      redirect_to lottery_url(@lottery), notice: '抽選会を更新しました。'
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   # DELETE /lotteries/1 or /lotteries/1.json
   def destroy
     @lottery.destroy
-
-    respond_to do |format|
-      format.html { redirect_to lotteries_url, notice: '抽選会を削除しました。' }
-      format.json { head :no_content }
-    end
+    redirect_to lotteries_url, notice: '抽選会を削除しました。'
   end
 
   private
