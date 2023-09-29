@@ -55,12 +55,12 @@ gem 'bootsnap', require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'capybara'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'dotenv-rails'
+  gem 'factory_bot_rails'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
-  gem 'factory_bot_rails'
-  gem 'capybara'
-  gem 'dotenv-rails'
 end
 
 group :development do
@@ -72,21 +72,21 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem 'letter_opener_web', '~> 2.0'
+  gem 'rubocop-factory_bot', require: false
   gem 'rubocop-fjord', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
-  gem 'rubocop-factory_bot', require: false
   gem 'slim_lint', require: false
-  gem 'letter_opener_web', '~> 2.0'
 end
 
-gem 'dockerfile-rails', '>= 1.5', group: :development
-gem 'sentry-ruby', '~> 5.11'
-gem 'sentry-rails', '~> 5.11'
-gem 'meta-tags'
-gem 'slim-rails'
-gem 'devise'
-gem 'rails-i18n', '~> 7.0.0'
-gem 'devise-i18n'
-gem 'jquery-rails'
 gem 'cocoon'
+gem 'devise'
+gem 'devise-i18n'
+gem 'dockerfile-rails', '>= 1.5', group: :development
+gem 'jquery-rails'
+gem 'meta-tags'
+gem 'rails-i18n', '~> 7.0.0'
+gem 'sentry-rails', '~> 5.11'
+gem 'sentry-ruby', '~> 5.11'
+gem 'slim-rails'
