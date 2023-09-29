@@ -19,9 +19,9 @@
     = button_to '新規作成', new_lottery_path, method: 'get', class: 'bg-lime-600 font-bold w-36 h-10 m-auto text-white rounded flex items-center justify-center hover:bg-lime-700'
 
 - @lotteries.each do |lottery|
-  = link_to lottery_path(lottery) do
-    .bg-stone-100.m-auto.border.border-gray.rounded.mt-6.w-full.text-zinc-800.md:w-3/6
-      .flex.m-2
+  .bg-stone-100.m-auto.border.border-gray.rounded.mt-6.w-full.text-zinc-800.md:w-3/6
+    = link_to lottery_path(lottery) do
+      .flex.p-2
         .w-14.mx-2.my-2.shrink-0.text-center.text-white
           - if closed?(lottery)
             .bg-gray-500.rounded-full.text-sm.p-1
