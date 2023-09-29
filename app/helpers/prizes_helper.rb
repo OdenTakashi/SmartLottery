@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module PrizesHelper
-  def winning_email_body
+  def winning_message_template
     <<~EMAIL_CONTENT
       当選おめでとうございます。
 
