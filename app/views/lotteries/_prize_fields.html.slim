@@ -1,21 +1,20 @@
 <!-- Nested Form for f -->
 .nested-fields
   .bg-stone-100.border.border-gray.rounded.mt-5.w-full.p-6
-    div
-      = f.label :name, style: 'display: block', class: 'text-zinc-800 font-bold'
-      = f.text_field :name, placeholder: 'プロを目指す人のためのruby入門', class: 'w-full mt-2 rounded border border-gray-200', required: true
+    = f.label :name, style: 'display: block', class: 'text-zinc-800 font-semibold'
+    = f.text_field :name, placeholder: 'プロを目指す人のためのruby入門', class: 'w-full mt-2 rounded border border-gray-200 placeholder-gray-300', required: true
 
     .mt-3
-      = f.label :winners_count, style: 'display: block', class: 'text-zinc-800 font-bold'
-      = f.number_field :winners_count, placeholder: '2', class: 'w-full mt-2 rounded border border-gray-200', required: true
+      = f.label :winners_count, style: 'display: block', class: 'text-zinc-800 font-semibold'
+      = f.number_field :winners_count, placeholder: '2', class: 'w-full mt-2 rounded border border-gray-200 placeholder-gray-300', required: true
 
     .mt-3
-      = f.label :winning_email_subject, style: 'display: block', class: 'text-zinc-800 font-bold'
-      = f.text_field :winning_email_subject, placeholder: '当選おめでとうございます!', class: 'w-full mt-2 rounded border border-gray-200', required: true
+      = f.label :winning_email_subject, style: 'display: block', class: 'text-zinc-800 font-semibold'
+      = f.text_field :winning_email_subject, placeholder: '当選おめでとうございます!', class: 'w-full mt-2 rounded border border-gray-200 placeholder-gray-300', required: true
 
     .mt-3
-      = f.label :winning_email_body, style: 'display: block', class: 'text-zinc-800 font-bold'
-      = f.text_area :winning_email_body, placeholder: winning_email_body, class: 'h-60 w-full mt-2 rounded border border-gray-200 leading-6 text-sm', required: true
+      = f.label :winning_email_body, style: 'display: block', class: 'text-zinc-800 font-semibold'
+      = f.text_area :winning_email_body, placeholder: winning_email_body, class: 'h-60 w-full mt-2 rounded border border-gray-200 leading-6 text-sm placeholder-gray-300', required: true
 
     .text-right.underline.hover:no-underline
         = link_to_remove_association '削除', f

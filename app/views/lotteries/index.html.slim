@@ -15,8 +15,8 @@
       | SmartLotteryで抽選会をもっとラクに行いましょう !
     p.mt-6
       | 早速企画している抽選会を作成してみましょう !
-  .mt-3.bg-lime-600.font-bold.w-36.h-10.m-auto.text-white.rounded.flex.items-center.justify-center.hover:bg-lime-700
-    = button_to '新規作成', new_lottery_path, method: 'get'
+  .mt-3
+    = button_to '新規作成', new_lottery_path, method: 'get', class: 'bg-lime-600 font-bold w-36 h-10 m-auto text-white rounded flex items-center justify-center hover:bg-lime-700'
 
 - @lotteries.each do |lottery|
   = link_to lottery_path(lottery) do

@@ -9,16 +9,29 @@
                 = error.full_message
 
     .mt-6
-      = form.label :deadline, style: 'display: block', class: 'text-zinc-800 font-bold'
+      = form.label :deadline, style: 'display: block', class: 'text-zinc-800 font-semibold'
+      p.mt-2.text-xs.text-zinc-500
+        | ※ 抽選は指定した日付の翌日01:00時に行われます
+        br
+        | (例: X月1日指定の場合、X月2日 01:00時に抽選実行)
       = form.date_field :deadline, class: 'mt-2 rounded border border-gray-200 w-80', required: true
 
-    .mt-3
-      = form.label :name_field_enabled, style: 'display: block', class: 'text-zinc-800 font-bold'
-      = form.check_box :name_field_enabled, class: 'mt-1 text-blue-699 bg-gray-100 border-gray-300 rounded'
+    .font-semibold.mt-3.text-zinc-800
+      | 応募フォームオプション
+    p.mt-2.text-xs.text-zinc-500
+      | ※ Eメール入力欄はデフォルトで必須入力項目として追加されます
 
     .mt-3
-      = form.label :note_field_enabled, style: 'display: block', class: 'text-zinc-800 font-bold'
-      = form.check_box :note_field_enabled, class: 'mt-1 text-blue-699 bg-gray-100 border-gray-300 rounded'
+      = form.label :name_field_enabled, style: 'display: block', class: 'text-zinc-800'
+      p.mt-2.text-xs.text-zinc-500
+        | ※ 名前入力欄が必須入力項目として追加されます
+      = form.check_box :name_field_enabled, class: 'cursor-pointer mt-1 text-blue-699 bg-gray-100 border-gray-300 rounded'
+
+    .mt-3
+      = form.label :note_field_enabled, style: 'display: block', class: 'text-zinc-800'
+      p.mt-2.text-xs.text-zinc-500
+        | ※ 備考入力欄が任意入力項目として追加されます
+      = form.check_box :note_field_enabled, class: 'cursor-pointer mt-1 text-blue-699 bg-gray-100 border-gray-300 rounded'
 
     .prizes.mt-3
       = form.fields_for :prizes do |prize|
@@ -28,7 +41,7 @@
       = link_to_add_association '＋賞品を追加', form, :prizes, data: { association_insertion_node: '.prizes', association_insertion_method: :append }
 
     details.mt-3
-      summary.cursor-pointer.text-zinc-800.hover:underline
+      summary.cursor-pointer.text-zinc-800.underline.hover:no-underline
         | 匿名発送について
       p
         .underline
