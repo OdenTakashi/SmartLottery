@@ -14,7 +14,7 @@
 
     .mt-3
       = f.label :winning_email_body, style: 'display: block', class: 'text-zinc-800 font-semibold'
-      = f.text_area :winning_email_body, placeholder: winning_email_body, class: 'h-60 w-full mt-2 rounded border border-gray-200 leading-6 text-sm placeholder-gray-300', required: true
+      = f.text_area :winning_email_body, placeholder: winning_message_template, class: 'h-60 w-full mt-2 rounded border border-gray-200 leading-6 text-sm placeholder-gray-300', required: true
 
     .text-right.underline.hover:no-underline
         = link_to_remove_association '削除', f
