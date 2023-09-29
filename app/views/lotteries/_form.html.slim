@@ -10,26 +10,27 @@
 
     .mt-6
       = form.label :deadline, style: 'display: block', class: 'text-zinc-800 font-semibold'
-      p.mt-2.text-xs.text-zinc-500
+      p.mt-1.text-xs.text-zinc-500
         | ※ 抽選は指定した日付の翌日01:00時に行われます
         br
         | (例: X月1日指定の場合、X月2日 01:00時に抽選実行)
       = form.date_field :deadline, class: 'mt-2 rounded border border-gray-200 w-80', required: true
 
-    .font-semibold.mt-3.text-zinc-800
-      | 応募フォームオプション
-    p.mt-2.text-xs.text-zinc-500
-      | ※ Eメール入力欄はデフォルトで必須入力項目として追加されます
-
     .mt-3
+      .font-semibold.text-zinc-800
+        | 応募フォームオプション
+      p.mt-1.text-xs.text-zinc-500
+        | ※ Eメール入力欄はデフォルトで必須入力項目として追加されます
+
+    .mt-2
       = form.label :name_field_enabled, style: 'display: block', class: 'text-zinc-800'
-      p.mt-2.text-xs.text-zinc-500
+      p.mt-1.text-xs.text-zinc-500
         | ※ 名前入力欄が必須入力項目として追加されます
       = form.check_box :name_field_enabled, class: 'cursor-pointer mt-1 text-blue-699 bg-gray-100 border-gray-300 rounded'
 
-    .mt-3
+    .mt-2
       = form.label :note_field_enabled, style: 'display: block', class: 'text-zinc-800'
-      p.mt-2.text-xs.text-zinc-500
+      p.mt-1.text-xs.text-zinc-500
         | ※ 備考入力欄が任意入力項目として追加されます
       = form.check_box :note_field_enabled, class: 'cursor-pointer mt-1 text-blue-699 bg-gray-100 border-gray-300 rounded'
 
