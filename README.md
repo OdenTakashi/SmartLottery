@@ -7,6 +7,22 @@ SmartLotteryは抽選で複数人にプレゼントを送る際に発生する�
 また、自分でGoogleフォームで申し込み用フォームを作成し締め切り時間になったらArray#sampleを使って抽選を行い当選者に連絡するのとは違い、
 指定した時間に自動で抽選が行われ当選者にはあらかじめ設定したメールが送られることが特徴です。
 
+## 技術スタック
+- Ruby 3.2.2
+- Ruby on Rails 7.0.6
+- Devise 4.9.2
+- Hotwire
+  - turbo-rails 1.4.0
+  - stimulus-rails 1.2.1
+- Tailwind CSS
+- Slim 5.1.1
+- PostgreSQL
+- Rspec 6.0.3
+- Rubocop 1.55.1
+- Slim-Lint 0.24.0
+- GitHub Actions
+- Fly.io
+
 ## URL
 ```
 https://smartlottery.fly.dev/
@@ -40,3 +56,10 @@ $ bin/lint
 email: 'user1@example.com'
 password: 'testtest'
 ```
+
+## 環境変数の設定
+
+| 環境変数名            | 説明                                      |
+| --------------------- | ----------------------------------------- |
+| SEND_MAIL     | GMAILのアドレス                               |
+| GMAIL_SPECIFIC_PASSWORD     | GMAILのアプリパスワード                       |
