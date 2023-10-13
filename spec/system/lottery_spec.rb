@@ -39,7 +39,7 @@ RSpec.describe Lottery, type: :system do
     let!(:lottery_executed) { create(:lottery, :skip_validate, deadline: Time.zone.yesterday, user:) }
 
     it 'display winners' do
-      Lottery.execute
+      described_class.execute
       sign_in user
       visit lottery_path(lottery_executed)
 
