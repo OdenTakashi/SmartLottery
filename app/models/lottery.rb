@@ -12,30 +12,42 @@ class Lottery < ApplicationRecord
   validate :deadline_later_than_today
   scope :closed_lottery, -> { where('deadline = ?', Time.zone.today.ago(1.day).to_date) }
 
-  def self.run
-    Lottery.closed_lottery.each(&:execute)
+  def self.execute
+    closed_lottery.each(&:notify_winners)
   end
 
-  def execute
-    entry_list = entries.to_a
-
-    prizes.each do |prize|
-      winning_entries = sample_randomly(entry_list, prize)
-      assign_prize_info(winning_entries, prize)
-      entry_list.reject! { |entry| entry.prize.present? }
-    end
+  def notify_winners
+    winning_entries = draw_lottery
+    winning_entries.each { |winning_entry| send_winning_email(winning_entry) }
   end
 
   private
 
+  def draw_lottery
+    entry_list = entries.to_a
+    prizes.flat_map { |prize| sample_randomly(entry_list, prize) }
+  end
+
+  def send_winning_email(winning_entry)
+    WinMailer.with(
+      to: winning_entry.email,
+      name: winning_entry.email,
+      subject: qualified_email_subject(winning_entry.prize),
+      body: winning_entry.prize.winning_email_body
+    ).win.deliver_now
+  end
+
   def sample_randomly(entry_list, prize)
-    entry_list.sample(prize.winners_count)
+    winners = entry_list.select { |entry| entry.prize.nil? }.sample(prize.winners_count)
+    assign_prize_info(winners, prize)
   end
 
   def assign_prize_info(winning_entries, prize)
-    winning_entries.each do |winning_entry|
-      winning_entry.update_prize(prize)
-    end
+    winning_entries.each { |winning_entry| winning_entry.update(prize:) }
+  end
+
+  def qualified_email_subject(prize)
+    "[SmartLottery]#{prize.winning_email_subject}"
   end
 
   def deadline_later_than_today

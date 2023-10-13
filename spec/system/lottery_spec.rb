@@ -6,7 +6,6 @@ RSpec.describe Lottery, type: :system do
   let(:user) { create(:user) }
   let(:other_user) { create(:user) }
   let(:closed_lottery) { create(:lottery, :skip_validate, deadline: '2023-08-06', user:) }
-  let(:lottery_executed) { create(:lottery, :skip_validate, deadline: Time.zone.yesterday, user:) }
 
   context 'when lottery is nothing' do
     it 'display promotion word' do
@@ -37,8 +36,10 @@ RSpec.describe Lottery, type: :system do
   end
 
   context 'when lottery has been executed' do
+    let!(:lottery_executed) { create(:lottery, :skip_validate, deadline: Time.zone.yesterday, user:) }
+
     it 'display winners' do
-      lottery_executed.execute
+      Lottery.execute
       sign_in user
       visit lottery_path(lottery_executed)
 

@@ -11,7 +11,7 @@ RSpec.describe Lottery, type: :model do
     let!(:closed_lottery_2days_ago) { create(:lottery, :skip_validate, deadline: Time.zone.today.ago(2.days)) }
 
     before do
-      described_class.run
+      described_class.execute
     end
 
     it 'lottery executed' do
