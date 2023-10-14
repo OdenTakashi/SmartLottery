@@ -28,18 +28,18 @@ RSpec.describe Lottery, type: :model do
   end
 
   describe 'scope' do
-    describe 'closed_lottery' do
-      subject { described_class.closed_lottery }
+    describe 'closed_yesterday' do
+      subject { described_class.closed_yesterday }
 
       let!(:lottery_closed_yesterday) { create(:lottery, :skip_validate, deadline: Time.zone.yesterday) }
       let!(:lottery_closed_today) { create(:lottery, :skip_validate, deadline: Time.zone.today) }
 
       it 'include lottery_closed_yesterday' do
-        expect(described_class.closed_lottery).to include lottery_closed_yesterday
+        expect(described_class.closed_yesterday).to include lottery_closed_yesterday
       end
 
       it 'do not include lottery_closed_today' do
-        expect(described_class.closed_lottery).not_to include lottery_closed_today
+        expect(described_class.closed_yesterday).not_to include lottery_closed_today
       end
     end
   end

@@ -10,10 +10,10 @@ class Lottery < ApplicationRecord
   validates :prizes, presence: true
   validates :deadline, presence: true
   validate :deadline_later_than_today
-  scope :closed_lottery, -> { where('deadline = ?', Time.zone.today.ago(1.day).to_date) }
+  scope :closed_yesterday, -> { where('deadline = ?', Time.zone.today.ago(1.day).to_date) }
 
   def self.execute
-    closed_lottery.each(&:notify_winners)
+    closed_yesterday.each(&:notify_winners)
   end
 
   def notify_winners
