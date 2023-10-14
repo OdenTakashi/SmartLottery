@@ -43,4 +43,12 @@ RSpec.describe Lottery, type: :model do
       end
     end
   end
+
+  describe '#notify_winners' do
+    let!(:lottery_closed_yesterday) { create(:lottery, :skip_validate, deadline: Time.zone.yesterday) }
+
+    it 'send mails successful' do
+      expect { lottery_closed_yesterday.notify_winners }.to change { ActionMailer::Base.deliveries.size }.by(5)
+    end
+  end
 end
