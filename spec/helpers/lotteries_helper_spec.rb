@@ -4,10 +4,10 @@ require 'rails_helper'
 
 RSpec.describe LotteriesHelper, type: :helper do
   let(:lottery) { create(:lottery) }
-  let(:lottery_executed) { create(:lottery, :skip_validate, deadline: Time.zone.yesterday) }
+  let!(:lottery_executed) { create(:lottery, :skip_validate, deadline: Time.zone.yesterday) }
 
   it 'lottery_executed?' do
-    lottery_executed.execute
+    Lottery.execute
     expect(lottery_executed?(lottery_executed)).to eq true
     expect(lottery_executed?(lottery)).to eq false
   end
