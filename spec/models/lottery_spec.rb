@@ -5,6 +5,16 @@ require 'rails_helper'
 RSpec.describe Lottery, type: :model do
   include LotteriesHelper
 
+  describe 'validatoion' do
+    describe 'deadline_later_than_today' do
+      it 'invalid deadline is before today' do
+        invalid_lottery = build(:lottery, deadline: Time.zone.yesterday)
+        invalid_lottery.valid?
+        expect(invalid_lottery.errors[:deadline]).to include('は本日以降を指定してください')
+      end
+    end
+  end
+
   describe 'execute' do
     let!(:closed_lottery) { create(:lottery, :skip_validate, deadline: Time.zone.yesterday) }
     let!(:open_lottery) { create(:lottery, deadline: Time.zone.today) }
