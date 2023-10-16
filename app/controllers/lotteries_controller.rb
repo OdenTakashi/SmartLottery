@@ -9,7 +9,7 @@ class LotteriesController < ApplicationController
     if current_user
       @lotteries = current_user.lotteries
     else
-      redirect_to welcome_path
+      render 'welcome/index'
     end
   end
 
