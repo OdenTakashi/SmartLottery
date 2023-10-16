@@ -39,10 +39,10 @@ class Lottery < ApplicationRecord
 
   def sample_randomly(entry_list, prize)
     winners = entry_list.select { |entry| entry.prize.nil? }.sample(prize.winners_count)
-    assign_prize_info(winners, prize)
+    set_winning_entry_prize(winners, prize)
   end
 
-  def assign_prize_info(winning_entries, prize)
+  def set_winning_entry_prize(winning_entries, prize)
     winning_entries.each { |winning_entry| winning_entry.update(prize:) }
   end
 
