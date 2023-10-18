@@ -20,6 +20,10 @@
         | (例: X月1日指定の場合、X月2日 01:00時に抽選実行)
       = form.date_field :deadline, class: 'mt-2 rounded border border-gray-200 w-80', required: true
 
+    .mt-6
+      = form.label :description, style: 'display: block', class: 'text-zinc-800 font-semibold'
+      = form.text_area :description, class: 'mt-2 rounded border border-gray-200 h-32 w-full', required: true
+
     .mt-3
       .font-semibold.text-zinc-800
         | 応募フォームオプション
