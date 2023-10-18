@@ -3,6 +3,7 @@
 FactoryBot.define do
   factory :lottery do
     user
+    name {'チケットの抽選会'}
     name_field_enabled { true }
     note_field_enabled { true }
     deadline { Time.zone.tomorrow }
