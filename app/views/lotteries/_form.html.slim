@@ -9,6 +9,10 @@
                 = error.full_message
 
     .mt-6
+      = form.label :name, style: 'display: block', class: 'text-zinc-800 font-semibold'
+      = form.text_field :name, placeholder: 'チケット抽選会', class: 'mt-2 rounded border border-gray-200 w-80 placeholder-gray-300', required: true
+
+    .mt-6
       = form.label :deadline, style: 'display: block', class: 'text-zinc-800 font-semibold'
       p.mt-1.text-xs.text-zinc-500
         | ※ 抽選は指定した日付の翌日01:00時に行われます

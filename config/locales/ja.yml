@@ -13,6 +13,7 @@ ja:
         name_field_enabled: 名前を必要とするか
         note_field_enabled: 備考を必要とするか
         deadline: 締切日
+        name: 抽選会名
       lottery/prizes:
         name: 賞品名
         winners_count: 当選者数

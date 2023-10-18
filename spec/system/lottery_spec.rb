@@ -5,6 +5,7 @@ require 'rails_helper'
 RSpec.describe Lottery, type: :system do
   let(:user) { create(:user) }
   let(:other_user) { create(:user) }
+  let!(:lottery) { create(:lottery, name: 'テストの抽選会', user:) }
   let(:closed_lottery) { create(:lottery, :skip_validate, deadline: '2023-08-06', user:) }
 
   context 'when lottery is nothing' do
@@ -68,8 +69,9 @@ RSpec.describe Lottery, type: :system do
         sign_in user
         visit lotteries_path
 
-        click_button '新規作成'
+        click_button '抽選会作成'
 
+        fill_in 'lottery_name', with: 'テストの抽選会'
         fill_in 'lottery_deadline', with: '002023-09-07'
         check 'lottery_name_field_enabled'
         check 'lottery_note_field_enabled'
@@ -105,8 +107,9 @@ RSpec.describe Lottery, type: :system do
         sign_in user
         visit lotteries_path
 
-        click_button '新規作成'
+        click_button '抽選会作成'
 
+        fill_in 'lottery_name', with: 'テストの抽選会'
         fill_in 'lottery_deadline', with: '002023-08-01'
         check 'lottery_name_field_enabled'
         check 'lottery_note_field_enabled'
@@ -120,5 +123,15 @@ RSpec.describe Lottery, type: :system do
         expect(page).to have_content('締切日は本日以降を指定してください')
       end
     end
+  end
+
+  it 'can accsess specified lottery' do
+    sign_in user
+    visit lotteries_path
+
+    click_on 'テストの抽選会'
+
+    expect(page).to have_content('テストの抽選会')
+    expect(page).to have_current_path "/lotteries/#{lottery.id}"
   end
 end

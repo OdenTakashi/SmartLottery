@@ -5,6 +5,7 @@ User.create!(email: 'user1@example.com', password: 'testtest', confirmed_at: Tim
 lottery1 = Lottery.create!(
   {
     user_id: 1,
+    name: 'サンプルの抽選会',
     name_field_enabled: false,
     note_field_enabled: false,
     deadline: Time.zone.today,
