@@ -8,6 +8,7 @@ class Lottery < ApplicationRecord
                                 allow_destroy: true,
                                 reject_if: :all_blank
   validates :prizes, presence: true
+  validates :name, presence: true
   validates :deadline, presence: true
   validate :deadline_later_than_today
   scope :closed_yesterday, -> { where('deadline = ?', Time.zone.yesterday) }
