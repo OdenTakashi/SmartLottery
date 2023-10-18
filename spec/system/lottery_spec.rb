@@ -124,21 +124,14 @@ RSpec.describe Lottery, type: :system do
     end
   end
 
-  context 'when click lottery name' do
-    before do
-      sign_in user
-      visit lotteries_path
-    end
+  it 'can accsess specified lottery' do
+    sign_in user
+    visit lotteries_path
 
-    it 'exist specifid lottery name' do
-      expect(page).to have_content('テストの抽選会')
-    end
+    click_on 'テストの抽選会'
 
-    it 'can accsess specified lottery' do
-      click_on 'テストの抽選会'
-
-      expect(page).to have_content('テストの抽選会')
-      expect(page).to have_current_path "/lotteries/#{lottery.id}"
-    end
+    expect(page).to have_content('テストの抽選会')
+    expect(page).to have_current_path "/lotteries/#{lottery.id}"
+  end
   end
 end
