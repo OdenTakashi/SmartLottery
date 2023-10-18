@@ -69,7 +69,7 @@ RSpec.describe Lottery, type: :system do
         sign_in user
         visit lotteries_path
 
-        click_button '新規作成'
+        click_button '抽選会作成'
 
         fill_in 'lottery_name', with: 'テストの抽選会'
         fill_in 'lottery_deadline', with: '002023-09-07'
@@ -107,8 +107,9 @@ RSpec.describe Lottery, type: :system do
         sign_in user
         visit lotteries_path
 
-        click_button '新規作成'
+        click_button '抽選会作成'
 
+        fill_in 'lottery_name', with: 'テストの抽選会'
         fill_in 'lottery_deadline', with: '002023-08-01'
         check 'lottery_name_field_enabled'
         check 'lottery_note_field_enabled'
@@ -132,6 +133,5 @@ RSpec.describe Lottery, type: :system do
 
     expect(page).to have_content('テストの抽選会')
     expect(page).to have_current_path "/lotteries/#{lottery.id}"
-  end
   end
 end
