@@ -48,10 +48,10 @@ RSpec.describe User, type: :system do
       sign_in user
     end
 
-    it 'can access welcome page' do
+    it 'can not access welcome page' do
       visit welcome_index_path
 
-      expect(page).to have_current_path '/welcome'
+      expect(page).to have_current_path '/lotteries'
     end
 
     it 'can logout' do

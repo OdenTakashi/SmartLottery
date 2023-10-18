@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  root 'home#index'
+  root 'welcome#index'
   get 'privacy_policy', to: 'welcome#privacy_policy', as: :privacy_policy
   get 'terms', to: 'welcome#terms', as: :terms
 
   resources :welcome
+
   resources :lotteries do
     resources :entries, only: [:new, :create]
   end
