@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe Lottery, type: :system do
   let(:user) { create(:user) }
   let(:other_user) { create(:user) }
-  let!(:lottery) {create(:lottery, name: 'テストの抽選会', user:)}
+  let!(:lottery) { create(:lottery, name: 'テストの抽選会', user:) }
   let(:closed_lottery) { create(:lottery, :skip_validate, deadline: '2023-08-06', user:) }
 
   context 'when lottery is nothing' do
