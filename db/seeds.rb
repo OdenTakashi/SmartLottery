@@ -6,6 +6,7 @@ lottery1 = Lottery.create!(
   {
     user_id: 1,
     name: 'サンプルの抽選会',
+    description: 'XXX株式会社の提供で行われます。',
     name_field_enabled: false,
     note_field_enabled: false,
     deadline: Time.zone.today,

@@ -24,4 +24,10 @@ RSpec.describe LotteriesHelper, type: :helper do
   it 'extra_prizes_count' do
     expect(extra_prizes_count(lottery)).to eq 1
   end
+
+  describe '#description_template' do
+    it 'display_template_word' do
+      expect(description_template).to eq "この抽選会はXXX株式会社の提供で行われます。\n備考にはxxxを書いてください\n"
+    end
+  end
 end

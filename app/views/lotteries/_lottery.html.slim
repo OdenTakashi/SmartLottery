@@ -4,6 +4,10 @@
   .mt-3
     = l(lottery.deadline.end_of_day)
   .font-bold.mt-3.text-zinc-800
+    = Lottery.human_attribute_name(:description)
+  .mt-3
+    = lottery.description
+  .font-bold.mt-3.text-zinc-800
     | 応募フォームオプション
   .flex.items-center.mt-3
     input type='checkbox' value='' class='text-blue-699 bg-gray-100 border-gray-300 rounded' checked=lottery.name_field_enabled disabled='true'

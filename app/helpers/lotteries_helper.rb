@@ -18,4 +18,11 @@ module LotteriesHelper
   def extra_prizes_count(lottery)
     lottery.prizes.count - DISPLAY_LIMIT
   end
+
+  def description_template
+    <<~DESCRIPTION_CONTENT
+      この抽選会はXXX株式会社の提供で行われます。
+      備考にはxxxを書いてください
+    DESCRIPTION_CONTENT
+  end
 end
