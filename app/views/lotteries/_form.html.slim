@@ -10,7 +10,7 @@
 
     .mt-6
       = form.label :name, style: 'display: block', class: 'text-zinc-800 font-semibold'
-      = form.text_field :name, placeholder: 'チケット抽選会', class: 'mt-2 rounded border border-gray-200 w-80 placeholder-gray-300', required: true
+      = form.text_field :name, placeholder: 'チケット抽選会', class: 'mt-2 rounded border border-gray-200 w-80 placeholder-gray-300 text-sm', required: true
 
     .mt-6
       = form.label :deadline, style: 'display: block', class: 'text-zinc-800 font-semibold'
@@ -22,7 +22,7 @@
 
     .mt-6
       = form.label :description, style: 'display: block', class: 'text-zinc-800 font-semibold'
-      = form.text_area :description, class: 'mt-2 rounded border border-gray-200 h-32 w-full', required: true
+      = form.text_area :description, placeholder: description_template, class: 'mt-2 rounded border border-gray-200 h-32 w-full placeholder-gray-300 text-sm', required: true
 
     .mt-3
       .font-semibold.text-zinc-800
