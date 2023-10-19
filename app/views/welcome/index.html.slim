@@ -1,40 +1,43 @@
 - set_meta_tags(title: '')
 
 .max-w
-  .max-w
-    h1.text-center.font-bold.text-zinc-600.text-2xl.mt-6
-      | あなたの抽選会をもっとラクに
   .max-w.mt-3
     = image_tag 'logo_2.png', class: 'm-auto', alt: 'logo'
-  .mt-5
-    = button_to '新規登録', '/users/sign_up', method: :get, class: 'bg-lime-600 font-bold w-36 h-10 m-auto text-white rounded flex items-center justify-center hover:bg-lime-700'
-    .w-16.m-auto.mt-2.text-gray.text-sm
-      = button_to 'ログイン', '/users/sign_in', method: :get, class: 'underline hover:no-underline'
+  .max-w
+    h1.text-center.font-bold.text-zinc-600.text-4xl.mt-6
+      | 抽選会をラクに開催
   .mt-6
-    h2.text-center.font-bold.text-xl.text-zinc-500
-      | 抽選会を行う際にこんな手間ありませんか?
-  .mx-auto
-    div
-      = image_tag 'tired.png', class: 'mx-auto', alt: 'tired_image'
-  ul.text-center
-    li.mt-2
-      | 応募フォームを作成して、、
-    li.mt-2
-      | 締め切りが来たら抽選を行って、、
-    li.mt-2
-      | 当選者にメールを送って、、
-  .mt-3.text-center
-    h2.text-center.font-bold.text-xl.text-zinc-500
-      | SmartLotteryはその手間を解決します!
-  .mx-auto
-    div
-      = image_tag 'happy.png', class: 'mx-auto', alt: 'happy_image'
-  ul.text-center.mb-6
-    li.mt-2.font-semibold
-      | 抽選会を作成するだけで
-    li.mt-2
-      | 自動で応募フォーム作成
-    li.mt-2
-      | 締め切りが来たら自動で抽選
-    li.mt-2
-      | 当選者に自動でメールを送信
+    = button_to '登録して抽選会を開催', '/users/sign_up', method: :get, class: 'p-4 bg-lime-600 font-bold h-10 m-auto text-white rounded flex items-center justify-center hover:bg-lime-700'
+    .text-center.m-auto.mt-2.text-gray.text-sm.mt-6
+      = button_to '登録済みの方はこちらからログイン', '/users/sign_in', method: :get, class: 'underline hover:no-underline'
+  .flex.justify-center.mt-6
+    .mt-6.mr-3
+      h2.text-center.font-bold.text-xl.text-zinc-500
+        | こんな手間ありませんか?
+      .mt-2.flex
+        div
+          = image_tag 'tired.png', class: 'mx-auto', alt: 'tired_image'
+        .mt-6
+          ul
+            li.mt-2
+              | 応募フォームを作成して、
+            li.mt-2
+              | 締め切りが来たら抽選を行って、
+            li.mt-2
+              | 当選者にメールを送って、
+    .mt-6
+      | →
+    .mt-6.ml-3
+      h2.text-center.font-bold.text-xl.text-zinc-500
+        | その手間を解決します!
+      .mt-2.flex
+        div
+          = image_tag 'happy.png', class: 'mx-auto', alt: 'happy_image'
+        .mt-6
+          ul
+            li.mt-2
+              | 簡単に応募フォーム作成
+            li.mt-2
+              | 締め切りが来たら自動で抽選
+            li.mt-2
+              | 当選者に自動でメールを送信
