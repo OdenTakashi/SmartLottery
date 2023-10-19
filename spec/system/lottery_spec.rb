@@ -72,6 +72,7 @@ RSpec.describe Lottery, type: :system do
         click_button '抽選会作成'
 
         fill_in 'lottery_name', with: 'テストの抽選会'
+        fill_in 'lottery_description', with: 'テストの説明'
         fill_in 'lottery_deadline', with: '002023-09-07'
         check 'lottery_name_field_enabled'
         check 'lottery_note_field_enabled'
@@ -110,6 +111,7 @@ RSpec.describe Lottery, type: :system do
         click_button '抽選会作成'
 
         fill_in 'lottery_name', with: 'テストの抽選会'
+        fill_in 'lottery_description', with: 'テストの説明'
         fill_in 'lottery_deadline', with: '002023-08-01'
         check 'lottery_name_field_enabled'
         check 'lottery_note_field_enabled'
