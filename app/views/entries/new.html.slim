@@ -6,7 +6,9 @@
       = render 'entry_closed'
     - else
         h1.text-center.text-2xl.font-semibold.mt-3.text-slate-700
-          | 新規応募
+          = "#{@lottery.name}応募フォーム"
+        .mt-3.text-center
+          = @lottery.description
         p.text-zinc-500.text-center.mt-3.text-xs
           span.text-red-500
             | ※
