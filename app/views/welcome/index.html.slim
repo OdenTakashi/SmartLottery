@@ -1,10 +1,12 @@
 - set_meta_tags(title: '')
 
 .max-w
-  .max-w.mt-3
+  .max-w.mt-11
     = image_tag 'logo_2.png', class: 'm-auto', alt: 'logo'
-  .max-w
-    h1.text-center.font-bold.text-zinc-600.text-4xl.mt-6
+  .text-center.mt-8.text-4xl.font-serif.text-indigo-950
+    | SmartLottery
+  .max-w.mt-11
+    h1.text-center.font-bold.text-zinc-600.text-4xl.mt-6.text-indigo-950
       | 抽選会をラクに開催
   .mt-6
     = button_to '登録して抽選会を開催', '/users/sign_up', method: :get, class: 'p-4 bg-lime-600 font-bold h-10 m-auto text-white rounded flex items-center justify-center hover:bg-lime-700'
