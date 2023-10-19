@@ -2,15 +2,11 @@
 
 class LotteriesController < ApplicationController
   before_action :set_lottery, only: %i[show edit update destroy]
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!
 
   # GET /lotteries or /lotteries.json
   def index
-    if current_user
-      @lotteries = current_user.lotteries
-    else
-      redirect_to welcome_path
-    end
+    @lotteries = current_user.lotteries
   end
 
   # GET /lotteries/1 or /lotteries/1.json

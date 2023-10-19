@@ -2,7 +2,7 @@
 
 class WelcomeController < ApplicationController
   def index
-    redirect_to root_path if user_signed_in?
+    redirect_to lotteries_path if current_user
   end
 
   def terms; end
