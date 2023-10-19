@@ -1,20 +1,20 @@
 - set_meta_tags(title: '')
 
-.max-w
-  .max-w.mt-11
+.max-w.mt-11
+  .max-w
     = image_tag 'logo_2.png', class: 'm-auto', alt: 'logo'
   .text-center.mt-8.text-4xl.font-serif.text-indigo-950
     | SmartLottery
   .max-w.mt-11
     h1.text-center.font-bold.text-zinc-600.text-4xl.mt-6.text-indigo-950
       | 抽選会をラクに開催
-  .mt-6
-    = button_to '登録して抽選会を開催', '/users/sign_up', method: :get, class: 'p-4 bg-lime-600 font-bold h-10 m-auto text-white rounded flex items-center justify-center hover:bg-lime-700'
+  .mt-11
+    = button_to '登録して抽選会を開催', '/users/sign_up', method: :get, class: 'p-4 bg-blue-800 font-bold h-10 m-auto text-white rounded flex items-center justify-center hover:bg-blue-900'
     .text-center.m-auto.mt-2.text-gray.text-sm.mt-6
-      = button_to '登録済みの方はこちらからログイン', '/users/sign_in', method: :get, class: 'underline hover:no-underline'
-  .flex.justify-center.mt-6
-    .mt-6.mr-3
-      h2.text-center.font-bold.text-xl.text-zinc-500
+      = button_to '登録済みの方はこちらからログイン', '/users/sign_in', method: :get, class: 'text-blue-900 underline hover:no-underline'
+  .flex.justify-center.mt-11
+    .mt-11
+      h2.text-center.font-bold.text-xl.text-blue-900
         | こんな手間ありませんか?
       .mt-2.flex
         div
@@ -27,10 +27,10 @@
               | 締め切りが来たら抽選を行って、
             li.mt-2
               | 当選者にメールを送って、
-    .mt-6
-      | →
-    .mt-6.ml-3
-      h2.text-center.font-bold.text-xl.text-zinc-500
+    .flex.items-center.mx-8
+      = image_tag 'arrow.png', class: 'mx-auto', alt: 'arrow_image'
+    .mt-11
+      h2.text-center.font-bold.text-xl.text-blue-900
         | その手間を解決します!
       .mt-2.flex
         div
