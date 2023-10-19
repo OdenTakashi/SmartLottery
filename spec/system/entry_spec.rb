@@ -22,7 +22,7 @@ RSpec.describe Entry, type: :system, js: true do
       visit new_lottery_entry_path(opend_lottery)
 
       expect(page).to have_content("#{opend_lottery.name}応募フォーム")
-      expect(page).to have_content("#{opend_lottery.description}")
+      expect(page).to have_content(opend_lottery.description.to_s)
 
       fill_in 'entry_email', with: 'entryuser@example.com'
       fill_in 'entry_name', with: '応募の名前'
