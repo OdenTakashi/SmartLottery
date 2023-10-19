@@ -11,7 +11,7 @@ RSpec.describe User, type: :system do
   it 'user can login' do
     visit root_path
 
-    click_button '新規登録'
+    click_button '登録して抽選会を開催'
     expect(page).to have_content '新規登録'
 
     fill_in 'user_email', with: email
