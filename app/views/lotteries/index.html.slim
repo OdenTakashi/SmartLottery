@@ -20,7 +20,7 @@
 
 - @lotteries.each do |lottery|
   .bg-stone-100.m-auto.border.border-gray.rounded.mt-6.w-11/12.text-zinc-800.md:w-3/6
-    .flex.p-2
+    .flex.p-3
       .w-14.mx-2.my-2.shrink-0.text-center.text-white
         - if closed?(lottery)
           .bg-gray-500.rounded-full.text-sm.p-1
@@ -29,15 +29,15 @@
           .bg-indigo-500.rounded-full.text-sm.p-1
             | 開催中
       .text-left.w-full
-        .h-28
-          .p-1.underline.font-semibold.hover:no-underline
+        .h-28.text-zinc-500
+          .p-1.underline.underline-offset-4.font-semibold.text-zinc-600.hover:no-underline
             = link_to lottery.name.to_s, lottery_path(lottery)
           - lottery.prizes.first(LotteriesHelper::DISPLAY_LIMIT).each_with_index do |prize, index|
             p.my-2
-              = index == lottery.prizes.count - 1 ? "#{prize.name}の抽選会" : prize.name
+              = prize.name
           - if extra_prizes_count(lottery).positive?
             p.my-2
-              = "その他#{extra_prizes_count(lottery)}つの賞品の抽選会"
+              = "その他#{extra_prizes_count(lottery)}つの賞品"
         .text-xs.text-zinc-400.mt-3.md:flex.md:text-sm
           div
             =  "締め切り日時: #{l(lottery.deadline.end_of_day)}"
