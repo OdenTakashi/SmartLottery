@@ -23,13 +23,13 @@
     .flex.p-3
       .w-14.mx-2.my-2.shrink-0.text-center.text-white
         - if closed?(lottery)
-          .bg-gray-500.rounded-full.text-sm.p-1
+          .bg-gray-500.rounded-full.text-xs.h-4
             | 終了
         - else
-          .bg-indigo-500.rounded-full.text-sm.p-1
+          .bg-indigo-500.rounded-full.text-xs.h-4
             | 開催中
       .text-left.w-full
-        .h-28.text-zinc-500
+        .h-32.text-zinc-500
           .p-1.underline.underline-offset-4.font-semibold.text-zinc-600.hover:no-underline
             = link_to lottery.name.to_s, lottery_path(lottery)
           - lottery.prizes.first(LotteriesHelper::DISPLAY_LIMIT).each_with_index do |prize, index|
