@@ -10,8 +10,8 @@ ja:
     attributes:
       lottery: 
         prizes: 賞品
-        name_field_enabled: 名前を必要とするか
-        note_field_enabled: 備考を必要とするか
+        name_field_enabled: 名前を必要とする
+        note_field_enabled: 備考を必要とする
         deadline: 締切日
         name: 抽選会名
         description: 説明文

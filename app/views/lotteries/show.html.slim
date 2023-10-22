@@ -1,16 +1,16 @@
 - set_meta_tags(title: '抽選会詳細')
 
 .p-2.m-auto.w-full.md:w-7/12
-  h1.mt-6.font-semibold.text-2xl.text-center.text-slate-700
+  h1.mt-6.font-semibold.text-2xl.text-center.text-zinc-800
     = @lottery.name
   - unless closed?(@lottery)
     .mt-6.m-auto data-controller='clipboard'
       input type='hidden' value=new_lottery_entry_url(@lottery) readonly='readonly' data-clipboard-target='source'
       .text-center
         button.w-64.font-semibold.h-10.rounded.py-2.px-2.m-auto.border.border-zinc-400.hover:border-zinc-900 data-action='clipboard#copy' data-clipboard-target='copyButton'
-          | 応募フォームのURLをコピーする
-        p.mt-2.text-sm.text-zinc-600
-          | 応募フォームのURLを希望者に渡し応募してもらいましょう。
+          | 応募フォームのURLをコピー
+        p.mt-2.text-xs.text-zinc-600.md:text-sm
+          | 応募希望者にフォームのURLを共有して応募してもらいましょう。
   == render @lottery
 
   .mx-2.mt-6
