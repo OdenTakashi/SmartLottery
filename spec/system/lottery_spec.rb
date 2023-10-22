@@ -39,8 +39,18 @@ RSpec.describe Lottery, type: :system do
   context 'when lottery has been executed' do
     let!(:lottery_executed) { create(:lottery, :skip_validate, deadline: Time.zone.yesterday, user:) }
 
-    it 'display winners' do
+    before do
       described_class.execute
+    end
+
+    it 'display winners in index page' do
+      sign_in user
+      visit lotteries_path
+
+      expect(page).to have_content('当選者数')
+    end
+
+    it 'display winners in show page' do
       sign_in user
       visit lottery_path(lottery_executed)
 

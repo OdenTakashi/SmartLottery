@@ -19,26 +19,27 @@
     = button_to '新規作成', new_lottery_path, method: 'get', class: 'bg-lime-600 font-bold w-36 h-10 m-auto text-white rounded flex items-center justify-center hover:bg-lime-700'
 
 - @lotteries.each do |lottery|
-  .bg-stone-100.m-auto.border.border-gray.rounded.mt-6.w-full.text-zinc-800.md:w-3/6
-    .flex.p-2
+  .bg-stone-100.m-auto.border.border-gray.rounded.mt-6.w-11/12.text-zinc-800.md:w-3/6
+    .flex.p-3
       .w-14.mx-2.my-2.shrink-0.text-center.text-white
         - if closed?(lottery)
-          .bg-gray-500.rounded-full.text-sm.p-1
+          .bg-gray-500.rounded-full.text-xs.h-4
             | 終了
         - else
-          .bg-indigo-500.rounded-full.text-sm.p-1
+          .bg-indigo-500.rounded-full.text-xs.h-4
             | 開催中
       .text-left.w-full
-        .h-28
-          .p-1.underline.font-semibold.hover:no-underline
+        .text-zinc-500
+          .mb-3.p-1.underline.underline-offset-4.font-semibold.text-zinc-600.hover:no-underline
             = link_to lottery.name.to_s, lottery_path(lottery)
-          - lottery.prizes.first(LotteriesHelper::DISPLAY_LIMIT).each_with_index do |prize, index|
-            p.my-2
-              = index == lottery.prizes.count - 1 ? "#{prize.name}の抽選会" : prize.name
-          - if extra_prizes_count(lottery).positive?
-            p.my-2
-              = "その他#{extra_prizes_count(lottery)}つの賞品の抽選会"
-        .text-sm.text-zinc-400.mt-3.md:flex
+          - lottery.prizes.each do |prize|
+            .flex
+              .w-1/2.truncate.md:w-3/5
+                = prize.name
+              - if lottery_executed?(lottery)
+                .ml-2.text-xs.md:text-sm
+                  = "当選者数: #{prize.entries.size}人"
+        .text-xs.text-zinc-400.mt-3.md:flex.md:text-sm
           div
             =  "締め切り日時: #{l(lottery.deadline.end_of_day)}"
           .md:ml-2
