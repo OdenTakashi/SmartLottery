@@ -1,7 +1,7 @@
 - set_meta_tags(title: '抽選会詳細')
 
 .p-2.m-auto.w-full.md:w-7/12
-  h1.mt-6.font-semibold.text-2xl.text-center.text-slate-700
+  h1.mt-6.font-semibold.text-2xl.text-center.text-zinc-800
     = @lottery.name
   - unless closed?(@lottery)
     .mt-6.m-auto data-controller='clipboard'
