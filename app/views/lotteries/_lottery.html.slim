@@ -10,11 +10,11 @@
   .font-bold.mt-3.text-zinc-800
     | 応募フォームオプション
   .flex.items-center.mt-3
-    input type='checkbox' value='' class='text-blue-699 bg-gray-100 border-gray-300 rounded' checked=lottery.name_field_enabled disabled='true'
+    input type='checkbox' value='' class='mr-3 text-blue-699 bg-gray-100 border-gray-300 rounded' checked=lottery.name_field_enabled disabled='true'
     label
       = Lottery.human_attribute_name(:name_field_enabled)
   .flex.items-center.mt-1
-    input type='checkbox' class='text-blue-699 bg-gray-100 border-gray-300 rounded' checked=lottery.note_field_enabled disabled='true'
+    input type='checkbox' class='mr-3 text-blue-699 bg-gray-100 border-gray-300 rounded' checked=lottery.note_field_enabled disabled='true'
     label
       = Lottery.human_attribute_name(:note_field_enabled)
 
