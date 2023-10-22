@@ -54,7 +54,7 @@ RSpec.describe Lottery, type: :system do
       sign_in user
       visit lottery_path(lottery_executed)
 
-      expect(page).to have_content('当選者欄')
+      expect(page).to have_content('当選者一覧')
     end
   end
 

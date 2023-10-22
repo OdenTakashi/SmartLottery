@@ -33,11 +33,11 @@
           .mb-3.underline.underline-offset-4.font-semibold.text-zinc-600.hover:no-underline
             = link_to lottery.name.to_s, lottery_path(lottery)
           - lottery.prizes.each do |prize|
-            .flex
+            .flex.items-center
               .mt-2.w-1/2.truncate.md:w-3/5
                 = prize.name
               - if lottery_executed?(lottery)
-                .ml-2.text-xs.md:text-sm
+                .mt-2.ml-2.text-xs.md:text-sm
                   = "当選者数: #{prize.entries.size}人"
         .text-xs.text-zinc-400.mt-3.md:flex.md:text-sm
           div
