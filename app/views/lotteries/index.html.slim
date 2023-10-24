@@ -8,14 +8,14 @@
       = button_to '抽選会作成', new_lottery_path, method: 'get', class: 'bg-blue-800 font-bold w-36 h-10 m-auto text-white rounded flex items-center justify-center hover:bg-blue-900'
 
 - if @lotteries.blank?
-  .mx-auto.mt-8
-    = image_tag 'logo_3.png', class: 'mx-auto', alt: 'logo'
+  .mx-auto.mt-10
+    = image_tag 'logo_2.png', class: 'm-auto', alt: 'logo'
   .mt-6.text-center
-    h1.text-2xl.text-zinc-500.font-bold
+    h1.text-2xl.text-indigo-950.font-bold.font-serif
       | SmartLotteryで抽選会をもっとラクに行いましょう !
-    p.mt-6
+    p.mt-6.text-zinc-700
       | 早速企画している抽選会を作成してみましょう !
-  .mt-3
+  .mt-6
     = button_to '新規作成', new_lottery_path, method: 'get', class: 'bg-blue-800 font-bold w-36 h-10 m-auto text-white rounded flex items-center justify-center hover:bg-blue-900'
 
 - @lotteries.each do |lottery|
