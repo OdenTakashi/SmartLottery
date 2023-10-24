@@ -6,7 +6,7 @@ module PrizesHelper
       当選おめでとうございます。
 
       発送などについての情報を以下のメールアドレスまで送信ください。
-      匿名発送希望の方は以下のメールアドレスまでその旨を送信ください。
+
       owner@example.com
 
     EMAIL_CONTENT
