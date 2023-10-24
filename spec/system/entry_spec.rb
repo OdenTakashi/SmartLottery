@@ -21,7 +21,7 @@ RSpec.describe Entry, type: :system, js: true do
     it 'can entry' do
       visit new_lottery_entry_path(opend_lottery)
 
-      expect(page).to have_content("#{opend_lottery.name}応募フォーム")
+      expect(page).to have_content("#{opend_lottery.name}\n応募フォーム")
       expect(page).to have_content(opend_lottery.description.to_s)
 
       fill_in 'entry_email', with: 'entryuser@example.com'
