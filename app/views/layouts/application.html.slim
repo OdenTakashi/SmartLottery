@@ -24,7 +24,7 @@ html
             .flex.flex-shrink-0.items-center.align-middle.ml-2.md:ml-6.hover:text-zinc-900
               = link_to '登録情報変更', edit_user_registration_path
     - if flash.notice.present?
-      .w-screen.bg-blue-300.text-blue-800.p-2
+      .w-screen.bg-blue-800.text-white.p-2.text-center
         = notice
     main.container.mx-auto
       = yield
