@@ -51,17 +51,9 @@
     button.w-36.h-10.rounded.py-2.px-2.mt-3.border.border-zinc-400.hover:border-zinc-600
       = link_to_add_association '＋賞品を追加', form, :prizes, data: { association_insertion_node: '.prizes', association_insertion_method: :append }
 
-    details.mt-3
-      summary.cursor-pointer.text-zinc-800.underline.hover:no-underline
-        | 匿名発送について
-      p
-        .underline
-        = link_to 'こちら', 'https://faq.kuronekoyamato.co.jp/app/answers/detail/a_id/4249', class: 'underline hover:no-underline'
-        | の手順を参考に発行したURLを当選者の方に送信することで匿名発送を行うことができます。
-
     ul.flex.justify-center.list-none.mt-6
       li
-        = form.submit nil, class: 'cursor-pointer bg-lime-600 font-bold text-white rounded py-2 px-2 hover:bg-lime-700'
+        = form.submit nil, class: 'cursor-pointer bg-lime-600 font-bold text-white rounded w-32 py-2 px-2 hover:bg-lime-700'
       li
-        .underline.mt-6.text-xs.ml-2.hover:no-underline
+        .underline.mt-6.text-xs.ml-6.hover:no-underline
           = link_to 'キャンセル', lottery
