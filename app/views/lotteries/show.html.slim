@@ -19,11 +19,11 @@
         .font-bold.h-10.text-indigo-950.rounded.text-center
           | 抽選会は終了しているため編集できません
         .mt-6.mx-2.text-right.md:ml-6
-          = button_to '削除する', @lottery, method: :delete, class: 'underline text-sm'
+          = button_to '削除する', @lottery, method: :delete, class: 'underline text-sm hover:no-underline'
     - else
       .flex.justify-center.items-end
         = link_to '編集する', edit_lottery_path(@lottery), method: 'get', class: 'bg-blue-800 mr-3 font-bold h-10 text-white rounded p-2 text-center w-1/3 hover:bg-blue-900 md:w-1/5'
         .mt-6.mx-2
           = button_to '削除する', @lottery, method: :delete, class: 'underline text-sm hover:no-underline'
-    .mt-6
+    .my-6
       = link_to '一覧に戻る', root_path, class: 'underline hover:no-underline'

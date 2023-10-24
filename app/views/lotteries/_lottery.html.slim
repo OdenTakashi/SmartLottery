@@ -42,7 +42,7 @@
       - if lottery_executed?(lottery) && closed?(lottery)
         .mt-3
           .font-bold.text-lg
-            | 当選者一覧
+            = "当選者一覧(#{prize.entries.size})"
           - prize.entries.each do |winner|
             .flex.mt-3
               label.w-1/2.md:w-1/3
