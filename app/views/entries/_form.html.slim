@@ -7,9 +7,9 @@
         - entry.errors.each do |error|
           li = error.full_message
 
-  .mt-3
+  .mt-6
     = form.label :email, class: 'font-semibold text-zinc-800 pr-2'
-    span.text-red-500 ※
+    span.text-red-500.text-xs ※必須
     = form.email_field :email,
       required: true,
       class: 'w-full mt-1 text-blue-699 bg-gray-100 border-gray-300 rounded placeholder-gray-300',
@@ -18,7 +18,7 @@
   - if lottery.name_field_enabled
     .mt-3
       = form.label :name, class: 'font-semibold text-zinc-800 pr-2'
-      span.text-red-500 ※
+      span.text-red-500.text-xs ※必須
       = form.text_field :name,
         required: true,
         class: 'w-full mt-1 text-blue-699 bg-gray-100 border-gray-300 rounded placeholder-gray-300',
