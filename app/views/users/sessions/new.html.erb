@@ -9,7 +9,7 @@
     as: resource_name,
     url: session_path(resource_name),
     html: {
-        class: "bg-stone-100 mb-4 px-8 pt-6 pb-8 rounded"
+        class: "mb-4 px-8 pt-6 pb-8 rounded"
     }
   ) do |f| %>
 
@@ -43,14 +43,14 @@
 
     <% if devise_mapping.rememberable? %>
       <div class="mb-4">
-        <%= f.check_box :remember_me, class: "mr-2 leading-tight mt-1 text-blue-699 bg-gray-100 border-gray-300 rounded" %>
+        <%= f.check_box :remember_me, class: "mr-2 leading-tight mt-1 text-blue-699 border-gray-300 rounded" %>
         <%= f.label :remember_me,
           class: "align-baseline inline-block text-gray-700 text-sm"
         %>
       </div>
     <% end %>
 
-    <div class="mb-4 flex justify-center">
+    <div class="mb-10 flex justify-center">
       <%= f.submit "ログイン",
         data: { turbo: 'false' },
         class: "cursor-pointer button rounded bg-blue-800 hover:bg-blue-900 text-white font-bold py-2 px-4 focus:outline-none"
@@ -59,6 +59,8 @@
 
     <%= render "users/shared/links" %>
 
+    <div class='mt-10'>
+      <%= link_to 'キャンセル', root_path, class: 'underline text-sm hover:no-underline' %>
+    </div>
   <% end %>
-  <%= button_to 'キャンセル', root_path, method: :get, class: 'underline text-sm hover:no-underline' %>
 </div>

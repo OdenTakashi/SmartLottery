@@ -16,9 +16,9 @@
   .mx-2.mt-6
     - if closed?(@lottery)
       .md:flex.justify-center.items-end
-        .bg-gray-500.font-bold.h-10.text-white.rounded.p-2.text-center
+        .font-bold.h-10.text-indigo-950.rounded.text-center
           | 抽選会は終了しているため編集できません
-        .mt-6.mx-2.text-right
+        .mt-6.mx-2.text-right.md:ml-6
           = button_to '削除する', @lottery, method: :delete, class: 'underline text-sm'
     - else
       .flex.justify-center.items-end

@@ -11,7 +11,7 @@
     span.text-red-500.text-xs ※必須
     = form.email_field :email,
       required: true,
-      class: 'w-full mt-1 text-blue-699 bg-gray-100 border-gray-300 rounded placeholder-gray-300',
+      class: 'w-full mt-1 text-blue-699 border-gray-300 rounded placeholder-gray-300',
       placeholder: 'entry@example.com'
 
   - if lottery.name_field_enabled
@@ -20,14 +20,14 @@
       span.text-red-500.text-xs ※必須
       = form.text_field :name,
         required: true,
-        class: 'w-full mt-1 text-blue-699 bg-gray-100 border-gray-300 rounded placeholder-gray-300',
+        class: 'w-full mt-1 text-blue-699 border-gray-300 rounded placeholder-gray-300',
         placeholder: 'odentakashi'
 
   - if lottery.note_field_enabled
     .mt-3
       = form.label :note, class: 'font-semibold text-zinc-800'
       = form.text_area :note,
-        class: 'h-40 w-full mt-1 text-blue-699 bg-gray-100 border-gray-300 rounded text-sm placeholder-gray-300',
+        class: 'h-40 w-full mt-1 text-blue-699 border-gray-300 rounded text-sm placeholder-gray-300',
         placeholder: 'その他、お知らせがあればご記入ください。'
 
   .mt-6.text-center.flex.justify-center
