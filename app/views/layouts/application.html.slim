@@ -19,7 +19,7 @@ html
         .flex.flex-shrink-0.align-middle.font-serif.text-indigo-950.text-2xl.md:mx-6
           = link_to 'SmartLottery', root_path
         - if user_signed_in?
-          .flex.flex-shrink-0.items-center.align-middle.text-zinc-700.ml-4.md:mx-6.text-xs.md:text-base
+          .flex.flex-shrink-0.items-center.align-middle.text-zinc-500.ml-4.md:mx-6.text-xs.md:text-base
             = button_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'hover:text-zinc-900'
             .flex.flex-shrink-0.items-center.align-middle.ml-2.md:ml-6.hover:text-zinc-900
               = link_to '登録情報変更', edit_user_registration_path
