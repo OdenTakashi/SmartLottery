@@ -1,16 +1,14 @@
 - set_meta_tags(title: '新規応募')
 
 = turbo_frame_tag 'entry_completed' do
-  .my-2.mx-3
+  .w-11/12.md:w-5/12.m-auto
     - if closed?(@lottery)
       = render 'entry_closed'
     - else
-        h1.text-center.text-2xl.font-semibold.mt-3.text-slate-700
-          = "#{@lottery.name}応募フォーム"
-        .mt-3.text-center
+        h1.text-center.text-2xl.font-semibold.mt-10.text-zinc-800
+          = @lottery.name
+          br.md:hidden
+          | 応募フォーム
+        .mt-6.break-all.text-zinc-800
           = @lottery.description
-        p.text-zinc-500.text-center.mt-3.text-xs
-          span.text-red-500
-            | ※
-          | が付与されている箇所は必須入力項目です。
         = render 'form', entry: @entry, lottery: @lottery
