@@ -32,14 +32,14 @@
 
     .mt-3
       .flex
-        = form.check_box :name_field_enabled, class: 'cursor-pointer mt-1  mr-3 text-blue-699 bg-gray-100 border-gray-300 rounded'
+        = form.check_box :name_field_enabled, class: 'cursor-pointer mt-1  mr-3 text-blue-699 border-gray-300 rounded'
         = form.label :name_field_enabled, style: 'display: block', class: 'cursor-pointer text-zinc-800'
       p.mt-1.text-xs.text-zinc-500
         | 名前入力欄が必須入力項目として追加されます
 
     .mt-6
       .flex
-        = form.check_box :note_field_enabled, class: 'cursor-pointer mt-1 mr-3 text-blue-699 bg-gray-100 border-gray-300 rounded'
+        = form.check_box :note_field_enabled, class: 'cursor-pointer mt-1 mr-3 text-blue-699 border-gray-300 rounded'
         = form.label :note_field_enabled, style: 'display: block', class: 'cursor-pointer text-zinc-800'
       p.mt-1.text-xs.text-zinc-500
         | 備考入力欄が任意入力項目として追加されます
