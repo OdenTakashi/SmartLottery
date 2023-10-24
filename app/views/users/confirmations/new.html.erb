@@ -1,38 +1,41 @@
 <% set_meta_tags(title: 'アカウント確認メール再送') %>
 
 <div class="w-full max-w-xs mx-auto mt-10">
-    <h1 class="font-hairline mb-6 text-center text-xl">
-      <%= t 'devise.confirmations.new.resend_confirmation_instructions' %>
-    </h1>
+  <h1 class="font-hairline mb-6 text-center text-xl">
+    <%= t 'devise.confirmations.new.resend_confirmation_instructions' %>
+  </h1>
 
-    <%= form_for(resource,
-                  as: resource_name,
-                  url: confirmation_path(resource_name),
-                  html: {
-                          method: :post,
-                          class: "border border-gray mb-4 px-8 pt-6 pb-8 rounded"
-                  }
-                ) do |f| %>
+  <%= form_for(resource,
+    as: resource_name,
+    url: confirmation_path(resource_name),
+    html: {
+      method: :post,
+      class: "mb-4 px-8 pt-6 pb-8 rounded"
+    }
+  ) do |f| %>
 
-        <%= render "users/shared/error_messages", resource: resource %>
+    <%= render "users/shared/error_messages", resource: resource %>
 
-        <div class="mb-4">
-            <%= f.label :email, class: "block font-bold mb-2 text-gray-700 text-sm" %>
-            <%= f.email_field :email,
-                              autofocus: true,
-                              autocomplete: "email",
-                              value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),
-                              class: "appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
-            %>
-        </div>
+    <div class="mb-4">
+      <%= f.label :email, class: "block font-bold mb-2 text-gray-700 text-sm" %>
+      <%= f.email_field :email,
+        autofocus: true,
+        autocomplete: "email",
+        value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),
+        class: "appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
+      %>
+    </div>
 
-        <div class="mb-4 flex justify-center">
-            <%= f.submit "再送信",
-                          class: "button cursor-pointer bg-blue-800 hover:bg-blue-900 font-bold text-white focus:outline-none py-2 px-4 rounded"
-            %>
-        </div>
+    <div class="mb-4 flex justify-center">
+      <%= f.submit "再送信",
+        class: "button cursor-pointer bg-blue-800 hover:bg-blue-900 font-bold text-white focus:outline-none py-2 px-4 rounded"
+      %>
+    </div>
 
-        <%= render "users/shared/links" %>
-    <% end %>
-    <%= button_to 'キャンセル', root_path, method: :get, class: 'underline' %>
+    <%= render "users/shared/links" %>
+
+    <div class='mt-10'>
+      <%= link_to 'キャンセル', root_path, class: 'underline text-sm hover:no-underline' %>
+    </div>
+  <% end %>
 </div>
