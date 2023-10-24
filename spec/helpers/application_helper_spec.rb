@@ -3,11 +3,13 @@
 require 'rails_helper'
 
 RSpec.describe ApplicationHelper, type: :helper do
-  def controller_path
-    'entries'
-  end
+  describe '#not_entry_form?' do
+    def controller_path
+      'entries'
+    end
 
-  it 'entry_form?' do
-    expect(entry_form?).to eq true
+    it 'return false' do
+      expect(not_entry_form?).to eq false
+    end
   end
 end
