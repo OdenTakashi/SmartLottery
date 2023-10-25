@@ -12,6 +12,7 @@ class Lottery < ApplicationRecord
   validates :description, presence: true
   validates :deadline, presence: true
   validate :deadline_later_than_today
+  validates_associated :prizes
   scope :closed_yesterday, -> { where('deadline = ?', Time.zone.yesterday) }
 
   def self.execute
