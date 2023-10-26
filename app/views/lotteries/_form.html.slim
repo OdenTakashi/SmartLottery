@@ -9,11 +9,11 @@
                 = error.full_message
 
     .mt-6
-      = form.label :name, style: 'display: block', class: 'text-zinc-800 font-semibold'
+      = form.label :name, style: 'display: block', class: 'text-zinc-800 font-semibold text-lg'
       = form.text_field :name, placeholder: 'チケット抽選会', class: 'mt-2 rounded border border-gray-200 w-80 placeholder-gray-300 text-sm', required: true
 
     .mt-6
-      = form.label :deadline, style: 'display: block', class: 'text-zinc-800 font-semibold'
+      = form.label :deadline, style: 'display: block', class: 'text-zinc-800 font-semibold text-lg'
       p.mt-1.text-xs.text-zinc-500
         | 抽選は指定した日付の翌日01:00時に行われます
         br
@@ -21,11 +21,11 @@
       = form.date_field :deadline, class: 'mt-2 rounded border border-gray-200 w-80', required: true
 
     .mt-6
-      = form.label :description, style: 'display: block', class: 'text-zinc-800 font-semibold'
+      = form.label :description, style: 'display: block', class: 'text-zinc-800 font-semibold text-lg'
       = form.text_area :description, placeholder: description_template, class: 'mt-2 rounded border border-gray-200 h-32 w-full placeholder-gray-300 text-sm', required: true
 
     .mt-6
-      .font-semibold.text-zinc-800
+      .font-semibold.text-zinc-800.text-lg
         | 応募フォームオプション
       p.mt-1.text-xs.text-zinc-500
         | Eメール入力欄は必須入力項目として追加されます
@@ -44,9 +44,12 @@
       p.mt-1.text-xs.text-zinc-500
         | 備考入力欄が任意入力項目として追加されます
 
-    .prizes.mt-6
-      = form.fields_for :prizes do |prize|
-        = render 'prize_fields', f: prize
+    .mt-6.text-zinc-800
+      .font-semibold.text-lg
+        | 抽選会賞品
+      .prizes.mt-1
+        = form.fields_for :prizes do |prize|
+          = render 'prize_fields', f: prize
 
     button.w-36.h-10.rounded.py-2.px-2.mt-3.border.border-zinc-400.hover:border-zinc-600
       = link_to_add_association '＋賞品を追加', form, :prizes, data: { association_insertion_node: '.prizes', association_insertion_method: :append }
