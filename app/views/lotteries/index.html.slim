@@ -5,7 +5,7 @@
     h1.text-center.text-2xl.font-bold.text-slate-700
       | 抽選会一覧
     .mt-6
-      = button_to '抽選会作成', new_lottery_path, method: 'get', class: 'bg-blue-800 font-bold w-36 h-10 m-auto text-white rounded flex items-center justify-center hover:bg-blue-900'
+      = button_to '抽選会作成', new_lottery_path, method: 'get', class: 'bg-blue-900 font-bold w-36 h-10 m-auto text-white rounded flex items-center justify-center hover:bg-blue-800'
 
 - if @lotteries.blank?
   .mx-auto.mt-10
@@ -16,7 +16,7 @@
     p.mt-6.text-zinc-700
       | 早速企画している抽選会を作成してみましょう !
   .mt-6
-    = button_to '新規作成', new_lottery_path, method: 'get', class: 'bg-blue-800 font-bold w-36 h-10 m-auto text-white rounded flex items-center justify-center hover:bg-blue-900'
+    = button_to '新規作成', new_lottery_path, method: 'get', class: 'bg-blue-900 font-bold w-36 h-10 m-auto text-white rounded flex items-center justify-center hover:bg-blue-800'
 
 - @lotteries.each do |lottery|
   .m-auto.border.border-gray.rounded.mt-6.w-11/12.text-zinc-800.md:w-3/6

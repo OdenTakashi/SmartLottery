@@ -3,13 +3,13 @@
 .max-w.mt-11
   .max-w
     = image_tag 'logo_2.png', class: 'm-auto', alt: 'logo'
-  .text-center.mt-8.text-4xl.font-serif.text-indigo-950
+  .text-center.mt-8.text-4xl.font-serif.text-blue-900
     | SmartLottery
   .max-w.mt-11
-    h1.text-center.font-bold.text-zinc-600.text-4xl.mt-6.text-indigo-950
+    h1.text-center.font-bold.text-blue-900.text-4xl.mt-6
       | 抽選会をラクに開催
   .mt-11
-    = button_to '登録して抽選会を開催', '/users/sign_up', method: :get, class: 'p-4 bg-blue-800 font-bold h-10 m-auto text-white rounded flex items-center justify-center hover:bg-blue-900'
+    = button_to '登録して抽選会を開催', '/users/sign_up', method: :get, class: 'p-4 bg-blue-900 font-bold h-10 m-auto text-white rounded flex items-center justify-center hover:bg-blue-800'
     .text-center.m-auto.mt-2.text-gray.text-sm.mt-6
       = button_to '登録済みの方はこちらからログイン', '/users/sign_in', method: :get, class: 'text-blue-900 underline hover:no-underline'
   .mt-11.md:flex.md:justify-center
