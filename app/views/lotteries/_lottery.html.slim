@@ -18,8 +18,11 @@
     label.text-zinc-800
       = Lottery.human_attribute_name(:note_field_enabled)
 
+  .mt-6.text-zinc-800
+    .font-semibold.text-lg
+      | 抽選会賞品
   - lottery.prizes.each do |prize|
-    .border.border-gray.rounded.mt-5.p-3.text-zinc-800.text-sm.md:text-base
+    .border.border-gray.rounded.mt-3.p-6.text-zinc-800.text-sm.md:text-base
       div
         .font-bold.text-lg
           = prize.name
@@ -41,7 +44,7 @@
 
       - if lottery_executed?(lottery) && closed?(lottery)
         .mt-3
-          .font-bold.text-lg
+          .font-bold
             = "当選者一覧(#{prize.entries.size})"
           - prize.entries.each do |winner|
             .flex.mt-3
