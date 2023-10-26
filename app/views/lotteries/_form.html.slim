@@ -44,9 +44,11 @@
       p.mt-1.text-xs.text-zinc-500
         | 備考入力欄が任意入力項目として追加されます
 
-    .prizes.mt-6
-      = form.fields_for :prizes do |prize|
-        = render 'prize_fields', f: prize
+    h2.mt-6.font-bold.text-zinc-800
+      | 賞品登録一覧
+      .prizes.mt-1
+        = form.fields_for :prizes do |prize|
+          = render 'prize_fields', f: prize
 
     button.w-36.h-10.rounded.py-2.px-2.mt-3.border.border-zinc-400.hover:border-zinc-600
       = link_to_add_association '＋賞品を追加', form, :prizes, data: { association_insertion_node: '.prizes', association_insertion_method: :append }
