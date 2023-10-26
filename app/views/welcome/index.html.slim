@@ -12,14 +12,14 @@
     = button_to '登録して抽選会を開催', '/users/sign_up', method: :get, class: 'p-4 bg-blue-800 font-bold h-10 m-auto text-white rounded flex items-center justify-center hover:bg-blue-900'
     .text-center.m-auto.mt-2.text-gray.text-sm.mt-6
       = button_to '登録済みの方はこちらからログイン', '/users/sign_in', method: :get, class: 'text-blue-900 underline hover:no-underline'
-  .flex.justify-center.mt-11
+  .mt-11.md:flex.md:justify-center
     .mt-11
       h2.text-center.font-bold.text-xl.text-blue-900
         | こんな手間ありませんか?
       .mt-2.flex
         div
           = image_tag 'tired.png', class: 'mx-auto', alt: 'tired_image'
-        .mt-6
+        .mt-6.text-sm.md:text-base
           ul
             li.mt-2
               | 応募フォームを作成して、
@@ -28,14 +28,15 @@
             li.mt-2
               | 当選者にメールを送って、
     .flex.items-center.mx-8
-      = image_tag 'arrow.png', class: 'mx-auto', alt: 'arrow_image'
+      = image_tag 'arrow.png', class: 'hidden md:block mx-auto', alt: 'arrow_image'
+      = image_tag 'arrow_smartphone.png', class: 'mt-3 block md:hidden mx-auto', alt: 'arrow_image'
     .mt-11
       h2.text-center.font-bold.text-xl.text-blue-900
         | その手間を解決します!
       .mt-2.flex
         div
           = image_tag 'happy.png', class: 'mx-auto', alt: 'happy_image'
-        .mt-6
+        .mt-6.text-sm.md:text-base
           ul
             li.mt-2
               | 簡単に応募フォーム作成
