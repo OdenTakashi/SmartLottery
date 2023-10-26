@@ -10,5 +10,5 @@
           br.md:hidden
           | 応募フォーム
         .mt-6.break-all.text-zinc-800
-          = @lottery.description
+          = simple_format(h(@lottery.description))
         = render 'form', entry: @entry, lottery: @lottery
