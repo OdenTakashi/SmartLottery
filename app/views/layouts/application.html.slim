@@ -16,7 +16,7 @@ html
   body.flex.flex-col.min-h-screen
     - if user_signed_in? && not_entry_form?
       nav.nav-link.flex.justify-between.p-2
-        .flex.flex-shrink-0.align-middle.font-serif.text-indigo-950.text-2xl.md:mx-6
+        .flex.flex-shrink-0.align-middle.font-serif.text-blue-900.text-2xl.md:mx-6
           = link_to 'SmartLottery', root_path
         - if user_signed_in?
           .flex.flex-shrink-0.items-center.align-middle.text-zinc-500.ml-4.md:mx-6.text-xs.md:text-base
@@ -24,7 +24,7 @@ html
             .flex.flex-shrink-0.items-center.align-middle.ml-2.md:ml-6.hover:text-zinc-900
               = link_to '登録情報変更', edit_user_registration_path
     - if flash.notice.present?
-      .w-screen.bg-blue-800.text-white.p-2.text-center
+      .w-screen.bg-blue-900.text-white.p-2.text-center
         = notice
     main.container.mx-auto
       = yield
