@@ -84,7 +84,6 @@ gem 'cocoon'
 gem 'devise'
 gem 'devise-i18n'
 gem 'dockerfile-rails', '>= 1.5', group: :development
-gem 'jquery-rails'
 gem 'meta-tags'
 gem 'rails-i18n', '~> 7.0.0'
 gem 'sentry-rails', '~> 5.11'
