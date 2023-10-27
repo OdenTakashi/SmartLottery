@@ -15,7 +15,7 @@ RSpec.describe Lottery, type: :model do
     end
   end
 
-  describe 'execute' do
+  describe '.execute' do
     let!(:closed_lottery) { create(:lottery, :skip_validate, deadline: Time.zone.yesterday) }
     let!(:open_lottery) { create(:lottery, deadline: Time.zone.today) }
     let!(:closed_lottery_2days_ago) { create(:lottery, :skip_validate, deadline: Time.zone.today.ago(2.days)) }
