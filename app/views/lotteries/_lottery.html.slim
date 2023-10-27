@@ -10,12 +10,14 @@
   .font-bold.mt-6.text-zinc-800.text-lg
     | 応募フォームオプション
   .flex.items-center.mt-3
-    input type='checkbox' value='' class='mr-3 text-blue-699 border-gray-300 rounded' checked=lottery.name_field_enabled disabled='true'
-    label.text-zinc-800
+    p
+      = lottery.name_field_enabled? ? '○' : '✕'
+    label.text-zinc-800.ml-3
       = Lottery.human_attribute_name(:name_field_enabled)
   .flex.items-center.mt-1
-    input type='checkbox' class='mr-3 text-blue-699 border-gray-300 rounded' checked=lottery.note_field_enabled disabled='true'
-    label.text-zinc-800
+    p
+      = lottery.note_field_enabled? ? '○' : '✕'
+    label.text-zinc-800.ml-3
       = Lottery.human_attribute_name(:note_field_enabled)
 
   .mt-6.text-zinc-800

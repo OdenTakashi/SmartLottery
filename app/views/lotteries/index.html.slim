@@ -6,8 +6,7 @@
       | 抽選会一覧
     .mt-6
       = button_to '抽選会作成', new_lottery_path, method: 'get', class: 'bg-blue-900 font-bold w-40 h-10 m-auto text-white rounded flex items-center justify-center hover:bg-blue-800'
-
-- if @lotteries.blank?
+- else
   .mx-auto.mt-10
     = image_tag 'logo_2.png', class: 'm-auto', alt: 'logo'
   .mt-6.text-center
