@@ -1,4 +1,12 @@
 ja:
+  template:
+    lottery_description: |-
+      この抽選会はXXX株式会社の提供で行われます。
+      備考にはxxxを書いてください
+    winning_message: |-
+      当選おめでとうございます。
+      発送などについての情報を以下のメールアドレスまで送信ください。
+      owner@example.com
   time:
     formats:
       default: '%Y年%m月%d日(%a) %H:%M'
