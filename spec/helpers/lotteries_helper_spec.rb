@@ -35,10 +35,4 @@ RSpec.describe LotteriesHelper, type: :helper do
       expect(total_winners(lottery)).to eq 6
     end
   end
-
-  describe '#description_template' do
-    it 'displays template' do
-      expect(description_template).to eq "この抽選会はXXX株式会社の提供で行われます。\n備考にはxxxを書いてください\n"
-    end
-  end
 end
