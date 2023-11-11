@@ -24,22 +24,22 @@
     .font-semibold.text-lg
       | 抽選会賞品
   - lottery.prizes.each do |prize|
-    .border.border-gray.rounded.mt-3.p-6.text-zinc-800.text-sm.md:text-base
+    .border.border-gray.rounded.mt-3.p-6.text-zinc-800
       div
         .font-bold.text-lg
           = prize.name
         .mt-3
-          label.w-1/2.md:w-1/3
+          label.text-sm.w-1/2.md:w-1/3
             = "#{Prize.human_attribute_name(:winners_count)}(#{prize.winners_count})"
-        .flex.mt-3
-          label.w-1/2.md:w-1/3
-            = "#{Prize.human_attribute_name(:winning_email_subject)}:"
-          .w-1/2.md:w-2/3
+        .mt-3
+          label.w-1/2.text-sm.border-b.border-dashed.border-gray-500.md:w-1/3
+            = "#{Prize.human_attribute_name(:winning_email_subject)}"
+          .font-bold.mt-3.w-1/2.md:w-2/3
             = prize.winning_email_subject
-        .flex.mt-3
-          label.w-1/2.md:w-1/3
-            = "#{Prize.human_attribute_name(:winning_email_body)}:"
-          .break-all.w-1/2.md:w-2/3
+        .mt-3
+          label.text-sm.w-1/2.md:w-1/3
+            = "#{Prize.human_attribute_name(:winning_email_body)}"
+          .mt-3.break-all.w-1/2.md:w-2/3
             = simple_format(h(prize.winning_email_body))
 
       - if lottery_executed?(lottery) && closed?(lottery)
