@@ -43,22 +43,22 @@
             = simple_format(h(prize.winning_email_body))
 
       - if lottery_executed?(lottery) && closed?(lottery)
-        .mt-3
-          .font-bold
+        .mt-6
+          .font-semibold
             = "当選者一覧(#{prize.entries.size})"
           - prize.entries.each do |winner|
-            .flex.mt-3
-              label.w-1/2.md:w-1/3
-                = "#{Entry.human_attribute_name(:email)}:"
-              .break-all.w-1/2.md:w-2/3
+            .mt-3
+              label.text-xs
+                = Entry.human_attribute_name(:email)
+              .break-all
                 = winner.email
               - if lottery.name_field_enabled
-                label.w-1/2.md:w-1/3
-                  = "#{Entry.human_attribute_name(:email)}:"
-                .break-all.w-1/2.md:w-2/3
-                  = winner.email
+                label.text-xs
+                  = Entry.human_attribute_name(:name)
+                .break-all
+                  = winner.name
               - if lottery.name_field_enabled
-                label.w-1/2.md:w-1/3
-                  = "#{Entry.human_attribute_name(:note)}:"
-                .break-all.w-1/2.md:w-2/3
+                label.text-xs
+                  = Entry.human_attribute_name(:note)
+                .break-all
                   = winner.note
