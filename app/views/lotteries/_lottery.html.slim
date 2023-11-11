@@ -29,17 +29,17 @@
         .font-bold.text-lg
           = prize.name
         .mt-3
-          label.text-sm.w-1/2.md:w-1/3
+          label.text-sm
             = "#{Prize.human_attribute_name(:winners_count)}(#{prize.winners_count})"
         .mt-3
-          label.w-1/2.text-sm.border-b.border-dashed.border-gray-500.md:w-1/3
+          label.text-sm.border-b.border-dashed.border-gray-500
             = "#{Prize.human_attribute_name(:winning_email_subject)}"
-          .font-bold.mt-3.w-1/2.md:w-2/3
+          .font-bold.mt-3.
             = prize.winning_email_subject
         .mt-3
-          label.text-sm.w-1/2.md:w-1/3
+          label.text-sm
             = "#{Prize.human_attribute_name(:winning_email_body)}"
-          .mt-3.break-all.w-1/2.md:w-2/3
+          .mt-3.break-all
             = simple_format(h(prize.winning_email_body))
 
       - if lottery_executed?(lottery) && closed?(lottery)
