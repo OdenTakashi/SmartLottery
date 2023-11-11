@@ -28,11 +28,9 @@
       div
         .font-bold.text-lg
           = prize.name
-        .flex.mt-3
+        .mt-3
           label.w-1/2.md:w-1/3
-            = "#{Prize.human_attribute_name(:winners_count)}:"
-          .w-1/2.md:w-2/3
-            = prize.winners_count
+            = "#{Prize.human_attribute_name(:winners_count)}(#{prize.winners_count})"
         .flex.mt-3
           label.w-1/2.md:w-1/3
             = "#{Prize.human_attribute_name(:winning_email_subject)}:"
