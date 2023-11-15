@@ -34,12 +34,12 @@
         .mt-3
           label.text-sm.border-b.border-dashed.border-gray-500
             = Prize.human_attribute_name(:winning_email_subject)
-          .font-semibold.mt-1
+          .mt-1
             = prize.winning_email_subject
         .mt-3
           label.text-sm.border-b.border-dashed.border-gray-500
             = Prize.human_attribute_name(:winning_email_body)
-          .font-semibold.mt-1.break-all
+          .mt-1.break-all
             = simple_format(h(prize.winning_email_body))
 
       - if lottery_executed?(lottery) && closed?(lottery)
