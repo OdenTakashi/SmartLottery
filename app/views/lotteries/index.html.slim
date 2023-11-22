@@ -35,7 +35,7 @@
       hr.border-dashed.border-gray-400.my-2
       - lottery.prizes.each do |prize|
         .flex.text-zinc-500.text-xs.md:text-sm
-          ul.list-disc.pl-6
+          ul.list-disc.pl-5
             li
               = prize.name
           - if lottery_executed?(lottery)
