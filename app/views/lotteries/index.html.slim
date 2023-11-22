@@ -28,10 +28,8 @@
           - else
             .bg-red-800.rounded-full.text-xs.h-4
               | 開催中
-        .text-left.w-full
-          .text-zinc-500
-            .ml-2.mb-1.underline.underline-offset-4.font-semibold.text-zinc-600.hover:no-underline
-              = link_to lottery.name.to_s, lottery_path(lottery)
+        .ml-2.mb-1.underline.underline-offset-4.font-semibold.text-zinc-600.hover:no-underline
+          = link_to lottery.name.to_s, lottery_path(lottery)
       .text-xs.text-zinc-500.mt-1.flex.md:text-sm
         = "当選枠計#{total_winners(lottery)}人 / 締め切り日時: #{l(lottery.deadline.end_of_day)}"
       hr.border-dashed.border-gray-400.my-2
