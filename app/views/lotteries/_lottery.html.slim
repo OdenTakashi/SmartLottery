@@ -6,7 +6,7 @@
   .font-bold.mt-6.text-zinc-800.text-lg
     = Lottery.human_attribute_name(:description)
   .mt-3
-    = simple_format(h(lottery.description))
+    = simple_format(h(lottery.description), class: 'mb-3')
   .font-bold.mt-6.text-zinc-800.text-lg
     | 応募フォームオプション
   .flex.items-center.mt-3
@@ -42,7 +42,7 @@
             = Prize.human_attribute_name(:winning_email_body)
           .border-b.border-dashed.border-gray-500.pt-1
           .mt-2.break-all
-            = simple_format(h(prize.winning_email_body))
+            = simple_format(h(prize.winning_email_body), class: 'mb-3')
 
       - if lottery_executed?(lottery) && closed?(lottery)
         .mt-6
