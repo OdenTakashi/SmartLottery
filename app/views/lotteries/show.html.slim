@@ -24,6 +24,6 @@
       .flex.justify-center.items-end
         = link_to '編集する', edit_lottery_path(@lottery), method: 'get', class: 'ml-6 bg-blue-900 font-bold h-10 text-white rounded p-2 text-center hover:bg-blue-800 w-40'
         .mt-6.mx-2
-          = button_to '削除する', @lottery, method: :delete, class: 'underline text-sm hover:no-underline ml-3'
+          = button_to '削除する', @lottery, method: :delete, class: 'underline text-sm hover:no-underline ml-3 text-zinc-500'
     .my-6
       = link_to '一覧に戻る', root_path, class: 'underline hover:no-underline'

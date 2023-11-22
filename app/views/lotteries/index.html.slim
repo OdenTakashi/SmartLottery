@@ -19,27 +19,25 @@
 
 - @lotteries.each do |lottery|
   .m-auto.border.border-gray.rounded.mt-6.w-11/12.text-zinc-800.md:w-3/6
-    .flex.p-3
-      .w-14.mx-2.my-2.shrink-0.text-center.text-white
-        - if closed?(lottery)
-          .bg-gray-500.rounded-full.text-xs.h-4
-            | 終了
-        - else
-          .bg-red-800.rounded-full.text-xs.h-4
-            | 開催中
-      .text-left.w-full.p-1
-        .text-zinc-500
-          .mb-3.underline.underline-offset-4.font-semibold.text-zinc-600.hover:no-underline
-            = link_to lottery.name.to_s, lottery_path(lottery)
-          - lottery.prizes.each do |prize|
-            .flex.items-center
-              .mt-2.w-1/2.truncate.md:w-3/5
-                = prize.name
-              - if lottery_executed?(lottery)
-                .mt-2.ml-2.text-xs.md:text-sm
-                  = "当選者数: #{prize.entries.size}人"
-        .text-xs.text-zinc-400.mt-3.md:flex.md:text-sm
-          div
-            =  "締め切り日時: #{l(lottery.deadline.end_of_day)}"
-          .md:ml-2
-            = "当選枠: #{total_winners(lottery)}人"
+    .p-3
+      .flex.items-center
+        .w-14.my-2.shrink-0.text-center.text-white
+          - if closed?(lottery)
+            .bg-gray-500.rounded-full.text-xs.h-4
+              | 終了
+          - else
+            .bg-red-800.rounded-full.text-xs.h-4
+              | 開催中
+        .ml-2.mb-1.underline.underline-offset-4.font-semibold.text-zinc-600.hover:no-underline
+          = link_to lottery.name.to_s, lottery_path(lottery)
+      .text-xs.text-zinc-500.mt-1.flex.md:text-sm
+        = "当選枠計#{total_winners(lottery)}人 / 締め切り日時: #{l(lottery.deadline.end_of_day)}"
+      hr.border-dashed.border-gray-400.my-2
+      - lottery.prizes.each do |prize|
+        .flex.text-zinc-500.text-xs.md:text-sm
+          ul.list-disc.pl-5
+            li
+              = prize.name
+          - if lottery_executed?(lottery)
+            .ml-1
+              = "(当選者数#{prize.entries.size}人 / 当選枠#{prize.winners_count}人)"

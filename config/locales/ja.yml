@@ -22,7 +22,7 @@ ja:
         note_field_enabled: 備考を必要とする
         deadline: 締切日
         name: 抽選会名
-        description: 説明文
+        description: 応募者への説明文
       lottery/prizes:
         name: 賞品名
         winners_count: 当選者数
