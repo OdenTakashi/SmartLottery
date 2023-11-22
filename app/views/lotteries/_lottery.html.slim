@@ -34,13 +34,13 @@
         .mt-6
           label.text-sm
             = Prize.human_attribute_name(:winning_email_subject)
-          p.border-b.border-dashed.border-gray-500.pt-1
+          hr.border-dashed.border-gray-500.pt-1
           .mt-2
             = prize.winning_email_subject
         .mt-6
           label.text-sm
             = Prize.human_attribute_name(:winning_email_body)
-          .border-b.border-dashed.border-gray-500.pt-1
+          hr.border-dashed.border-gray-500.pt-1
           .mt-2.break-all
             = simple_format(h(prize.winning_email_body), class: 'mb-3')
 
