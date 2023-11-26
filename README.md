@@ -1,5 +1,5 @@
 # SmartLottery
-<img width="650" alt="スクリーンショット 2023-09-29 22 12 17" src="https://github.com/OdenTakashi/SmartLottery/assets/81839214/a129d6ed-1f05-4337-b998-2e2d4c07d942">
+<img width="650" alt="スクリーンショット 2023-09-29 22 12 17" src="https://github.com/OdenTakashi/SmartLottery/assets/81839214/37a0dc8a-dfbd-466e-843e-11401d84addb">
 
 ## 概要
 SmartLotteryは抽選で複数人にプレゼントを送る際に発生する問題を解決する抽選を開催する人向けの抽選アプリです。<br>
