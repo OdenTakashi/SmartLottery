@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Lottery, type: :system do
+RSpec.describe Lottery, js: true, type: :system do
   let(:user) { create(:user) }
   let(:other_user) { create(:user) }
   let!(:lottery) { create(:lottery, name: 'テストの抽選会', user:) }
@@ -145,5 +145,15 @@ RSpec.describe Lottery, type: :system do
 
     expect(page).to have_content('テストの抽選会')
     expect(page).to have_current_path "/lotteries/#{lottery.id}"
+  end
+
+  it 'can open entry form in separate tab' do
+    sign_in user
+    visit lottery_path(lottery)
+    click_link '応募フォームを確認する。'
+    switch_to_window(windows.last)
+
+    expect(page).to have_content 'テストの抽選会'
+    expect(page).to have_current_path "/lotteries/#{lottery.id}/entries/new"
   end
 end
