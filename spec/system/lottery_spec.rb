@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Lottery, type: :system do
+RSpec.describe Lottery, js: true, type: :system do
   let(:user) { create(:user) }
   let(:other_user) { create(:user) }
   let!(:lottery) { create(:lottery, name: 'テストの抽選会', user:) }
@@ -83,7 +83,7 @@ RSpec.describe Lottery, type: :system do
 
         fill_in 'lottery_name', with: 'テストの抽選会'
         fill_in 'lottery_description', with: 'テストの説明'
-        fill_in 'lottery_deadline', with: '002023-09-07'
+        fill_in 'lottery_deadline', with: Date.new(2023, 9, 7)
         check 'lottery_name_field_enabled'
         check 'lottery_note_field_enabled'
         fill_in 'lottery_prizes_attributes_0_name', with: '抽選会の賞品名'
@@ -105,7 +105,7 @@ RSpec.describe Lottery, type: :system do
         expect(page).to have_content('2023年09月02日(土) 23:59')
 
         click_on '編集する'
-        fill_in 'lottery_deadline', with: '002023-09-13'
+        fill_in 'lottery_deadline', with: Date.new(2023, 9, 13)
         click_button '更新する'
 
         expect(page).to have_content('抽選会を更新しました。')
@@ -122,7 +122,7 @@ RSpec.describe Lottery, type: :system do
 
         fill_in 'lottery_name', with: 'テストの抽選会'
         fill_in 'lottery_description', with: 'テストの説明'
-        fill_in 'lottery_deadline', with: '002023-08-01'
+        fill_in 'lottery_deadline', with: Date.new(2023, 8, 1)
         check 'lottery_name_field_enabled'
         check 'lottery_note_field_enabled'
         fill_in 'lottery_prizes_attributes_0_name', with: '抽選会の賞品名'
@@ -145,5 +145,15 @@ RSpec.describe Lottery, type: :system do
 
     expect(page).to have_content('テストの抽選会')
     expect(page).to have_current_path "/lotteries/#{lottery.id}"
+  end
+
+  it 'can open entry form in separate tab' do
+    sign_in user
+    visit lottery_path(lottery)
+    click_link '応募フォームを確認する。'
+    switch_to_window(windows.last)
+
+    expect(page).to have_content 'テストの抽選会'
+    expect(page).to have_current_path "/lotteries/#{lottery.id}/entries/new"
   end
 end

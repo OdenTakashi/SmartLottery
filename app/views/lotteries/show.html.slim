@@ -11,6 +11,8 @@
           | 応募フォームのURLをコピー
         p.mt-2.text-xs.text-zinc-600.md:text-sm
           | 応募希望者にフォームのURLを共有して応募してもらいましょう。
+  .mt-6.text-center.text-sm.text-blue-900.font-semibold
+    = link_to '応募フォームを確認する。', new_lottery_entry_url(@lottery), class: 'underline underline-offset-2 hover:no-underline', target: :_blank, rel: 'noopener'
   == render @lottery
 
   .mx-2.mt-6

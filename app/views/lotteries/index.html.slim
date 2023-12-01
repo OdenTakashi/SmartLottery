@@ -23,10 +23,10 @@
       .flex.items-center
         .w-14.my-2.shrink-0.text-center.text-white
           - if closed?(lottery)
-            .bg-gray-500.rounded-full.text-xs.h-4
+            div class='h-[1.125rem] bg-gray-500 rounded-full text-xs flex items-center justify-center'
               | 終了
           - else
-            .bg-red-800.rounded-full.text-xs.h-4
+            div class='h-[1.125rem] bg-red-800 rounded-full text-xs flex items-center justify-center'
               | 開催中
         .ml-2.mb-1.underline.underline-offset-4.font-semibold.text-zinc-600.hover:no-underline
           = link_to lottery.name.to_s, lottery_path(lottery)
