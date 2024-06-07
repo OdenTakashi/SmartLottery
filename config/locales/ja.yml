@@ -16,7 +16,7 @@ ja:
       prizes: 賞品
       entries: エントリー
     attributes:
-      lottery: 
+      lottery:
         prizes: 賞品
         name_field_enabled: 名前を必要とする
         note_field_enabled: 備考を必要とする
