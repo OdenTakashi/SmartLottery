@@ -51,8 +51,8 @@
         = form.fields_for :prizes do |prize|
           = render 'prize_fields', f: prize
 
-    button.w-36.h-10.rounded.py-2.px-2.mt-3.border.border-zinc-400.hover:border-zinc-600
-      = link_to_add_association '＋賞品を追加', form, :prizes, data: { association_insertion_node: '.prizes', association_insertion_method: :append }
+    .mt-6
+      = link_to_add_association '＋賞品を追加', form, :prizes, data: { association_insertion_node: '.prizes', association_insertion_method: :append }, class: 'w-36 h-10 rounded py-2 px-2 mt-3 border border-zinc-400 hover:border-zinc-600'
 
     ul.flex.justify-center.list-none.my-6
       li
