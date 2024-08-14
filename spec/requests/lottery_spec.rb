@@ -29,4 +29,18 @@ RSpec.describe Lottery, type: :request do
       expect(response).to have_http_status(:ok)
     end
   end
+
+  describe 'GET /lotteries/:id' do
+    subject(:request_show) { get lottery_path(lottery) }
+
+    let(:user) { create(:user) }
+    let(:lottery) { create(:lottery) }
+
+    it 'return 200 status' do
+      sign_in user
+      request_show
+
+      expect(response).to have_http_status(:ok)
+    end
+  end
 end
