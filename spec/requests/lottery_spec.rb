@@ -15,4 +15,18 @@ RSpec.describe Lottery, type: :request do
       expect(response).to have_http_status(:ok)
     end
   end
+
+  describe 'GET /lotteries/:id/edit' do
+    subject(:request_edit) { get edit_lottery_path(lottery) }
+
+    let(:user) { create(:user) }
+    let(:lottery) { create(:lottery) }
+
+    it 'return 200 status' do
+      sign_in user
+      request_edit
+
+      expect(response).to have_http_status(:ok)
+    end
+  end
 end
