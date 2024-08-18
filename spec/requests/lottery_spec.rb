@@ -57,19 +57,35 @@ RSpec.describe Lottery, type: :request do
     end
   end
 
-  # describe 'POST /lotteries' do
-  #   subject(:request_show) { get lottery_path(lottery) }
+  describe 'POST /lotteries' do
+    subject(:request_create) { post lotteries_path(params) }
 
-  #   let(:user) { create(:user) }
-  #   let(:lottery) { create(:lottery) }
+    let(:user) { create(:user) }
+    let(:params) do
+      { lottery: {
+        user_id: user.id,
+        name: 'テストの抽選会',
+        description: 'テストの説明',
+        deadline: '2024-08-19',
+        name_field_enabled: true,
+        note_field_enabled: true,
+        prizes_attributes: [
+          { name: '商品名',
+            winners_count: 2,
+            winning_email_subject: 'テストの件名',
+            winning_email_body: 'テストの本文',
+            _destroy: false }
+        ]
+      } }
+    end
 
-  #   it 'return 200 status' do
-  #     sign_in user
-  #     request_show
+    it 'success creating lottery' do
+      sign_in user
 
-  #     expect(response).to have_http_status(:ok)
-  #   end
-  # end
+      expect { request_create }.to change(described_class, :count).by(1)
+      expect(response).to have_http_status(:found)
+    end
+  end
 
   # describe 'PATCH /lotteries/:id' do
   #   subject(:request_show) { get lottery_path(lottery) }
