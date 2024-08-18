@@ -115,17 +115,17 @@ RSpec.describe Lottery, type: :request do
     end
   end
 
-  # describe 'DELETE /lotteries/:id' do
-  #   subject(:request_show) { get lottery_path(lottery) }
+  describe 'DELETE /lotteries/:id' do
+    subject(:request_delete) { delete lottery_path(lottery) }
 
-  #   let(:user) { create(:user) }
-  #   let(:lottery) { create(:lottery) }
+    let(:user) { create(:user) }
+    let!(:lottery) { create(:lottery) }
 
-  #   it 'return 200 status' do
-  #     sign_in user
-  #     request_show
+    it 'delete lottery successful' do
+      sign_in user
 
-  #     expect(response).to have_http_status(:ok)
-  #   end
-  # end
+      expect { request_delete }.to change(described_class, :count).by(-1)
+      expect(response).to have_http_status(:found)
+    end
+  end
 end
