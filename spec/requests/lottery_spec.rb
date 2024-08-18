@@ -79,7 +79,7 @@ RSpec.describe Lottery, type: :request do
       } }
     end
 
-    it 'success creating lottery' do
+    it 'create lottery successful' do
       sign_in user
 
       expect { request_create }.to change(described_class, :count).by(1)
@@ -87,19 +87,33 @@ RSpec.describe Lottery, type: :request do
     end
   end
 
-  # describe 'PATCH /lotteries/:id' do
-  #   subject(:request_show) { get lottery_path(lottery) }
+  describe 'PATCH /lotteries/:id' do
+    subject(:request_update) { patch lottery_path(lottery), params: }
 
-  #   let(:user) { create(:user) }
-  #   let(:lottery) { create(:lottery) }
+    let(:user) { create(:user) }
+    let(:lottery) { create(:lottery) }
+    let(:params) do
+      {
+        lottery: {
+          name: '更新された抽選会',
+          description: lottery.description,
+          deadline: lottery.deadline,
+          name_field_enabled: lottery.name_field_enabled,
+          note_field_enabled: lottery.note_field_enabled,
+          prizes_attributes: lottery.prizes.map { |prize| prize.attributes.except('id', 'created_at', 'updated_at') }
+        }
+      }
+    end
 
-  #   it 'return 200 status' do
-  #     sign_in user
-  #     request_show
-
-  #     expect(response).to have_http_status(:ok)
-  #   end
-  # end
+    it 'update lottery successful' do
+      sign_in user
+      expect do
+        request_update
+        lottery.reload
+      end.to change(lottery, :name).from('チケットの抽選会').to('更新された抽選会')
+      expect(response).to have_http_status(:found)
+    end
+  end
 
   # describe 'DELETE /lotteries/:id' do
   #   subject(:request_show) { get lottery_path(lottery) }
