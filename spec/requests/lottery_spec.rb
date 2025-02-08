@@ -61,7 +61,7 @@ RSpec.describe Lottery, type: :request do
         user_id: user.id,
         name: 'テストの抽選会',
         description: 'テストの説明',
-        deadline: '2024-08-19',
+        deadline: Date.tomorrow.to_s,
         name_field_enabled: true,
         note_field_enabled: true,
         prizes_attributes: [
