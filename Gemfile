@@ -5,22 +5,22 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.2'
 
-gem 'rails', '~> 7.0.6'
+gem 'rails', '7.0.6'
+gem 'concurrent-ruby', '1.3.4'
 
 gem 'bootsnap', require: false
 gem 'cocoon'
 gem 'devise'
 gem 'devise-i18n'
-gem 'dockerfile-rails', '>= 1.5', group: :development
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'meta-tags'
-gem 'pg', '~> 1.1'
-gem 'puma', '~> 5.0'
-gem 'rails-i18n', '~> 7.0.0'
-gem 'redis', '~> 4.0'
-gem 'sentry-rails', '~> 5.11'
-gem 'sentry-ruby', '~> 5.11'
+gem 'pg'
+gem 'puma'
+gem 'rails-i18n'
+gem 'redis'
+gem 'sentry-rails'
+gem 'sentry-ruby'
 gem 'slim-rails'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
@@ -38,7 +38,8 @@ group :development, :test do
 end
 
 group :development do
-  gem 'letter_opener_web', '~> 2.0'
+  gem 'dockerfile-rails'
+  gem 'letter_opener_web'
   gem 'rubocop-factory_bot', require: false
   gem 'rubocop-fjord', require: false
   gem 'rubocop-rails', require: false
