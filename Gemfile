@@ -40,6 +40,7 @@ end
 group :development do
   gem 'dockerfile-rails'
   gem 'letter_opener_web'
+  gem 'rubocop-capybara'
   gem 'rubocop-factory_bot', require: false
   gem 'rubocop-fjord', require: false
   gem 'rubocop-rails', require: false
