@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Entry, type: :system, js: true do
+RSpec.describe Entry, :js, type: :system do
   let(:closed_lottery) { create(:lottery, :skip_validate, deadline: Time.zone.yesterday) }
   let(:opend_lottery) { create(:lottery, deadline: Time.zone.tomorrow) }
   let(:lotetery_have_note_form_only) { create(:lottery, name_field_enabled: false, deadline: Time.zone.tomorrow) }
@@ -35,7 +35,7 @@ RSpec.describe Entry, type: :system, js: true do
   end
 
   context 'when lottery have note form only' do
-    it 'have no name form ' do
+    it 'have no name form' do
       visit new_lottery_entry_path(lotetery_have_note_form_only)
 
       expect(page).to have_selector '#entry_note'
@@ -44,7 +44,7 @@ RSpec.describe Entry, type: :system, js: true do
   end
 
   context 'when lottery have name form only' do
-    it 'have no name form ' do
+    it 'have no name form' do
       visit new_lottery_entry_path(lotetery_have_name_form_only)
 
       expect(page).to have_selector '#entry_name'
@@ -53,7 +53,7 @@ RSpec.describe Entry, type: :system, js: true do
   end
 
   context 'when lottery have email form only' do
-    it 'have no name form ' do
+    it 'have no name form' do
       visit new_lottery_entry_path(lotetery_have_email_form_only)
 
       expect(page).to have_selector '#entry_email'

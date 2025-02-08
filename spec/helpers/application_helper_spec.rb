@@ -9,7 +9,7 @@ RSpec.describe ApplicationHelper, type: :helper do
     end
 
     it 'return false' do
-      expect(not_entry_form?).to eq false
+      expect(not_entry_form?).to be false
     end
   end
 end

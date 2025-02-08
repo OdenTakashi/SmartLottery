@@ -1,4 +1,4 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
+// const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
   content: [
@@ -13,7 +13,7 @@ module.exports = {
         '4.5': '1.125rem'
       },
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+//         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
     },
   },
