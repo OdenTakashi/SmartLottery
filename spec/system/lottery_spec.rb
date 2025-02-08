@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Lottery, js: true, type: :system do
+RSpec.describe Lottery, :js, type: :system do
   let(:user) { create(:user) }
   let(:other_user) { create(:user) }
   let!(:lottery) { create(:lottery, name: 'テストの抽選会', user:) }

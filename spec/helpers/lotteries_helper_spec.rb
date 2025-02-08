@@ -12,21 +12,21 @@ RSpec.describe LotteriesHelper, type: :helper do
     end
 
     it 'returns true for lottery closed yesterday' do
-      expect(lottery_executed?(lottery_closing_yesterday)).to eq true
+      expect(lottery_executed?(lottery_closing_yesterday)).to be true
     end
 
     it 'returns false for lottery closing tomorrow' do
-      expect(lottery_executed?(lottery)).to eq false
+      expect(lottery_executed?(lottery)).to be false
     end
   end
 
   describe '#closed?' do
     it 'returns true for lottery closed yesterday' do
-      expect(closed?(lottery_closing_yesterday)).to eq true
+      expect(closed?(lottery_closing_yesterday)).to be true
     end
 
     it 'returns false for lottery closing tomorrow' do
-      expect(closed?(lottery)).to eq false
+      expect(closed?(lottery)).to be false
     end
   end
 
