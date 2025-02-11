@@ -21,7 +21,12 @@ Bundler.require(*Rails.groups)
 module SmartLottery
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.0
+    config.load_defaults 8.0
+
+    # Please, add to the `ignore` list any other `lib` subdirectories that do
+    # not contain `.rb` files, or that should not be reloaded or eager loaded.
+    # Common ones are `templates`, `generators`, or `middleware`, for example.
+    config.autoload_lib(ignore: %w[assets tasks])
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -33,9 +38,9 @@ module SmartLottery
 
     # Don't generate system test files.
     config.generators.system_tests = nil
-
     config.i18n.default_locale = :ja
     config.time_zone = 'Tokyo'
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+    Rails.application.config.active_support.to_time_preserves_timezone = :zone
   end
 end
