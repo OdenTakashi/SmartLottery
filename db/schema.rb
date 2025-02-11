@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_18_055731) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_11_124059) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_catalog.plpgsql"
   enable_extension "pgcrypto"
-  enable_extension "plpgsql"
 
   create_table "entries", force: :cascade do |t|
     t.uuid "lottery_id", null: false
