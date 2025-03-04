@@ -8,20 +8,20 @@ SmartLotteryは抽選で複数人にプレゼントを送る際に発生する�
 指定した時間に自動で抽選が行われ当選者にはあらかじめ設定したメールが送られることが特徴です。
 
 ## 技術スタック
-- Ruby 3.2.2
-- Ruby on Rails 7.0.6
-- Devise 4.9.2
-- Hotwire
-  - turbo-rails 1.4.0
-  - stimulus-rails 1.2.1
-- Tailwind CSS
-- Slim 5.1.1
-- PostgreSQL
-- Rspec 6.0.3
-- Rubocop 1.55.1
-- Slim-Lint 0.24.0
-- GitHub Actions
+- Devise 4.9.4
 - Fly.io
+- GitHub Actions
+- Hotwire
+- stimulus-rails 1.3.4
+- turbo-rails 2.0.13
+- PostgreSQL
+- Ruby 3.2.7
+- Ruby on Rails 8.0.1
+- Rubocop 1.73.1
+- Rspec 7.1.1
+- Slim 5.2.1
+- Slim-Lint 0.31.1
+- Tailwind CSS
 
 ## URL
 ```
@@ -59,7 +59,7 @@ password: 'testtest'
 
 ## 環境変数の設定
 
-| 環境変数名            | 説明                                      |
-| --------------------- | ----------------------------------------- |
-| SEND_MAIL     | GMAILのアドレス                               |
-| GMAIL_SPECIFIC_PASSWORD     | GMAILのアプリパスワード                       |
+| 環境変数名              | 説明                    |
+| ----------------------- | ----------------------- |
+| SEND_MAIL               | GMAILのアドレス         |
+| GMAIL_SPECIFIC_PASSWORD | GMAILのアプリパスワード |
