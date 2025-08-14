@@ -5,7 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.7'
 
-gem 'rails', '8.0.2'
+gem 'rails', '8.0.2.1'
 
 gem 'bootsnap', require: false
 gem 'cocoon'
