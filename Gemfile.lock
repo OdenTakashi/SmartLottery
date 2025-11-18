@@ -173,7 +173,7 @@ GEM
     meta-tags (2.22.2)
       actionpack (>= 6.0.0, < 8.2)
     mini_mime (1.1.5)
-    minitest (5.26.0)
+    minitest (5.26.2)
     msgpack (1.8.0)
     net-imap (0.5.12)
       date
@@ -312,7 +312,7 @@ GEM
       lint_roller (~> 1.1)
       rubocop (>= 1.75.0, < 2.0)
       rubocop-ast (>= 1.38.0, < 2.0)
-    rubocop-rails (2.33.4)
+    rubocop-rails (2.34.0)
       activesupport (>= 4.2.0)
       lint_roller (~> 1.1)
       rack (>= 1.1)
